@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porto Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0e12d19017.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+    <div id="header">
+        <div class="container">
+            <nav>
+                <a href="index.html"><img src="images/logo.png" class="logo"></a>
+                
+                <ul id="sidemenu">
+                    <li><a href="#header">Home</a></li>
+                    <li>
+                        <a>About <i class="fas fa-caret-down"></i></a>
+                        <ul>
+                            <li><a href="Data_Field.html">Data Field</a></li>
+                            <li><a href="Creative_Field.html">Creative Field</a></li>
+                            <li><a href="Business_Field.html">Business Field</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#target-contact">Contact</a></li>
+                    <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+                </ul>
+                <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+            </nav>
+        </div>
+    </div>
+</body>
+</html>

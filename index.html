@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Porto Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Schoolbell&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/0e12d19017.js" crossorigin="anonymous"></script>
+    <script src="app.js"></script>
+</head>
+<body>
+<div id="header">
+    <div class="container">
+        <nav>
+            <img src="images/logo.png" class="logo">
+            <ul id="sidemenu">
+                <li><a href="#header">Home</a></li>
+                <li>
+                    <a>About <i class="fas fa-caret-down"></i></a>
+                    <ul>
+                        <li><a href="Data_Field.html">Data Field</a></li>
+                        <li><a href="Creative_Field.html">Creative Field</a></li>
+                        <li><a href="Business_Field.html">Business Field</a></li>
+                    </ul>
+                </li>
+                <li><a href="#target-contact">Contact</a></li>
+                <i class="fa-solid fa-circle-xmark" onclick="closemenu()"></i>
+            </ul>
+            <i class="fa-solid fa-bars" onclick="openmenu()"></i>
+        </nav>
+    </div>
+
+    <div class="container">
+        <div class="sub-title-nama">
+            <p class="sub-sub-title">
+                Hello! I'm
+            </p>
+            <h1 class="title-name">
+                Aditya Gofi Saputra
+            </h1>
+        </div>
+        <h1 class="static-typed"> <span class="auto-type"></span></h1>
+    </div>
+
+    <div class="judul">
+        <div class="row">
+            <div class="about-col-1">
+                <div class="img-container">
+                    <img src="images/Profile.jpg" alt="Image">
+                </div>
+            </div> 
+            <div class="about-col-2">
+                <h1 class="sub-des">
+                    An active and dedicated student majoring Mathematics in my sixth semester at Brawijaya University.</h1>
+                <p class="des">
+                    Passionate and proficient in the world of data, and have experience working with data manipulation, visualization, analysis and modeling. Alongside my passion for mathematics, data analytics, and data science, I possess expertise in graphic design, video editing and motion design.
+                </p>
+                <p class="des">
+                    I am constantly seeking opportunities to enhance my skills in these areas. I have experience working with industry-standard.
+                </p>
+            </div>
+        </div>
+    </div>
+    <section class="parallex">
+        <img src="images/Parallex 0.png" id="parallex0">
+        <img src="images/Parallex 1.png" id="parallex1">
+        <img src="images/Parallex 2.png" id="parallex2">
+        <img src="images/Parallex 3.png" id="parallex3">
+        <img src="images/Parallex 4.png" id="parallex4">
+    </section>
+    <script src="app.js"></script>
+</div>
+<div id="contact">
+    <div class="container">
+        <h1 class="sub-title">
+            Where do you want to see me more?
+        </h1>
+        <div class="about-list">
+            <div class = "about" onclick="redirectToDataField()">
+                <div class="layer">
+                    <i class="fa-solid fa-database"></i>
+                    <h2>Data Field</h2>
+                </div>
+                <img src="images/Data.jpg" style="filter: brightness(50%);">
+                <div class="layer-des">
+                    <p>
+                    Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+            <div class = "about" onclick="redirectToCreativeField()">
+                <img src="images/Creative.jpg" style="filter: brightness(50%);">
+                <div class="layer">
+                    <i class="fa-solid fa-palette"></i>
+                    <h2>Creative Field</h2>
+                </div>
+                <div class="layer-des">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+            <div class = "about" onclick="redirectToBusinessField()">
+                <img src="images/Business.jpg" style="filter: brightness(50%);">
+                <div class="layer">
+                    <i class="fa-solid fa-business-time"></i>
+                    <h2>Business Field</h2>
+                </div>
+                <div class="layer-des">
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua</p>
+                </div>
+            </div>
+        </div>
+        <h1 class="sub-title">
+            Interested to hire me?
+        </h1>
+        <div id="target-contact" class="row-contact">
+            <div class="contact-left">
+                <h1 class="sub-title">Contact Me!</h1>
+                <a class= "email-me" href="mailto:gofisaputra4@gmail.com">
+                    <p> <i class="fa-solid fa-paper-plane"></i> gofisaputra4@gmail.com</p>
+                </a>
+                <div class="social-icon">
+                    <a href="https://www.linkedin.com/in/adityagofi123/" target="_blank">
+                        <i class="fa-brands fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/adityagofi" target="_blank">
+                        <i class="fa-brands fa-github"></i>
+                    </a>
+                    <a href="https://www.behance.net/adityagofi" target="_blank">                            <i class="fa-brands fa-square-behance"></i>
+                        </a>
+                    <a href="https://fastwork.id/user/adityagofi/" target="_blank">
+                        <i class="fa-solid fa-pen-nib"></i>
+                    </a>
+                    <a href="https://www.instagram.com/adityagofi_/" target="_blank">
+                        <i class="fa-brands fa-instagram"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" required rows="10" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn">Submit</button>
+                </form>
+                <span id="msg">
+                </span>
+            </div>
+        </div>
+    </div>
+    <div class="copyright">
+        <p>All rights reserved © Aditya Gofi 2023. </p>
+    </div>
+</div>
+    
+   
+
+
+
+
+
+<script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
+<script>
+    var typed = new Typed(".auto-type", {
+        strings: ["Data Scientist", "Data Analyst", "AI Engineer", "Video Editor", "Motion Designer", "Graphic Designer","Businessman"],
+        typeSpeed: 50,
+        backSpeed: 40,
+        loop: true
+    })
+</script>
+<script>
+    var sidemenu = document.getElementById("sidemenu")
+    function openmenu(){
+        sidemenu.style.right = "0"
+    }
+    function closemenu(){
+        sidemenu.style.right = "-200px"
+    }
+</script>
+<script>
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzKyIwz0Gc8slG5VEF9QyF_lES_xpYb_u2OEL4yVD754pkIjIu1OwWTgOC6hMyOABAGjA/exec'
+    const form = document.forms['submit-to-google-sheet']
+    const msg = document.getElementById("msg")
+  
+    form.addEventListener('submit', e => {
+      e.preventDefault()
+      fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+        .then(response => {
+            msg.innerHTML = "Message sent successfully"
+            setTimeout(function(){
+                msg.innerHTML = ""
+            },5000)
+            form.reset()
+        })
+        .catch(error => console.error('Error!', error.message))
+    })
+</script>
+</body>
+</html>
