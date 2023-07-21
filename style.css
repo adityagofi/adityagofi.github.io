@@ -426,7 +426,7 @@ form input, form textarea{
     transition: all 0.1s;
 }
 .btn:hover{
-    background: #000000;
+    background: #ffb81c;
     /* color: #fff; */
 }
 .copyright{
