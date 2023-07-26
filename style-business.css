@@ -7,14 +7,14 @@ html{
     scroll-behavior: smooth;
 }
 body{
-    background: #000000;
-    color: #fff;
+    background: #ffffff;
+    color: #000000;
 }
 
 #header{
     width: 100%;
     height: 100vh;
-    background-image: radial-gradient(at top left, #ffffff, #b7ddfa);
+    background-image: url(images/BG-Businees.jpg);
     background-size: cover;
     background-position: center;
     align-items: center;
@@ -52,7 +52,7 @@ nav ul li{
 /* text style */
 nav ul li a{
     cursor: pointer;
-    color: #081b2b;
+    color: #ffffff;
     text-decoration: none;
     font-size: 16px;
     font-weight: 500;
@@ -65,7 +65,7 @@ nav ul li a::after{
     content: '';
     width: 0;
     height: 3px;
-    background: #ffb81c;
+    background: #c06014;
     position: absolute;
     left: 0;
     bottom: -6px;
@@ -112,17 +112,8 @@ nav ul li:hover ul {
 }
 
 /* ....................product..................... */
-/* all */
-.judul{
-
-    margin-bottom: 30px;
-    padding: 20px 10% 20px 10%;
-}
-/* judul nama */
 .sub-title-nama{
-    padding-top: 20px;
-    font-size: 20px;
-    font-weight: 400;
+    padding-top: 10px;
     text-align: center;
 }
 .sub-title{
@@ -132,29 +123,29 @@ nav ul li:hover ul {
     text-align: center;
 }
 /* hello */
-.sub-sub-title{
-    /* font-style: italic; */
-    font-size: 15px;
-    color: #081b2b;
+
+.welcome{
+    font-size: 20px;
+    color: #e5cda1;
 }
 /* namaku */
 .title-name{
-    color: #081b2b;
-    font-size: 50px;
+    color: #c06014;
+    font-size: 60px;
     font-weight: 800;
-    letter-spacing: 1px;
+    letter-spacing: 2px;
+}
+.title-des{
+    color: #ffffff;
+    font-size: 30px;
+    font-weight: 600;
 }
 .static-typed{
     font-weight: 400;
     text-align: center;
 }
 /* text ganti ketik */
-span{
-    color: #ffb81c;
-    font-weight: 700;
-    text-decoration: underline;
-    font-size: 25px;
-}
+
 .row{
     padding: 0px 170px;
     display: flex;
@@ -167,6 +158,7 @@ span{
     /* justify-content: space-between; */
     /* flex-wrap: wrap; */
 }
+
 .product-col-1 {
     flex-basis: 30%;
     padding: 0% 3%;
@@ -217,19 +209,14 @@ span{
     height: 100vh;
 }
 /* ....................CONTACT..................... */
-#contact{
-    width: 100%;
-    background-color: #081b2b;
-    background-size: cover;
-    background-position: center;
-    align-items: center;
-}
+
 .product-list{
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     grid-gap: 40px;
     margin-top: 50px;
     cursor: pointer;
+    padding-bottom: 20px;
 }
 .product{
     border-radius: 10px;
@@ -243,38 +230,6 @@ span{
     display: block;
     transition: all 0.5s;
 }
-.layer {
-    width: 100%;
-    height: 100%;
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    z-index: 2;
-}
-.layer-des{
-    width: 100%;
-    height: 0%;
-    background: linear-gradient(rgba(0,0,0,0), #ffb81c);
-    border-radius: 10px;
-    position: absolute;
-    left: 0;
-    bottom: 0;
-    overflow: hidden;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    text-align: center;
-    z-index: 1;
-    transition: all 0.5s;
-}
 .product i{
     position: relative;
     font-size: 50px;
@@ -283,10 +238,7 @@ span{
     margin-top: 0px;
     transition: margin-top 0.5s;
 }
-.product h2{
-    font-size: 32px;
-    font-weight: 800;
-}
+
 .product p{
     margin-top: 130px;
     padding: 0% 10%;
@@ -294,114 +246,63 @@ span{
 .product:hover img{
     transform: scale(1.1);
 }
-.product:hover .layer-des{
-    height: 100%;
-}
-.product:hover i{
-    margin-top: -120px;
-}
 
-.contact-left{
-    flex-basis: 35%;
+.sosmed{
+    display: flex;
+    padding-top: 20px;
+    align-items: center;
+    justify-content: center;
 }
-.contact-left h1{
-    text-align: left;
-    font-weight: 600;
-    font-size: 40px;
-}
-.contact-left a{
-    text-decoration: none;
-    font-size: 20px;
-    color: #ffb81c;
-}
-.contact-left p{
-    margin-top: 30px;
-    color: #ffff;
-    text-decoration: none;
-    transition: all 0.5s;
-}
-
-.contact-left p i{
-    text-decoration: none;
-    color: #ffb81c;
-    margin-right: 5px;
-    font-size: 20px;
-}
-.email-me{
-    display: inline-block;
-    position: relative;
-}
-.email-me::after{
-    content: "";
-    width: 0;
-    height: 2px;
-    background: #ffb81c;
-    position: absolute;
-    left: 30px;
-    bottom: -6px;
-    transition: all 0.5s;
-}
-.email-me:hover::after{
-    width: 90%;
-}
-
-.social-icon{
-    margin-top: 40px;
-}
-.social-icon a{
-    color: #fff;
-    font-size: 35px;
-    margin-right: 20px;
-    display: inline-block;
-    transition: all 0.5s;
-}
-.social-icon a:hover{
-    transform: translateY(-10px);
-    color: #ffb81c;
-}
-
-.contact-right{
-    margin-top: 50px;
-    flex-basis: 60%;
-}
-.contact-right form{
-    width: 100%;
-}
-form input, form textarea{
-    width: 100%;
-    border: 0px;
-    background: #f5faff;
-    padding: 15px;
-    margin: 15px 0;
-    color: #081b2b;
-    font-size: 18px;
-    border-radius: 5px;
-}
-.btn{
-    display: inline-block;
-    background: #ffff;
-    margin: 30px auto;
-    width: fit-content;
-    padding: 8px 20px;
-    border-radius: 6px;
-    text-decoration: none;
-    color: #081b2b;
+.sosmed svg{
+    padding: 0 10px;
     cursor: pointer;
-    font-size: 20px;
-    font-weight: 500;
-    transition: all 0.1s;
+    max-width: 100%;
 }
-.btn:hover{
-    background: #ffb81c;
-    /* color: #fff; */
+.instagram {
+    scale: 1;
+    transition: all 0.3s;
+    fill: #fff;
+}
+.instagram:hover{
+    scale: 1.1;
+    fill: #c06014;
+}
+.shopee {
+    scale: 1;
+    transition: all 0.3s;
 }
 .copyright{
     width: 100%;
     text-align: center;
-    padding: 25px 0;
-    background: #203143;
-    font-weight: 300;
+    justify-content: center;
+    padding: 0px 0;
+    background: #e5cda1;
+    font-weight: 500;
     margin-top: 20px;
+    color: #344734;
+}
+.copyright p{
+    padding: 13px;
+}
+.btn-shop{
+    margin-top: -6px;
+    display: inline-block;
+    background: #ffff;
+    /* margin: 10px auto; */
+    width: fit-content;
+    padding: 8px 20px;
+    border-radius: 6px;
+    text-decoration: none;
+    color: #344734;
+    cursor: pointer;
+    font-size: 20px;
+    font-weight: 700;
+    transition: all 0.2s;
+}
+.btn-shop:hover{
+    background: #c06014;
+    color: #fff;
+    scale: 1.1;
 }
 #msg{
     text-decoration: none;
@@ -425,7 +326,7 @@ nav .fa-solid{
         width: 200px;
     }
     #header{
-        height: 100vh;
+        height: auto;
     }
     #header-field{
         height: 100vh;
