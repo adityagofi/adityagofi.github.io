@@ -35,4 +35,5 @@ window.addEventListener('scroll', () => {
     document.getElementById('parallex3').style.top = `${value * 0.2}px`;
 
   });
-  
+
+
