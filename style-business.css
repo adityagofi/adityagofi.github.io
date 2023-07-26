@@ -275,15 +275,13 @@ nav ul li:hover ul {
     width: 100%;
     text-align: center;
     justify-content: center;
-    padding: 0px 0;
+    padding: 15px 0;
     background: #e5cda1;
     font-weight: 500;
-    margin-top: 20px;
+    margin-top: 47px;
     color: #344734;
 }
-.copyright p{
-    padding: 13px;
-}
+
 .btn-shop{
     margin-top: -6px;
     display: inline-block;
