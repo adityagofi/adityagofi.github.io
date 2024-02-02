@@ -62,7 +62,7 @@
         <div class="swiper-wrapper">
             <div class="swiper-slide" onclick="showExplanation('project-1')">
                 <div class="card">
-                    <img src="images/project-1.svg" alt="Project 1">
+                    <img src="images/Project-1.jpg" alt="Project 1">
                     <div class="card-content">
                         <h3>Title 1</h3>
                         <p>Description 1</p>
@@ -71,7 +71,7 @@
             </div>
             <div class="swiper-slide" onclick="showExplanation('project-2')">
                 <div class="card">
-                    <img src="images/Project-1.jpg" alt="Project 2">
+                    <img src="images/Project-2.jpg" alt="Project 2">
                     <div class="card-content">
                         <h3>Title 2</h3>
                         <p>Description 1</p>
@@ -259,9 +259,9 @@
     <script>
         var swiper = new Swiper(".mySwiper", {
             slidesPerView: 4,
-            spaceBetween: 250,
+            spaceBetween: 150,
             centeredSlides: true,
-            
+            initialSlide: 1,
             freeMode: true,
             pagination: {
                 el: ".swiper-pagination",
