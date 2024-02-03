@@ -26,6 +26,18 @@ body {
     padding: 0;
 }
 
+.reveal{
+    transform: translateY(100px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.reveal.active{
+    transform: translateY(0px);
+    opacity: 1;
+
+}
+
 .logo.nav {
     display: flex;
     align-items: center;
@@ -62,6 +74,7 @@ nav {
     border-radius: 10px;
     font-size: 13px;
     z-index: 1000;
+    transition: all 0.8s;
 }
 
 nav ul {
@@ -139,9 +152,12 @@ nav a:hover {
 .red-btn {
     background-color: #e74c3c;
 }
-
 .yellow-btn {
     background-color: #f39c12;
+}
+.red-btn:hover, .yellow-btn:hover{
+    scale: 1.02;
+    transition: all 0.2s;
 }
 
 .judul-row {
@@ -446,36 +462,47 @@ nav a:hover {
     max-width: 100%;
 }
 
-
+#contact-ref{
+    max-height: 100%;
+    height: 780px;
+}
 .row-contact {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
     align-items: center;
-
     width: 80%;
 }
 
+.leave-me{
+    margin-top: 30px;
+    margin-bottom: 0px;
+}
 
 /* Container for the contact section */
 .row-contact {
     display: flex;
-    justify-content: space-around;
-    max-width: 1200px;
+    max-width: 100%;
     margin: 0 auto 40px auto;
-    padding: 20px;
+    position: relative;
+    align-items: flex-start;
 }
 
 /* Left side containing social icons */
 .contact-left {
-    flex: 40%;
+    flex-basis: 40%;
 }
 
 /* Style for the social icons */
 .social-icon {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin: 0;
+    position: relative;
+}
+
+.social-icon p {
+    font-size: 20px;
+    color: #001324;
+    font-weight: 600;
 }
 
 .social-icon a {
@@ -483,19 +510,22 @@ nav a:hover {
     text-decoration: none;
     font-size: 20px;
     display: flex;
-    align-items: center;
+    text-align: left;
+    width: 35%;
 }
 
 /* Style for the contact info */
 .social-icon img {
-    width: 50px;
+    width: 30px;
     /* Adjust the size as needed */
-    margin-right: 10px;
+    margin-right: 20px;
+}
+.social-icon a:hover{
+    scale: 1.02;
+    transition: all 0.2s;
 }
 
-.social-icon p {
-    margin: 0;
-}
+
 
 /* Right side containing the contact form */
 .contact-right {
@@ -504,21 +534,23 @@ nav a:hover {
 
 /* Style for the form elements */
 form {
-    display: flex;
-    flex-direction: column;
-    gap: 10px;
+    margin-top: 20px;
 }
 
 form input,
-form textarea {
+form textarea,
+form button {
+    width: 100%;
+    margin-bottom: 15px;
     padding: 10px;
-    border: 1px solid #ccc;
+    box-sizing: border-box;
+    border: 1px solid #001324;
+    font-family: poppins;
+    font-size: 16px;
     border-radius: 5px;
-    font-size: 15px;
-    font-style: poppinss;
 }
 
-button {
+.btn-submit {
     padding: 10px;
     background-color: #F45050;
     color: #fff;
@@ -527,21 +559,21 @@ button {
     cursor: pointer;
 }
 
-button:hover {
+.btn-submit:hover {
     background-color: #D73838;
+    transition: all 0.2s;
 }
 
 /* Style for the message span below the form */
 #msg {
     display: block;
-    margin-top: 10px;
-    color: #F45050;
-    font-size: 20px;
-    font-style: poppins;
+    color: #e74c3c;
+    text-align: left;
+    font-size: 16px;
 }
 
 .copyright {
-    position: relative;
+
     width: 80%;
     background-color: #001324;
     color: #fff;
@@ -554,5 +586,12 @@ button:hover {
     /* Center horizontally */
     border-radius: 10px;
     font-size: 13px;
-    margin: 0 auto;
+    margin: 20px auto;
 }
+.footer-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+

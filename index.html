@@ -16,7 +16,7 @@
 <body>
     <header id="about-ref">
         <div class="container">
-            <nav>
+            <nav id="navbar">
                 <div class="logo nav">
                     <img src="images/Personal Logo.svg" alt="logo" href="#about">
                     <a href="#about">
@@ -50,15 +50,16 @@
                     <img src="images/profile.png" alt="profile">
                 </div>
             </div>
-            <a href="#" class="red-btn">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
+            <a href="https://drive.google.com/file/d/1AP54eH1-GoE8OJ1toOvWB4UzsQFRMv18/view?usp=sharing" target="_blank"
+                class="red-btn">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
         </div>
     </header>
-    <div class="judul-frame" id="project-ref">
+    <div class="judul-frame reveal" id="project-ref">
         <h1>
             Projects
         </h1>
     </div>
-    <div class="swiper mySwiper">
+    <div class="swiper mySwiper reveal">
         <div class="swiper-wrapper">
             <div class="swiper-slide" onclick="showExplanation('project-1')">
                 <div class="card">
@@ -101,8 +102,8 @@
                 <div class="card">
                     <img src="images/project-5.webp" alt="Project 5">
                     <div class="card-content">
-                        <h3>Customer Retention<br>Analysis</h3>
-                        <p>MySkill Academy Personal Project</p>
+                        <h3>Sales Dashboard</h3>
+                        <p>Personal Project</p>
                     </div>
                 </div>
             </div>
@@ -116,7 +117,7 @@
     <div id="project-1-explanation" class="project-explanation">
         <div class="center-content">
             <div class="content-wrapper">
-                <img src="images/project-1.webp" alt="Project 1">
+                <img src="images/project-1.webp" alt="Project 1" class="image">
                 <div class="text-explanation">
                     <h2>Predicting House Prices with XGBoost model</h2>
                     <p>XGBoost, short for eXtreme Gradient Boosting, is a machine learning algorithm known for its
@@ -133,7 +134,6 @@
                                 target="_blank">Article</a>
                         </div>
                     </div>
-
                 </div>
             </div>
         </div>
@@ -197,6 +197,31 @@
                         <div class="btn-description-yellow">
                             <a href="https://medium.com/@adityagofi/understanding-customer-retention-a-deep-dive-into-temporal-patterns-fa8eff6e820a"
                                 target="_blank">Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-5-explanation" class="project-explanation">
+        <div class="center-content">
+            <div class="content-wrapper">
+                <img src="images/project-5.webp" alt="Project 5">
+                <div class="text-explanation">
+                    <h2>Sales Dashboard</h2>
+                    <p>In my sales dashboard project developed with Google Spreadsheets, I aimed to streamline data
+                        analysis and visualization for a comprehensive overview of sales performance. Leveraging the
+                        collaborative features of Google Sheets, I organized and analyzed sales data efficiently. The
+                        dashboard provides a visual representation of key metrics such as revenue, product sales, and
+                        customer demographics.</p>
+                    <div class="btn-description-container">
+                        <div class="btn-description-red">
+                            <a href="https://github.com/adityagofi/Retention-Analysis" target="_blank">GitHub</a>
+                        </div>
+                        <div class="btn-description-yellow">
+                            <a href="https://docs.google.com/spreadsheets/d/1wcO4PsUhwawzed8m6_TPsCLNJarq8xm-CbLD_vHRA18/edit?usp=sharing"
+                                target="_blank">Spreadsheet</a>
                         </div>
                     </div>
                 </div>
@@ -280,42 +305,82 @@
         </h1>
         <a href="https://wa.me/+6282236127366?text=Halo%20bisa%20bicara%20denganmu?" target="blank"
             class="yellow-btn">CONTACT ME <i class="fa-solid fa-circle-chevron-right"></i></a>
-        <a href="#" class="red-btn">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
-        <p>Leave me a massage</p>
-    </div>
-    <div id="target-contact" class="row-contact">
-        <div class="contact-left">
-            <div class="social-icon">
-                <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
-                    <img src="images/Linkedin.svg" alt="">
-                </a>
-                <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
-                    <img src="images/Gmail.svg" alt="">
-                </a>
-                <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
-                    <img src="images/GitHub.svg" alt="">
-                </a>
-                <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
-                    <img src="images/Medium.svg" alt="">
-                </a>
+        <a href="https://drive.google.com/file/d/1AP54eH1-GoE8OJ1toOvWB4UzsQFRMv18/view?usp=sharing" target="_blank"
+            class="red-btn">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
+        <p class="leave-me">Leave me a message</p>
+        <div id="target-contact" class="row-contact">
+            <div class="contact-left">
+                <div class="social-icon">
+                    <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
+                        <img src="images/Linkedin.svg" alt="">
+                        <p>LinkedIn</p>
+                    </a>
+                    <a href="mailto:gofisaputra4@gmail.com" target="blank">
+                        <img src="images/Gmail.svg" alt="">
+                        <p>Gmail</p>
+                    </a>
+                    <a href="https://github.com/adityagofi" target="blank">
+                        <img src="images/GitHub.svg" alt="">
+                        <p>GitHub</p>
+                    </a>
+                    <a href="https://medium.com/@adityagofi" target="blank">
+                        <img src="images/Medium.svg" alt="">
+                        <p>Medium</p>
+                    </a>
+                </div>
+            </div>
+            <div class="contact-right">
+                <form name="submit-to-google-sheet">
+                    <input type="text" name="Name" placeholder="Your Name" required>
+                    <input type="email" name="Email" placeholder="Your Email" required>
+                    <textarea name="Message" required rows="10" placeholder="Your Message"></textarea>
+                    <button type="submit" class="btn-submit btn-2">Submit</button>
+                </form>
+                <span id="msg"></span>
             </div>
         </div>
-        <div class="contact-right">
-            <form name="submit-to-google-sheet">
-                <input type="text" name="Name" placeholder="Your Name" required>
-                <input type="email" name="Email" placeholder="Your Email" required>
-                <textarea name="Message" required rows="10" placeholder="Your Message"></textarea>
-                <button type="submit" class="btn">Submit</button>
-            </form>
-            <span id="msg">
-            </span>
-        </div>
     </div>
+
+
+
     <div class="copyright">
         <p>All rights reserved © Aditya Gofi Saputra 2023. </p>
     </div>
 
+    <script type="text/javascript">
+        var lastScrollTop = 0;
+        var navbar = document.getElementById("navbar");
+        window.addEventListener("scroll", function () {
+            var scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            if (scrollTop > lastScrollTop) {
+                navbar.style.top = "-75px";
+                navbar.style.opacity = "0";
+            } else {
+                navbar.style.top = "20px";
+                navbar.style.opacity = "1";
+            }
+            lastScrollTop = scrollTop;
+        });
+    </script>
+    <script type="text/javascript">
+        window.addEventListener('scroll', reveal);
+        function reveal (){
+            var reveals = document.querySelectorAll('.reveal');
 
+            for(var i = 0; i < reveals.length; i++){
+                var windowheight = window.innerHeight;
+                var revealtop = reveals[i].getBoundingClientRect().top;
+                var revealpoint = 50;
+
+                if(revealtop < windowheight - revealpoint){
+                    reveals[i].classList.add('active');
+                }
+                else{
+                    reveals[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
@@ -332,7 +397,7 @@
             slidesPerView: 4,
             spaceBetween: 150,
             centeredSlides: true,
-            initialSlide: 1,
+            initialSlide: 0,
             freeMode: true,
             pagination: {
                 el: ".swiper-pagination",
@@ -368,8 +433,24 @@
         }
 
     </script>
-
-
+    <script>
+        const scriptURL = 'https://script.google.com/macros/s/AKfycbzKyIwz0Gc8slG5VEF9QyF_lES_xpYb_u2OEL4yVD754pkIjIu1OwWTgOC6hMyOABAGjA/exec'
+        const form = document.forms['submit-to-google-sheet']
+        const msg = document.getElementById('msg')
+        form.addEventListener('submit', e => {
+            e.preventDefault()
+            fetch(scriptURL, { method: 'POST', body: new FormData(form) })
+                .then(response => {
+                    msg.innerHTML = "Message sent successfully!"
+                    setTimeout(function () {
+                        msg.innerHTML = ""
+                    }, 3000)
+                    form.reset()
+                })
+                .catch(error => console.error('Error!', error.message))
+        })
+    </script>
+</body>
 
 
 </html>
