@@ -117,19 +117,19 @@
     <div id="project-1-explanation" class="project-explanation">
         <div class="center-content">
             <div class="content-wrapper">
-                <img src="images/project-1.webp" alt="Project 1" class="image">
+                <img src="images/project-1.webp" alt="Project 1" class="reveal_left">
                 <div class="text-explanation">
-                    <h2>Predicting House Prices with XGBoost model</h2>
-                    <p>XGBoost, short for eXtreme Gradient Boosting, is a machine learning algorithm known for its
+                    <h2 class="reveal_right">Predicting House Prices with XGBoost model</h2>
+                    <p class="reveal_right">XGBoost, short for eXtreme Gradient Boosting, is a machine learning algorithm known for its
                         efficiency and effectiveness in handling complex datasets. It excels in regression problems,
                         making it a perfect candidate for predicting continuous values like house prices. I developed
                         this project with the aim of harnessing the predictive power of the XGBoost model to assist in
                         the real estate domain.</p>
-                    <div class="btn-description-container">
+                    <div class="btn-description-container reveal_right">
                         <div class="btn-description-red">
                             <a href="https://github.com/adityagofi/Prediction-House-Prices" target="_blank">GitHub</a>
                         </div>
-                        <div class="btn-description-yellow">
+                        <div class="btn-description-yellow reveal_right">
                             <a href="https://medium.com/@adityagofi/predicting-house-prices-with-xgboost-a-machine-learning-journey-b8ed827cd05f"
                                 target="_blank">Article</a>
                         </div>
@@ -231,7 +231,7 @@
 
 
     <div id="experiences">
-        <div class="judul-frame">
+        <div class="judul-frame reveal_left">
             <h1>
                 Experiences
             </h1>
@@ -244,7 +244,7 @@
                     <p class="role">Machine Learning cohorts</p>
                     <p class="periode">Studi independen (January-July 2023)</p>
                 </div>
-                <div class="experience-col-2">
+                <div class="experience-col-2 reveal_right">
                     <ul class="deskripsi">
                         <li>Acquired comprehensive knowledge and expertise through formal academic pursuits in Machine
                             Learning and AI.</li>
@@ -264,7 +264,7 @@
                     <p class="role">Machine Learning cohorts</p>
                     <p class="periode">Studi independen (January-July 2023)</p>
                 </div>
-                <div class="experience-col-2">
+                <div class="experience-col-2 reveal_right">
                     <ul class="deskripsi">
                         <li>Acquired comprehensive knowledge and expertise through formal academic pursuits in Machine
                             Learning and AI.</li>
@@ -284,7 +284,7 @@
                     <p class="role">Machine Learning cohorts</p>
                     <p class="periode">Studi independen (January-July 2023)</p>
                 </div>
-                <div class="experience-col-2">
+                <div class="experience-col-2 reveal_right">
                     <ul class="deskripsi">
                         <li>Acquired comprehensive knowledge and expertise through formal academic pursuits in Machine
                             Learning and AI.</li>
@@ -299,17 +299,17 @@
             </div>
         </div>
     </div>
-    <div class="judul-frame" id="contact-ref">
+    <div class="judul-frame reveal" id="contact-ref">
         <h1>
             Interested to work with me?
         </h1>
         <a href="https://wa.me/+6282236127366?text=Halo%20bisa%20bicara%20denganmu?" target="blank"
-            class="yellow-btn">CONTACT ME <i class="fa-solid fa-circle-chevron-right"></i></a>
+            class="yellow-btn reveal_right">CONTACT ME <i class="fa-solid fa-circle-chevron-right"></i></a>
         <a href="https://drive.google.com/file/d/1AP54eH1-GoE8OJ1toOvWB4UzsQFRMv18/view?usp=sharing" target="_blank"
-            class="red-btn">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
+            class="red-btn reveal_left">LINK TO MY CV <i class="fa-solid fa-circle-chevron-right"></i></a>
         <p class="leave-me">Leave me a message</p>
         <div id="target-contact" class="row-contact">
-            <div class="contact-left">
+            <div class="contact-left reveal_left">
                 <div class="social-icon">
                     <a href="https://www.linkedin.com/in/adityagofi123/" target="blank">
                         <img src="images/Linkedin.svg" alt="">
@@ -329,7 +329,7 @@
                     </a>
                 </div>
             </div>
-            <div class="contact-right">
+            <div class="contact-right reveal_right">
                 <form name="submit-to-google-sheet">
                     <input type="text" name="Name" placeholder="Your Name" required>
                     <input type="email" name="Email" placeholder="Your Email" required>
@@ -362,6 +362,7 @@
             lastScrollTop = scrollTop;
         });
     </script>
+
     <script type="text/javascript">
         window.addEventListener('scroll', reveal);
         function reveal (){
@@ -370,7 +371,7 @@
             for(var i = 0; i < reveals.length; i++){
                 var windowheight = window.innerHeight;
                 var revealtop = reveals[i].getBoundingClientRect().top;
-                var revealpoint = 50;
+                var revealpoint = 80;
 
                 if(revealtop < windowheight - revealpoint){
                     reveals[i].classList.add('active');
@@ -381,6 +382,34 @@
             }
         }
     </script>
+
+    <script type="text/javascript">
+        window.addEventListener('scroll', revealElements);
+    
+        function revealElements() {
+            var reveals_left = document.querySelectorAll('.reveal_left');
+            var reveals_right = document.querySelectorAll('.reveal_right');
+    
+            reveal(reveals_left);
+            reveal(reveals_right);
+        }
+    
+        function reveal(elements) {
+            for (var i = 0; i < elements.length; i++) {
+                var windowheight = window.innerHeight;
+                var revealtop = elements[i].getBoundingClientRect().top;
+                var revealpoint = 80;
+    
+                if (revealtop < windowheight - revealpoint) {
+                    elements[i].classList.add('active');
+                } else {
+                    elements[i].classList.remove('active');
+                }
+            }
+        }
+    </script>
+    
+    
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>

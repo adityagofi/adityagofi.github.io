@@ -27,7 +27,7 @@ body {
 }
 
 .reveal{
-    transform: translateY(100px);
+    transform: translateY(60px);
     opacity: 0;
     transition: all 1s;
 }
@@ -37,6 +37,30 @@ body {
     opacity: 1;
 
 }
+
+.reveal_left{
+    transform: translateX(-60px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.reveal_left.active{
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+.reveal_right{
+    transform: translateX(60px);
+    opacity: 0;
+    transition: all 1s;
+}
+
+.reveal_right.active{
+    transform: translateX(0px);
+    opacity: 1;
+}
+
+
 
 .logo.nav {
     display: flex;
@@ -164,7 +188,7 @@ nav a:hover {
     display: flex;
     justify-content: space-between;
     align-items: right;
-    margin-top: 80px;
+    margin-top: 100px;
     margin-bottom: 15px;
 }
 
