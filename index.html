@@ -144,8 +144,8 @@
             <div class="content-wrapper">
                 <img src="images/project-2.webp" alt="Project 2">
                 <div class="text-explanation">
-                    <h2>House Sales Dashboard</h2>
-                    <p>The House Sales Dashboard that I created using Tableau Public, focuses on daily prices,
+                    <h2 class="reveal_right">House Sales Dashboard</h2>
+                    <p class="reveal_right">The House Sales Dashboard that I created using Tableau Public, focuses on daily prices,
                         geographical
                         trends, and key property features in the USA real estate market. It's a dynamic tool for
                         professionals, investors, and homebuyers, offering valuable insights to navigate the dynamic
@@ -166,8 +166,8 @@
             <div class="content-wrapper">
                 <img src="images/project-3.webp" alt="Project 3">
                 <div class="text-explanation">
-                    <h2>Hand Counting Detection</h2>
-                    <p>Hand counting detection that I developed with python and Open CV. This project enables real-time
+                    <h2 class="reveal_right">Hand Counting Detection</h2>
+                    <p class="reveal_right">Hand counting detection that I developed with python and Open CV. This project enables real-time
                         tracking and recognition of hand gestures, providing a firsthand experience of the code's
                         simplicity. Uncover the potential for diverse applications, from interactive gaming to sign
                         language interpretation, as we delve into the fascinating world of computer vision.</p>
@@ -186,8 +186,8 @@
             <div class="content-wrapper">
                 <img src="images/project-4.webp" alt="Project 4">
                 <div class="text-explanation">
-                    <h2>Customer Retention Analysis</h2>
-                    <p>In this Python project, the objective is to calculate the percentage of customer retention. By
+                    <h2 class="reveal_right">Customer Retention Analysis</h2>
+                    <p class="reveal_right">In this Python project, the objective is to calculate the percentage of customer retention. By
                         employing data-driven methodologies, the project provides a straightforward analysis to measure
                         and understand customer retention, a crucial metric for businesses aiming to build lasting
                         relationships. </p>
@@ -210,8 +210,8 @@
             <div class="content-wrapper">
                 <img src="images/project-5.webp" alt="Project 5">
                 <div class="text-explanation">
-                    <h2>Sales Dashboard</h2>
-                    <p>In my sales dashboard project developed with Google Spreadsheets, I aimed to streamline data
+                    <h2 class="reveal_right">Sales Dashboard</h2>
+                    <p class="reveal_right">In my sales dashboard project developed with Google Spreadsheets, I aimed to streamline data
                         analysis and visualization for a comprehensive overview of sales performance. Leveraging the
                         collaborative features of Google Sheets, I organized and analyzed sales data efficiently. The
                         dashboard provides a visual representation of key metrics such as revenue, product sales, and
@@ -444,6 +444,7 @@
             loop: true
         })
     </script>
+
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
@@ -476,13 +477,19 @@
             // Hide all explanations
             var explanations = document.querySelectorAll('.project-explanation');
             explanations.forEach(function (explanation) {
+                explanation.style.opacity = 0;
                 explanation.style.display = 'none';
+                explanation.style.transform = 'translateX(20px)';
             });
 
             // Show the selected project explanation
             var selectedExplanation = document.getElementById(projectId + '-explanation');
             if (selectedExplanation) {
                 selectedExplanation.style.display = 'block';
+                setTimeout(function () {
+                    selectedExplanation.style.opacity = 1;
+                    selectedExplanation.style.transform = 'translateX(0)';
+                }, 50);
             }
         }
     </script>

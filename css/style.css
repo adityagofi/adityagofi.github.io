@@ -353,6 +353,7 @@ nav a:hover {
     display: none;
     text-align: left;
     /* Align text to the left */
+    transition: all 0.5s;
 }
 
 .project-explanation .center-content {
@@ -364,6 +365,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     text-align: justify;
+    
 }
 
 .text-explanation p {
