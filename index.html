@@ -120,7 +120,8 @@
                 <img src="images/project-1.webp" alt="Project 1">
                 <div class="text-explanation">
                     <h2 class="reveal_right">Predicting House Prices with XGBoost model</h2>
-                    <p class="reveal_right">XGBoost, short for eXtreme Gradient Boosting, is a machine learning algorithm known for its
+                    <p class="reveal_right">XGBoost, short for eXtreme Gradient Boosting, is a machine learning
+                        algorithm known for its
                         efficiency and effectiveness in handling complex datasets. It excels in regression problems,
                         making it a perfect candidate for predicting continuous values like house prices. I developed
                         this project with the aim of harnessing the predictive power of the XGBoost model to assist in
@@ -236,6 +237,28 @@
                 Experiences
             </h1>
         </div>
+
+        <div class="experience-row">
+            <div class="experience-col-1">
+                <h2 class="judul-experience">Ruangguru Engineering Academy+</h2>
+                <p class="role">Machine Learning</p>
+                <p class="periode">Bootcamp (July-October 2022)</p>
+            </div>
+            <div class="experience-col-2 reveal_right">
+                <ul class="deskripsi">
+                    <li>Developed a strong foundation in data exploration, delving into key principles and
+                        theories to enhance my understanding of foundational concepts.</li>
+                    <li>Acquired hands-on experience with PyTorch, mastering the complete lifecycle of machine
+                        learning, including model building, pipeline development, and the implementation of transfer
+                        learning techniques.</li>
+                    <li>Expanded my skill set to include Natural Language Processing (NLP), gaining practical
+                        knowledge in processing and understanding human language, further enriching my capabilities
+                        in machine learning.</li>
+                    <li>Tool used: Python, SQL, PyTorch, Google Coolab</li>
+                </ul>
+            </div>
+        </div>
+
         <div class="experience-column">
             <div class="experience-row">
                 <div class="experience-col-1">
@@ -265,24 +288,30 @@
                 </div>
                 <div class="experience-col-2 reveal_right">
                     <ul class="deskripsi">
-                        <li>Collecting and performing comprehensive data preparation to enhance understanding and drive optimal business outcomes.</li>
-                        <li>Developing a machine learning model using TensorFlow to effectively address and resolve business challenges.</li>
-                        <li>Efficiently deploying a machine learning model onto a cloud server infrastructure for seamless accessibility and scalability using Google Firebase.</li>
+                        <li>Collecting and performing comprehensive data preparation to enhance understanding and drive
+                            optimal business outcomes.</li>
+                        <li>Developing a machine learning model using TensorFlow to effectively address and resolve
+                            business challenges.</li>
+                        <li>Efficiently deploying a machine learning model onto a cloud server infrastructure for
+                            seamless accessibility and scalability using Google Firebase.</li>
                         <li>Tool used: Python, TensorFlow, Google Firebase, Ms Excel</li>
                     </ul>
                 </div>
-            </div>  
+            </div>
+
             <div class="experience-row">
                 <div class="experience-col-1">
                     <h2 class="judul-experience">Project-Based Virtual Intern : Data Scientist –
                         Home Credit Indonesia x Rakamin Academy</h2>
-                    <p class="role">Machine Learning cohorts</p>
-                    <p class="periode">Studi independen (Agustus-Oktober 2023)</p>
+                    <p class="role">Data Scientist</p>
+                    <p class="periode">Virtual Intrnship (August-October 2022)</p>
                 </div>
                 <div class="experience-col-2 reveal_right">
                     <ul class="deskripsi">
-                        <li>Finishing various task related with the activity of Data Scientist from Home Credit Indonesia</li>
-                        <li>Completing project such as Data Analysis, Machine Learning Implementation, and Business Acumen</li>
+                        <li>Finishing various task related with the activity of Data Scientist from Home Credit
+                            Indonesia</li>
+                        <li>Completing project such as Data Analysis, Machine Learning Implementation, and Business
+                            Acumen</li>
                         <li>Successfully completed challenging AI projects and assignments, which honed my
                             problem-solving skills and provided practical experience in applying Machine Learning models
                             to real-world scenarios.</li>
@@ -290,6 +319,8 @@
                     </ul>
                 </div>
             </div>
+
+            
         </div>
     </div>
     <div class="judul-frame reveal" id="contact-ref">
@@ -358,18 +389,18 @@
 
     <script type="text/javascript">
         window.addEventListener('scroll', reveal);
-        function reveal (){
+        function reveal() {
             var reveals = document.querySelectorAll('.reveal');
 
-            for(var i = 0; i < reveals.length; i++){
+            for (var i = 0; i < reveals.length; i++) {
                 var windowheight = window.innerHeight;
                 var revealtop = reveals[i].getBoundingClientRect().top;
                 var revealpoint = 80;
 
-                if(revealtop < windowheight - revealpoint){
+                if (revealtop < windowheight - revealpoint) {
                     reveals[i].classList.add('active');
                 }
-                else{
+                else {
                     reveals[i].classList.remove('active');
                 }
             }
@@ -378,21 +409,21 @@
 
     <script type="text/javascript">
         window.addEventListener('scroll', revealElements);
-    
+
         function revealElements() {
             var reveals_left = document.querySelectorAll('.reveal_left');
             var reveals_right = document.querySelectorAll('.reveal_right');
-    
+
             reveal(reveals_left);
             reveal(reveals_right);
         }
-    
+
         function reveal(elements) {
             for (var i = 0; i < elements.length; i++) {
                 var windowheight = window.innerHeight;
                 var revealtop = elements[i].getBoundingClientRect().top;
                 var revealpoint = 80;
-    
+
                 if (revealtop < windowheight - revealpoint) {
                     elements[i].classList.add('active');
                 } else {
@@ -401,8 +432,8 @@
             }
         }
     </script>
-    
-    
+
+
 
     <script src="https://unpkg.com/typed.js@2.0.16/dist/typed.umd.js"></script>
     <script>
@@ -431,7 +462,7 @@
             },
         });
     </script>
-    
+
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Show the explanation for the first project by default
@@ -455,7 +486,7 @@
             }
         }
     </script>
-    
+
     <script>
         const scriptURL = 'https://script.google.com/macros/s/AKfycbzKyIwz0Gc8slG5VEF9QyF_lES_xpYb_u2OEL4yVD754pkIjIu1OwWTgOC6hMyOABAGjA/exec'
         const form = document.forms['submit-to-google-sheet']
