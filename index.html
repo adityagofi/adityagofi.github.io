@@ -445,11 +445,11 @@
         })
     </script>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-            slidesPerView: 4,
-            spaceBetween: 150,
+            spaceBetween: 0,
             centeredSlides: true,
             initialSlide: 0,
             freeMode: true,
@@ -461,6 +461,21 @@
                 nextEl: ".swiper-button-next",
                 prevEl: ".swiper-button-prev",
             },
+            breakpoints: {
+                0: {
+                    slidesPerView: 1,
+                    centeredSlides: false,
+                    loop: true,
+                },
+                768: {
+                    slidesPerView: 4,
+
+                },
+                1024: {
+                    slidesPerView: 3,
+                },
+            },
+
         });
     </script>
 

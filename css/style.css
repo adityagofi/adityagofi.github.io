@@ -9,7 +9,7 @@ html{
 }
 .container {
     width: 80%;
-    margin: 0 auto;
+    margin: 0 10%;
 }
 
 header {
@@ -82,12 +82,12 @@ body {
     color: #FFFFFF;
     font-weight: 400;
     font-family: poppins;
+    display: inline-block;
 }
 
 nav {
     position: fixed;
     top: 20px;
-    ;
     width: 80%;
     background-color: #001324;
     padding: 15px 0px;
@@ -254,6 +254,7 @@ nav a:hover {
     color: #001324;
     font-family: poppins;
     font-weight: 500;
+    max-width: 100%;
 }
 
 
@@ -270,12 +271,12 @@ nav a:hover {
     /* Hide the horizontal scrollbar */
     width: 80%;
     margin: auto auto;
-    padding: 20px 0px;
+    /* padding: 20px 0px; */
 
 }
 
 .swiper-wrapper {
-    display: inline-flex;
+    display: flex;
     /* Add this line to create a flex container */
     flex-direction: row;
     /* Set the direction to horizontal */
@@ -286,8 +287,9 @@ nav a:hover {
 
 .swiper-slide {
     display: flex;
-    flex: 0 0 auto;
     text-align: center;
+    margin: 0 -30px;
+    left: 0px;
     justify-content: center;
     align-items: center;
 }
@@ -296,6 +298,7 @@ nav a:hover {
     width: 300px;
     /* Adjust the width of each card */
     height: 260px;
+
     margin-bottom: 30px;
     background: #fff;
     border-radius: 10px;
@@ -323,7 +326,6 @@ nav a:hover {
 }
 
 .card-content h3 {
-
     margin: -10px 0;
     font-size: 18px;
 }
@@ -359,6 +361,7 @@ nav a:hover {
 .project-explanation .center-content {
     display: flex;
     justify-content: center;
+
 }
 
 .text-explanation {
@@ -374,6 +377,7 @@ nav a:hover {
 
 .project-explanation .content-wrapper {
     display: flex;
+    flex-direction: row;
 
     width: 76%;
     /* Adjust the width as needed */
@@ -439,7 +443,7 @@ nav a:hover {
 }
 
 .experience-col-1 {
-    flex-basis: calc(50% - 100px);
+    flex-basis: 38%;
     box-sizing: border-box;
     margin: -15px;
     padding: 0 20px;
@@ -447,7 +451,7 @@ nav a:hover {
 }
 
 .experience-col-2 {
-    flex-basis: calc(50% - 10px);
+flex-basis: 62%;
     margin: 0 0;
     padding: 20px;
 }
@@ -509,6 +513,7 @@ nav a:hover {
 .row-contact {
     display: flex;
     max-width: 100%;
+    flex-direction: row;
     margin: 0 auto 40px auto;
     position: relative;
     align-items: flex-start;
@@ -522,18 +527,21 @@ nav a:hover {
 /* Style for the social icons */
 .social-icon {
     margin: 0;
-    position: relative;
+    padding: 10px;
+    flex-direction: row;
 }
 
 .social-icon p {
     font-size: 20px;
     color: #001324;
     font-weight: 600;
+    display: flex;
 }
 
 .social-icon a {
     color: #001324;
     text-decoration: none;
+    flex-direction: row;
     font-size: 20px;
     display: flex;
     text-align: left;
@@ -556,11 +564,13 @@ nav a:hover {
 /* Right side containing the contact form */
 .contact-right {
     flex: 65%;
+    max-width: 61%;
 }
 
 /* Style for the form elements */
 form {
     margin-top: 20px;
+    max-width: 100%;
 }
 
 form input,
@@ -574,6 +584,7 @@ form button {
     font-family: poppins;
     font-size: 16px;
     border-radius: 5px;
+    max-width: 100%;
 }
 
 .btn-submit {
@@ -620,4 +631,183 @@ form button {
     align-items: center;
 }
 
+
+
+
+
+@media (max-width: 1024px) {
+    .container {
+        width: 90%; /* Adjust the width for smaller screens */
+    }
+
+    header {
+        height: auto; /* Adjust the height for smaller screens */
+    }
+
+    .logo.nav {
+        justify-content: center; /* Center the logo on smaller screens */
+    }
+
+    nav {
+        top: 10px; /* Adjust the top position for the navigation on smaller screens */
+        padding: 10px 0; /* Adjust padding for smaller screens */
+    }
+
+    nav ul {
+        margin: 0 10%; /* Adjust margin for smaller screens */
+    }
+
+    .row-1,
+    .row-2 {
+        padding: 0 20px; /* Adjust padding for smaller screens */
+    }
+
+    .row-1 .Hi {
+        font-size: 30px; /* Adjust font size for smaller screens */
+    }
+
+    .row-1 .Nama {
+        font-size: 64px; /* Adjust font size for smaller screens */
+    }
+
+    .row-1 .auto-type {
+        font-size: 20px; /* Adjust font size for smaller screens */
+    }
+
+    .row-2 img {
+        width: 100%; /* Make the image responsive on smaller screens */
+    }
+
+    .swiper {
+        width: 100%; /* Make the swiper container full width on smaller screens */
+    }
+
+    .card {
+        width: 100%; /* Make the card full width on smaller screens */
+    }
+
+    .experience-col-1,
+    .experience-col-2 {
+        flex-basis: 100%; /* Make experience columns full width on smaller screens */
+    }
+
+    .contact-left,
+    .contact-right {
+        flex-basis: 100%; /* Make contact columns full width on smaller screens */
+        max-width: 100%;
+    }
+
+    .copyright {
+        width: 100%; /* Make the copyright bar full width on smaller screens */
+    }
+}
+
+/* Small Screen */
+@media (max-width: 700px) {
+
+
+    .row-1 .Nama {
+        font-size: 40px; /* Adjust font size for even smaller screens */
+    }
+
+    .row-1 .auto-type {
+        font-size: 18px; /* Adjust font size for even smaller screens */
+    }
+    .judul-frame{
+        font-size: 15px;
+        padding: 0 10px;
+    }
+    .judul-frame h1{
+        margin: 0 20px;    
+    }
+
+    .experience-row{
+        flex-direction: column;
+    }
+    .experience-col-1{
+        flex-basis: 1;
+    }
+    .experience-col-2{
+        flex-basis: 1;
+    }
+
+    .experience-col-2 p {
+        color: #001324;
+        padding: 0;
+        max-width: 10%;
+    }
+
+    .experience-row{
+        flex-direction: column;
+        overflow-x: visible;
+    }
+
+    .card{
+        width: 150px;
+        height: 80px;
+    }
+
+    .card-content h3 {
+        font-size: 12px;
+    }
+    .card-content p {
+        font-size: 8px;
+        text-align: center;
+    }
+
+    .project-explanation .content-wrapper {
+
+        flex-direction: column;
+    }
+    .project-explanation img{
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .card {
+        height: auto; /* Make the card height auto for smaller screens */
+    }
+
+    .experience-column {
+        padding: 0; /* Remove padding for smaller screens */
+    }
+
+    .deskripsi{
+        font-size: 15px;
+        max-width: 90%;
+        margin: 0 -10px;
+    }
+
+    .experience-col-1,
+    .experience-col-2 {
+        padding: 10px; /* Add padding for smaller screens */
+    }
+    .row-contact{
+        flex-direction: column-reverse;
+        align-items: center;
+    }
+    .contact-left{
+        flex-basis: 10%;
+    }
+
+    .social-icon img{
+        margin: 5px 0;
+    }
+    .social-icon p {
+        display: none;
+    
+    }
+    .social-icon{
+        flex-direction: column;
+    }
+
+    .social-icon a {
+        width: 100%;
+        display: contents; /* Make social icons full width on smaller screens */
+    }
+    .copyright{
+        margin-top: 100px;
+        width: 80%;
+    }
+}
 
