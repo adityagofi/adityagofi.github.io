@@ -4,9 +4,11 @@
     --merah: F45050;
     --putih: FFFFFF;
 }
-html{
+
+html {
     scroll-behavior: smooth;
 }
+
 .container {
     width: 80%;
     margin: 0 10%;
@@ -26,36 +28,36 @@ body {
     padding: 0;
 }
 
-.reveal{
+.reveal {
     transform: translateY(60px);
     opacity: 0;
     transition: all 1s;
 }
 
-.reveal.active{
+.reveal.active {
     transform: translateY(0px);
     opacity: 1;
 
 }
 
-.reveal_left{
+.reveal_left {
     transform: translateX(-60px);
     opacity: 0;
     transition: all 1s;
 }
 
-.reveal_left.active{
+.reveal_left.active {
     transform: translateX(0px);
     opacity: 1;
 }
 
-.reveal_right{
+.reveal_right {
     transform: translateX(60px);
     opacity: 0;
     transition: all 1s;
 }
 
-.reveal_right.active{
+.reveal_right.active {
     transform: translateX(0px);
     opacity: 1;
 }
@@ -93,8 +95,8 @@ nav {
     padding: 15px 0px;
     display: flex;
     align-items: center;
-    justify-content: center;
     flex-wrap: wrap;
+    justify-content: center;
     border-radius: 10px;
     font-size: 13px;
     z-index: 1000;
@@ -107,10 +109,8 @@ nav ul {
 }
 
 nav ul li {
-
     display: flex;
     margin-right: 10px;
-
 }
 
 nav ul li a {
@@ -176,10 +176,13 @@ nav a:hover {
 .red-btn {
     background-color: #e74c3c;
 }
+
 .yellow-btn {
     background-color: #f39c12;
 }
-.red-btn:hover, .yellow-btn:hover{
+
+.red-btn:hover,
+.yellow-btn:hover {
     scale: 1.02;
     transition: all 0.2s;
 }
@@ -267,40 +270,28 @@ nav a:hover {
 }
 
 .swiper {
-    overflow-x: hidden;
-    /* Hide the horizontal scrollbar */
     width: 80%;
-    margin: auto auto;
-    /* padding: 20px 0px; */
+    max-height: 60%;
+    text-align: center;
 
 }
 
 .swiper-wrapper {
     display: flex;
-    /* Add this line to create a flex container */
-    flex-direction: row;
-    /* Set the direction to horizontal */
-    padding: 20px 0;
-    /* Adjust the padding as needed */
-    justify-content: center;
 }
 
 .swiper-slide {
-    display: flex;
+
     text-align: center;
-    margin: 0 -30px;
-    left: 0px;
-    justify-content: center;
-    align-items: center;
 }
 
 .card {
-    width: 300px;
-    /* Adjust the width of each card */
-    height: 260px;
-
-    margin-bottom: 30px;
+    overflow: hidden;
+    position: relative;
+    margin-bottom: 50px;
+    margin-top: 18px;
     background: #fff;
+    height: 300px;
     border-radius: 10px;
     overflow: hidden;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -309,7 +300,7 @@ nav a:hover {
 }
 
 .card:hover {
-    transform: scale(1.1);
+    transform: scale(1.02);
     /* Increase the size on hover */
     cursor: pointer;
 }
@@ -368,7 +359,7 @@ nav a:hover {
     display: flex;
     flex-direction: column;
     text-align: justify;
-    
+
 }
 
 .text-explanation p {
@@ -392,14 +383,16 @@ nav a:hover {
     margin: 10px 50px;
 }
 
-.btn-description-container{
+.btn-description-container {
     display: flex;
     margin: 0;
 }
-.btn-description-container :hover{
+
+.btn-description-container :hover {
     scale: 1.05;
 }
-.btn-description-red{
+
+.btn-description-red {
     background-color: #e74c3c;
     display: inline-block;
     padding: 5px 10px;
@@ -410,7 +403,7 @@ nav a:hover {
 }
 
 
-.btn-description-yellow{
+.btn-description-yellow {
     background-color: #f39c12;
     display: inline-block;
     padding: 5px 10px;
@@ -419,10 +412,13 @@ nav a:hover {
     font-weight: 600;
     border-radius: 10px;
 }
-.btn-description-red a, .btn-description-yellow a{
+
+.btn-description-red a,
+.btn-description-yellow a {
     text-decoration: none;
     color: #fff;
 }
+
 #experiences {
     padding: 40px 0;
 }
@@ -451,7 +447,7 @@ nav a:hover {
 }
 
 .experience-col-2 {
-flex-basis: 62%;
+    flex-basis: 62%;
     margin: 0 0;
     padding: 20px;
 }
@@ -492,10 +488,11 @@ flex-basis: 62%;
     max-width: 100%;
 }
 
-#contact-ref{
+#contact-ref {
     max-height: 100%;
     height: 780px;
 }
+
 .row-contact {
     display: flex;
     flex-direction: row;
@@ -504,7 +501,7 @@ flex-basis: 62%;
     width: 80%;
 }
 
-.leave-me{
+.leave-me {
     margin-top: 30px;
     margin-bottom: 0px;
 }
@@ -554,7 +551,8 @@ flex-basis: 62%;
     /* Adjust the size as needed */
     margin-right: 20px;
 }
-.social-icon a:hover{
+
+.social-icon a:hover {
     scale: 1.02;
     transition: all 0.2s;
 }
@@ -625,6 +623,7 @@ form button {
     font-size: 13px;
     margin: 20px auto;
 }
+
 .footer-container {
     display: flex;
     flex-direction: column;
@@ -637,97 +636,152 @@ form button {
 
 @media (max-width: 1024px) {
     .container {
-        width: 90%; /* Adjust the width for smaller screens */
+        width: 90%;
+        /* Adjust the width for smaller screens */
     }
 
     header {
-        height: auto; /* Adjust the height for smaller screens */
+        height: auto;
+        /* Adjust the height for smaller screens */
     }
-
-    .logo.nav {
-        justify-content: center; /* Center the logo on smaller screens */
+    .logo a{
+        display: none;
     }
+    nav{
+        width: 80%;
+        padding: 5px 0px;
+        font-size: 10px;
 
-    nav {
-        top: 10px; /* Adjust the top position for the navigation on smaller screens */
-        padding: 10px 0; /* Adjust padding for smaller screens */
     }
-
     nav ul {
-        margin: 0 10%; /* Adjust margin for smaller screens */
+        display: flex;
+        margin: 0;
     }
+    nav ul li a::after{
+        top: 0px;
+    }
+    .red-btn-nav{
+        display: none;
+    }
+
+
 
     .row-1,
     .row-2 {
-        padding: 0 20px; /* Adjust padding for smaller screens */
+        padding: 0 20px;
+        /* Adjust padding for smaller screens */
     }
 
     .row-1 .Hi {
-        font-size: 30px; /* Adjust font size for smaller screens */
+        font-size: 30px;
+        /* Adjust font size for smaller screens */
     }
 
     .row-1 .Nama {
-        font-size: 64px; /* Adjust font size for smaller screens */
+        font-size: 64px;
+        /* Adjust font size for smaller screens */
+    }
+    .judul-deskripsi{
+        margin: 0;
+        font-size: 14px;
+        max-width: 80%;
+    }
+    .deskripsi{
+        margin-top: 10px;
+        margin-right: 0px;
+        margin-bottom: 0px;
+        text-align: justify;
+        font-size: 12px;
+        color: #001324;
+        font-family: poppins;
+        font-weight: 500;
+        max-width: 80%;
+    }
+    .row-2{
+        text-align: center;
+    }
+    .row-2 img {
+        max-width: 50%;
     }
 
     .row-1 .auto-type {
-        font-size: 20px; /* Adjust font size for smaller screens */
+        font-size: 18px;
+        /* Adjust font size for smaller screens */
     }
 
     .row-2 img {
-        width: 100%; /* Make the image responsive on smaller screens */
+        width: 100%;
+        /* Make the image responsive on smaller screens */
     }
 
     .swiper {
-        width: 100%; /* Make the swiper container full width on smaller screens */
+        width: 100%;
+        /* Make the swiper container full width on smaller screens */
     }
 
     .card {
-        width: 100%; /* Make the card full width on smaller screens */
+        width: 100%;
+        /* Make the card full width on smaller screens */
     }
 
     .experience-col-1,
     .experience-col-2 {
-        flex-basis: 100%; /* Make experience columns full width on smaller screens */
+        flex-basis: 100%;
+        /* Make experience columns full width on smaller screens */
     }
 
     .contact-left,
     .contact-right {
-        flex-basis: 100%; /* Make contact columns full width on smaller screens */
+        flex-basis: 100%;
+        /* Make contact columns full width on smaller screens */
         max-width: 100%;
     }
 
     .copyright {
-        width: 100%; /* Make the copyright bar full width on smaller screens */
+        width: 100%;
+        /* Make the copyright bar full width on smaller screens */
     }
 }
 
 /* Small Screen */
 @media (max-width: 700px) {
-
+    .judul-row {
+        flex-direction: column;
+        align-items: center;
+    }
 
     .row-1 .Nama {
-        font-size: 40px; /* Adjust font size for even smaller screens */
+        font-size: 40px;
+        margin-bottom: -35px; 
+    }
+    .row-1 .Hi {
+        font-size: 20px;
+        margin-bottom: -40px;
     }
 
     .row-1 .auto-type {
-        font-size: 18px; /* Adjust font size for even smaller screens */
+        font-size: 18px;
+        /* Adjust font size for even smaller screens */
     }
-    .judul-frame{
+
+    .judul-frame {
         font-size: 15px;
         padding: 0 10px;
     }
-    .judul-frame h1{
-        margin: 0 20px;    
+
+    .judul-frame h1 {
+        margin: 0 20px;
     }
 
-    .experience-row{
+    .experience-row {
         flex-direction: column;
     }
-    .experience-col-1{
+
+    .experience-col-1 {
         flex-basis: 1;
     }
-    .experience-col-2{
+
+    .experience-col-2 {
         flex-basis: 1;
     }
 
@@ -737,19 +791,20 @@ form button {
         max-width: 10%;
     }
 
-    .experience-row{
+    .experience-row {
         flex-direction: column;
         overflow-x: visible;
     }
 
-    .card{
-        width: 150px;
-        height: 80px;
+    .swiper {
+        width: 60%;
+        height: 60%;
     }
 
     .card-content h3 {
         font-size: 12px;
     }
+
     .card-content p {
         font-size: 8px;
         text-align: center;
@@ -759,55 +814,89 @@ form button {
 
         flex-direction: column;
     }
-    .project-explanation img{
+
+    .project-explanation img {
         width: 100%;
         margin: 10px 0;
     }
+    .btn-description-container{
+        font-size: 10px;
+    }
 
     .card {
-        height: auto; /* Make the card height auto for smaller screens */
+        height: auto;
+        /* Make the card height auto for smaller screens */
+    }
+    .text-explanation p{
+        font-size: 14px;
     }
 
     .experience-column {
-        padding: 0; /* Remove padding for smaller screens */
+        padding: 0;
+        /* Remove padding for smaller screens */
     }
-
-    .deskripsi{
-        font-size: 15px;
-        max-width: 90%;
-        margin: 0 -10px;
+    .judul-experience{
+        font-size: 16px;
     }
-
+    .role{
+        font-size: 14px;
+    }
+    .periode{
+        font-size: 12px;
+    }
     .experience-col-1,
     .experience-col-2 {
-        padding: 10px; /* Add padding for smaller screens */
+        padding: 10px;
+        /* Add padding for smaller screens */
     }
-    .row-contact{
+
+    .red-btn,
+    .yellow-btn {
+        width: 30%;
+        font-size: 12px;
+        margin: 10px 0;
+        padding: 10px;
+    }
+
+    .row-contact {
         flex-direction: column-reverse;
         align-items: center;
     }
-    .contact-left{
+
+    .contact-left {
         flex-basis: 10%;
     }
 
-    .social-icon img{
+    .social-icon img {
         margin: 5px 0;
     }
+
     .social-icon p {
         display: none;
-    
+
     }
-    .social-icon{
+
+    .social-icon {
         flex-direction: column;
     }
 
     .social-icon a {
         width: 100%;
-        display: contents; /* Make social icons full width on smaller screens */
+        display: contents;
+        /* Make social icons full width on smaller screens */
     }
-    .copyright{
-        margin-top: 100px;
+
+    form input,
+    form textarea,
+    form button {
+        font-size: 12px;
+    }
+
+    .copyright {
         width: 80%;
     }
-}
 
+    .copyright p {
+        font-size: 8px;
+    }
+}

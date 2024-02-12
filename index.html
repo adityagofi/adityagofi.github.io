@@ -449,10 +449,10 @@
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script>
         var swiper = new Swiper(".mySwiper", {
-            spaceBetween: 0,
+            spaceBetween: 50,
             centeredSlides: true,
+            loop: true,
             initialSlide: 0,
-            freeMode: true,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -464,8 +464,7 @@
             breakpoints: {
                 0: {
                     slidesPerView: 1,
-                    centeredSlides: false,
-                    loop: true,
+                    spaceBetween: 10,
                 },
                 768: {
                     slidesPerView: 4,
