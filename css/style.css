@@ -181,11 +181,7 @@ nav a:hover {
     background-color: #f39c12;
 }
 
-.red-btn:hover,
-.yellow-btn:hover {
-    scale: 1.02;
-    transition: all 0.2s;
-}
+
 
 .judul-row {
     display: flex;
@@ -388,9 +384,6 @@ nav a:hover {
     margin: 0;
 }
 
-.btn-description-container :hover {
-    scale: 1.05;
-}
 
 .btn-description-red {
     background-color: #e74c3c;
@@ -411,6 +404,10 @@ nav a:hover {
     color: #fff;
     font-weight: 600;
     border-radius: 10px;
+}
+.btn-description-container :hover {
+    scale: 1.02;
+    transition: all 0.1s;
 }
 
 .btn-description-red a,
