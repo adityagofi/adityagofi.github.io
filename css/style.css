@@ -200,7 +200,10 @@ nav a:hover {
     text-align: left;
     padding: 0 60px
 }
-
+.row-1 img{
+    position: absolute;
+    left: 500px;
+}
 .row-1 .Hi {
     margin-bottom: -120px;
     color: #e74c3c;
@@ -745,6 +748,11 @@ form button {
     .judul-row {
         flex-direction: column;
         align-items: center;
+    }
+    .row-1 img{
+        position: absolute;
+        left: 150px;
+        width: 10%;
     }
 
     .row-1 .Nama {
