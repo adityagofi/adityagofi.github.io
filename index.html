@@ -131,6 +131,16 @@
                     </div>
                 </div>
             </div>
+
+            <div class="swiper-slide" onclick="showExplanation('project-8')">
+                <div class="card">
+                    <img src="images/project-8.webp" alt="Project 8">
+                    <div class="card-content">
+                        <h3>Medical Diagnosis Chatbot Assistant<br> using LLAMA 3 Model</h3>
+                        <p>Personal Project</p>
+                    </div>
+                </div>
+            </div>
         </div>
         <div class="swiper-pagination"></div>
         <div class="swiper-button-next"></div>
@@ -151,11 +161,11 @@
                         </p>
                     <div class="btn-description-container reveal_right">
                         <div class="btn-description-red ">
-                            <a href="https://github.com/adityagofi/Twitter-Sentiment-Analysis-Indonesian-Public-Election"
+                            <a href="https://github.com/adityagofi/Mediacal-Diagnosis-Chatbot"
                                 target="_blank">GitHub</a>
                         </div>
                         <div class="btn-description-yellow reveal_right">
-                            <a href="https://medium.com/@adityagofi/2024-indonesia-public-election-twitter-sentiment-analysis-using-nlp-623745e5ad76"
+                            <a href="https://medium.com/@adityagofi/medical-diagnosis-chatbot-assistant-71fb0d33dce8"
                                 target="_blank">Article</a>
                         </div>
                     </div>
@@ -298,6 +308,30 @@
                         <div class="btn-description-yellow reveal_right">
                             <a href="https://medium.com/@adityagofi/predicting-house-prices-with-xgboost-a-machine-learning-journey-b8ed827cd05f"
                                 target="_blank">Article</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="project-8-explanation" class="project-explanation">
+        <div class="center-content">
+            <div class="content-wrapper">
+                <img src="images/project-8.webp" alt="Project 8">
+                <div class="text-explanation">
+                    <h2 class="reveal_right">Medical Diagnosis Chatbot Assistant</h2>
+                    <p class="reveal_right">My project, “Medical Diagnosis Chatbot Assistant” aims to use AI to make diagnoses related to a patient's disease. I use LLM version that has been developed by Meta, known as LLAMA-3.</p>
+                    <div class="btn-description-container reveal_right">
+                        <div class="btn-description-red ">
+                            <a href="https://github.com/adityagofi/Prediction-House-Prices" target="_blank">GitHub</a>
+                        </div>
+                        <div class="btn-description-yellow reveal_right">
+                            <a href="https://medium.com/@adityagofi/predicting-house-prices-with-xgboost-a-machine-learning-journey-b8ed827cd05f"
+                                target="_blank">Article</a>
+                        </div>
+                        <div class="btn-description-red reveal_right reveal_right" >
+                            <a href="https://drive.google.com/file/d/1xMWx1RwDgyA3mVEUkg84JLmPBjwViCL8/view?usp=sharing" target="_blank">Video explanation</a>
                         </div>
                     </div>
                 </div>
@@ -552,7 +586,7 @@
             spaceBetween: 50,
             centeredSlides: true,
             loop: true,
-            initialSlide: 0,
+            initialSlide: 8,
             pagination: {
                 el: ".swiper-pagination",
                 clickable: true,
@@ -581,9 +615,11 @@
     <script>
         document.addEventListener('DOMContentLoaded', function () {
             // Show the explanation for the first project by default
-            var defaultExplanation = document.querySelector('.project-explanation');
+            var defaultExplanation = document.getElementById('project-8-explanation');
             if (defaultExplanation) {
                 defaultExplanation.style.display = 'block';
+                efaultExplanation.style.opacity = 1;
+                defaultExplanation.style.transform = 'translateX(0)';
             }
         });
 
