@@ -4221,7 +4221,9 @@ images
 .social-wrapper {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 25px;
+  flex-wrap: wrap;
 }
 
 .gof-social-btn {
@@ -4238,6 +4240,8 @@ images
 .gof-social-btn img {
   width: 30px;
   height: 30px;
+  object-fit: contain;
+  display: block;
 }
 
 .gof-social-btn:hover {
