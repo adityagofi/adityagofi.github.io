@@ -285,14 +285,14 @@ $(function () {
     });
 
     $('.gof-drag').mouseover(function () {
-        gsap.to($('.gof-ball .gof-icon-1'), .2, {
+        gsap.to($('.gof-ball .gof-drag-text'), .2, {
             scale: '1',
             ease: 'sine',
         });
     });
 
     $('.gof-drag').mouseleave(function () {
-        gsap.to($('.gof-ball .gof-icon-1'), .2, {
+        gsap.to($('.gof-ball .gof-drag-text'), .2, {
             scale: '0',
             ease: 'sine',
         });
