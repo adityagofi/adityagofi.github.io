@@ -4246,6 +4246,8 @@ images
   align-items: center;
   gap: 25px;
   flex-wrap: wrap;
+  padding-left: 40px;
+  padding-right: 40px;
 }
 
 .gof-social-btn {
@@ -4266,10 +4268,35 @@ images
   display: block;
 }
 
+@media screen and (max-width: 992px) {
+  .gof-social-btn {
+    width: 65px;
+    height: 65px;
+  }
+
+  .gof-social-btn img {
+    width: 30px;
+    height: 30px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .gof-social-btn {
+    width: 60px;
+    height: 60px;
+  }
+
+  .gof-social-btn img {
+    width: 26px;
+    height: 26px;
+  }
+}
+
 .gof-social-btn:hover {
   background-color: rgb(255, 152, 0);
   transform: scale(1.1);
 }
+
 
 
 /* 
