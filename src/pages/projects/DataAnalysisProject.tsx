@@ -16,7 +16,7 @@ const DATA_PROJECTS = [
     category: "NLP & Deep Learning",
     description: "A natural language processing project analyzing public sentiment around Indonesia's election across social media. Built with TensorFlow and trained on Indonesian-language data to classify opinions as positive, negative, or neutral.",
     tags: ["Python", "NLP", "TensorFlow", "scrapping"],
-    image: "/assets/data/project-4.webp",
+    image: "/data/project-4.webp",
     link: "https://medium.com/@adityagofi/2024-indonesia-public-election-twitter-sentiment-analysis-using-nlp-623745e5ad76",
     stats: { accuracy: "0.87", samples: "20k+" }
   },
@@ -26,7 +26,7 @@ const DATA_PROJECTS = [
     category: "LLM Fine-Tuning",
     description: "Fine-tuned the Llama 3 model on curated medical Q&A datasets to build a domain-specialized chatbot. Focused on accurate, context-aware responses for health-related queries while preserving safety guardrails.",
     tags: ["Python", "Llama 3", "LoRA", "PyTorch"],
-    image: "/assets/data/project-5.webp",
+    image: "/data/project-5.webp",
     link: "https://medium.com/@adityagofi/medical-diagnosis-chatbot-assistant-71fb0d33dce8",
     stats: { base_model: "Llama 3 8B", domain: "Medical" }
   },
@@ -36,7 +36,7 @@ const DATA_PROJECTS = [
     category: "Real Estate Analytics",
     description: "The House Sales Dashboard that I created using Tableau Public, focuses on daily prices, geographical trends, and key property features in the USA real estate market.",
     tags: ["Tableau", "Excel"],
-    image: "/assets/data/project-1.webp",
+    image: "/data/project-1.webp",
     link: "https://public.tableau.com/views/HouseSalesDashboard_17069871307200/Dashboard1?:language=en-US&publish=yes&:display_count=n&:origin=viz_share_link",
     stats: { depth: "2 Years", data: "MySkill Academy" }
   },
@@ -46,7 +46,7 @@ const DATA_PROJECTS = [
     category: "Predictive Analytics",
     description: "This project predicts customer churn in the banking sector using machine learning. Using 3 models Logistic Regression, Random Forest, and XGBoost. The XGBoost model achieved the highest accuracy at 85.05%",
     tags: ["Python", "Logistic Regression", "XGBoost", "Random Forest", ],
-    image: "/assets/data/project-2.webp",
+    image: "/data/project-2.webp",
     link: "https://github.com/adityagofi/Customer-Churn-Prediction",
     stats: { xgboost: "0.85", data_points: "10k+" }
   },
@@ -56,17 +56,17 @@ const DATA_PROJECTS = [
     category: "Machine Learning",
     description: "I developed this project with the aim of harnessing the predictive power of the XGBoost model to assist in the real estate domain. the model enabled us to predict house prices with an R² score of 0.82",
     tags: ["Python", "XGBoost", "Feature Engineering"],
-    image: "/assets/data/project-3.webp",
+    image: "/data/project-3.webp",
     link: "https://medium.com/@adityagofi/predicting-house-prices-with-xgboost-a-machine-learning-journey-b8ed827cd05f",
     stats: { r2_score: "0.82", features: "28" }
   }
 ];
 
 const bannerImages = [
-  "/assets/data/banner-1.webp",
-  "/assets/data/banner-2.webp",
-  "/assets/data/banner-3.webp",
-  "/assets/data/banner-4.webp",
+  "/data/banner-1.webp",
+  "/data/banner-2.webp",
+  "/data/banner-3.webp",
+  "/data/banner-4.webp",
 ];
 
 export default function DataAnalysisProject() {

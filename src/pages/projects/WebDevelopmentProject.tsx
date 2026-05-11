@@ -33,7 +33,7 @@ const WEB_PROJECTS = [
     category: "Corporate Portfolio",
     description: "A showcase of premium woodworking and bespoke furniture, designed with a focus on high-quality visuals and smooth interactions.",
     tags: ["React", "CSS", "Tailwind"],
-    image: "/assets/web/project-1.webp",
+    image: "/web/project-1.webp",
     link: "https://www.benzwood.com",
     stats: { speed: "99/100", uptime: "100%", users: "Global" }
   },
@@ -43,7 +43,7 @@ const WEB_PROJECTS = [
     category: "E-commerce Marketplace",
     description: "A high-performance marketplace platform built with React and powered by a headless Shopify backend, offering a seamless and intuitive shopping experience.",
     tags: ["React", "Shopify", "Tailwind"],
-    image: "/assets/web/project-2.webp",
+    image: "/web/project-2.webp",
     link: "https://pagebypage.co.id",
     stats: { speed: "98/100", uptime: "99.9%", users: "Users" }
   }
@@ -57,10 +57,10 @@ const PROCESS_STEPS = [
 ];
 
 const bannerImages = [
-  "/assets/web/banner-1.webp",
-  "/assets/web/banner-2.webp",
-  "/assets/web/banner-3.webp",
-  "/assets/web/banner-4.webp",
+  "/web/banner-1.webp",
+  "/web/banner-2.webp",
+  "/web/banner-3.webp",
+  "/web/banner-4.webp",
 ];
 
 const WEB_TAGS = ["Full-Stack", "Frontend", "Backend", "DevOps", "UI/UX", "API Design", "Architecture", "Cloud Ready"];

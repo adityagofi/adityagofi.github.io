@@ -16,22 +16,22 @@ type CollageCard = {
 // On desktop, cards spread across the right half (constrained by dragConstraints).
 const COLLAGE_CARDS: CollageCard[] = [
   // Top strip — visible mobile + desktop
-  { src: '/assets/hero/workspace-1.webp',           aspect: 'aspect-[4/3]',  size: 'w-[80px]  md:w-[180px]', pos: 'absolute left-[10%]  top-[12%]  md:left-[4%]  md:top-[13%]', rotate: -6 },
-  { src: '/assets/shortform/project-rspi-5.webp',   aspect: 'aspect-[9/16]', size: 'w-[60px]  md:w-[140px]', pos: 'absolute left-[36%] top-[7%]  md:left-[26%] md:top-[10%]', rotate: 5  },
-  { src: '/assets/graphic/banner-1.webp',           aspect: 'aspect-[16/9]', size: 'w-[96px]  md:w-[220px]', pos: 'absolute left-[62%] top-[10%] md:left-[64%] md:top-[11%]', rotate: 4  },
+  { src: '/hero/workspace-1.webp',           aspect: 'aspect-[4/3]',  size: 'w-[80px]  md:w-[180px]', pos: 'absolute left-[10%]  top-[12%]  md:left-[4%]  md:top-[13%]', rotate: -6 },
+  { src: '/shortform/project-rspi-5.webp',   aspect: 'aspect-[9/16]', size: 'w-[60px]  md:w-[140px]', pos: 'absolute left-[36%] top-[7%]  md:left-[26%] md:top-[10%]', rotate: 5  },
+  { src: '/graphic/banner-1.webp',           aspect: 'aspect-[16/9]', size: 'w-[96px]  md:w-[220px]', pos: 'absolute left-[62%] top-[10%] md:left-[64%] md:top-[11%]', rotate: 4  },
 
   // Middle band — desktop only (hidden on mobile so it doesn't overlap text)
-  { src: '/assets/motion/project-sats-1.webp',      aspect: 'aspect-square', size: 'md:w-[170px]',           pos: 'absolute hidden md:block md:left-[46%] md:top-[17%]', rotate: -3 },
-  { src: '/assets/shortform/project-pocari-1.webp', aspect: 'aspect-[9/16]', size: 'md:w-[130px]',           pos: 'absolute hidden md:block md:left-[82%] md:top-[27%]', rotate: -7 },
-  { src: '/assets/motion/project-asahi-1.webp',     aspect: 'aspect-square', size: 'md:w-[170px]',           pos: 'absolute hidden md:block md:left-[8%]  md:top-[39%]', rotate: 3  },
-  { src: '/assets/graphic/booklet-2-1.webp',        aspect: 'aspect-[3/4]',  size: 'md:w-[160px]',           pos: 'absolute hidden md:block md:left-[30%] md:top-[43%]', rotate: -5 },
-  { src: '/assets/motion/project-asahi-2.webp',     aspect: 'aspect-[16/9]', size: 'md:w-[230px]',           pos: 'absolute hidden md:block md:left-[50%] md:top-[45%]', rotate: 5  },
-  { src: '/assets/graphic/booklet-1-1.webp',        aspect: 'aspect-square', size: 'md:w-[160px]',           pos: 'absolute hidden md:block md:left-[78%] md:top-[51%]', rotate: -4 },
+  { src: '/motion/project-sats-1.webp',      aspect: 'aspect-square', size: 'md:w-[170px]',           pos: 'absolute hidden md:block md:left-[46%] md:top-[17%]', rotate: -3 },
+  { src: '/shortform/project-pocari-1.webp', aspect: 'aspect-[9/16]', size: 'md:w-[130px]',           pos: 'absolute hidden md:block md:left-[82%] md:top-[27%]', rotate: -7 },
+  { src: '/motion/project-asahi-1.webp',     aspect: 'aspect-square', size: 'md:w-[170px]',           pos: 'absolute hidden md:block md:left-[8%]  md:top-[39%]', rotate: 3  },
+  { src: '/graphic/booklet-2-1.webp',        aspect: 'aspect-[3/4]',  size: 'md:w-[160px]',           pos: 'absolute hidden md:block md:left-[30%] md:top-[43%]', rotate: -5 },
+  { src: '/motion/project-asahi-2.webp',     aspect: 'aspect-[16/9]', size: 'md:w-[230px]',           pos: 'absolute hidden md:block md:left-[50%] md:top-[45%]', rotate: 5  },
+  { src: '/graphic/booklet-1-1.webp',        aspect: 'aspect-square', size: 'md:w-[160px]',           pos: 'absolute hidden md:block md:left-[78%] md:top-[51%]', rotate: -4 },
 
   // Bottom strip — visible mobile + desktop
-  { src: '/assets/motion/project-sats-3.webp',      aspect: 'aspect-[16/9]', size: 'w-[100px] md:w-[230px]', pos: 'absolute left-[2%]  top-[80%] md:left-[4%]  md:top-[71%]', rotate: 4  },
-  { src: '/assets/shortform/project-mantappu-academy-4.webp', aspect: 'aspect-[9/16]', size: 'w-[60px] md:w-[140px]', pos: 'absolute left-[38%] top-[82%] md:left-[36%] md:top-[73%]', rotate: -6 },
-  { src: '/assets/longform/banner-2.webp',          aspect: 'aspect-[16/9]', size: 'w-[100px] md:w-[230px]', pos: 'absolute left-[64%] top-[78%] md:left-[58%] md:top-[75%]', rotate: 3  },
+  { src: '/motion/project-sats-3.webp',      aspect: 'aspect-[16/9]', size: 'w-[100px] md:w-[230px]', pos: 'absolute left-[2%]  top-[80%] md:left-[4%]  md:top-[71%]', rotate: 4  },
+  { src: '/shortform/project-mantappu-academy-4.webp', aspect: 'aspect-[9/16]', size: 'w-[60px] md:w-[140px]', pos: 'absolute left-[38%] top-[82%] md:left-[36%] md:top-[73%]', rotate: -6 },
+  { src: '/longform/banner-2.webp',          aspect: 'aspect-[16/9]', size: 'w-[100px] md:w-[230px]', pos: 'absolute left-[64%] top-[78%] md:left-[58%] md:top-[75%]', rotate: 3  },
 ];
 
 export default function Hero() {

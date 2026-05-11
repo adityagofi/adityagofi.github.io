@@ -35,8 +35,8 @@ const ADS_PROJECTS = [
     headline: ["Mantappu", "Academy", "SNBT 2024"], // last entry rendered as the orange accent
     description: "For the SNBT prep season, we developed a high-impact creative framework focused on the \"Education journey.\" By combining student-first messaging with aggressive mid-funnel retargeting, we achieved a significant breakthrough in enrollment rates.",
     tags: ["Education", "Video Ads", "Conversion Focus"],
-    image: "/assets/meta/project-1.webp",
-    videoThumb: "/assets/meta/project-1.webp",
+    image: "/meta/project-1.webp",
+    videoThumb: "/meta/project-1.webp",
     videoId: "8lECBDOp-Jc?si=BIgUjfyLIBxaK3ma",
     overline: "Scale Campaign",
     cta: "Watch the Ad Content",
@@ -46,10 +46,10 @@ const ADS_PROJECTS = [
 ];
 
 const bannerImages = [
-  "/assets/meta/banner-1.webp",
-  "/assets/meta/banner-2.webp",
-  "/assets/meta/banner-3.webp",
-  "/assets/meta/banner-4.webp",
+  "/meta/banner-1.webp",
+  "/meta/banner-2.webp",
+  "/meta/banner-3.webp",
+  "/meta/banner-4.webp",
 ];
 
 export default function MetaAdsProject() {

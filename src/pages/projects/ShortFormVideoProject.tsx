@@ -8,12 +8,12 @@ import SketchDecorations from '@/components/ui/SketchDecorations';
 import VideoModal from '@/components/ui/VideoModal';
 
 const bannerImages = [
-  "/assets/shortform/banner-1.mp4",
-  "/assets/shortform/banner-2.mp4",
-  "/assets/shortform/banner-3.mp4",
-  "/assets/shortform/banner-4.mp4",
-  "/assets/shortform/banner-5.mp4",
-  "/assets/shortform/banner-6.mp4",
+  "/shortform/banner-1.mp4",
+  "/shortform/banner-2.mp4",
+  "/shortform/banner-3.mp4",
+  "/shortform/banner-4.mp4",
+  "/shortform/banner-5.mp4",
+  "/shortform/banner-6.mp4",
 ];
 
 const projects = [
@@ -24,10 +24,10 @@ const projects = [
     category: "Branding Campaign",
     description: "Bintang SMA is a national student talent search competition. I created a series of dynamic short videos for TikTok and Reels to promote the event, featuring energetic edits to drive engagement among high school students across Indonesia.",
     videos: [
-      { id: "bDGXZZNxU4A?si=60kNFdNmsmHfhyjE", thumbnail: "/assets/shortform/project-pocari-1.webp" },
-      { id: "YjPIg1WQ2iw?si=-vQ_rYdJ_DCJltQB", thumbnail: "/assets/shortform/project-pocari-2.webp" },
-      { id: "mePqPbIC_Yo?si=NOh-8PHMdKUOB0Nm", thumbnail: "/assets/shortform/project-pocari-3.webp" },
-      { id: "4CHF8njkgA0?si=EafJ5MJ8gTc9IJqF", thumbnail: "/assets/shortform/project-pocari-4.webp" },
+      { id: "bDGXZZNxU4A?si=60kNFdNmsmHfhyjE", thumbnail: "/shortform/project-pocari-1.webp" },
+      { id: "YjPIg1WQ2iw?si=-vQ_rYdJ_DCJltQB", thumbnail: "/shortform/project-pocari-2.webp" },
+      { id: "mePqPbIC_Yo?si=NOh-8PHMdKUOB0Nm", thumbnail: "/shortform/project-pocari-3.webp" },
+      { id: "4CHF8njkgA0?si=EafJ5MJ8gTc9IJqF", thumbnail: "/shortform/project-pocari-4.webp" },
     ]
   },
   {
@@ -37,14 +37,14 @@ const projects = [
     category: "Healthcare Content",
     description: "Short-form videos for one of Indonesia's leading private hospitals — health awareness, service highlights, and patient stories crafted to feel approachable while staying medically credible.",
     videos: [
-      { id: "x9iulHZlCGc?si=xKM73OXzttK0Mdcc", thumbnail: "/assets/shortform/project-rspi-1.webp" },
-      { id: "03UHHkUQhwg?si=dVxK5LPxpQbFDTkD", thumbnail: "/assets/shortform/project-rspi-2.webp" },
-      { id: "8QYdJocDWuY?si=AfIjWt132ynbr9_r", thumbnail: "/assets/shortform/project-rspi-3.webp" },
-      { id: "lGffLtHxRDo?si=0p1Wdn7fPiaM-Ut4s", thumbnail: "/assets/shortform/project-rspi-4.webp" },
-      { id: "pkMDWtYfNno?si=CYk_-yKCQqS4uF1R", thumbnail: "/assets/shortform/project-rspi-5.webp" },
-      { id: "fOZt1q4DoF8?si=WjlF83h7JX8mCk-j", thumbnail: "/assets/shortform/project-rspi-6.webp" },
-      { id: "ihdXI_Um8yY?si=QLphxppmaqGHBwXw", thumbnail: "/assets/shortform/project-rspi-7.webp" },
-      { id: "k4lLQOLScKo?si=_eCKWyAk9eLUDSfy", thumbnail: "/assets/shortform/project-rspi-8.webp" },
+      { id: "x9iulHZlCGc?si=xKM73OXzttK0Mdcc", thumbnail: "/shortform/project-rspi-1.webp" },
+      { id: "03UHHkUQhwg?si=dVxK5LPxpQbFDTkD", thumbnail: "/shortform/project-rspi-2.webp" },
+      { id: "8QYdJocDWuY?si=AfIjWt132ynbr9_r", thumbnail: "/shortform/project-rspi-3.webp" },
+      { id: "lGffLtHxRDo?si=0p1Wdn7fPiaM-Ut4s", thumbnail: "/shortform/project-rspi-4.webp" },
+      { id: "pkMDWtYfNno?si=CYk_-yKCQqS4uF1R", thumbnail: "/shortform/project-rspi-5.webp" },
+      { id: "fOZt1q4DoF8?si=WjlF83h7JX8mCk-j", thumbnail: "/shortform/project-rspi-6.webp" },
+      { id: "ihdXI_Um8yY?si=QLphxppmaqGHBwXw", thumbnail: "/shortform/project-rspi-7.webp" },
+      { id: "k4lLQOLScKo?si=_eCKWyAk9eLUDSfy", thumbnail: "/shortform/project-rspi-8.webp" },
     ]
   },
   {
@@ -54,13 +54,13 @@ const projects = [
     category: "Travel & Hospitality",
     description: "Vertical content for Singapore's Changi Airport — facility highlights, dining and shopping discovery, and traveler-tip edits built for TikTok and Reels to inspire and inform passengers on the move.",
     videos: [
-      { id: "idQjJRSBgr8?si=wKBYiN2ybYeC070H", thumbnail: "/assets/shortform/project-changi-1.webp" },
-      { id: "Sq17YYl45xA?si=tEW5JCziciwu-OKL", thumbnail: "/assets/shortform/project-changi-2.webp" },
-      { id: "5heIQRMPEj4?si=B9ojlh566weN1dSd", thumbnail: "/assets/shortform/project-changi-3.webp" },
-      { id: "coeF7Y7SKsw?si=DwHUkw8GofBULiWA", thumbnail: "/assets/shortform/project-changi-4.webp" },
-      { id: "diD-dDPgW_I?si=sOjBy_l4qRKVJW16", thumbnail: "/assets/shortform/project-changi-5.webp" },
-      { id: "r1OREtLjAz4?si=kVoSFEuh1nP2EXs4", thumbnail: "/assets/shortform/project-changi-6.webp" },
-      { id: "bTVpIblMR0k?si=VTAUZRBj1ZPx2ZBm", thumbnail: "/assets/shortform/project-changi-7.webp" },
+      { id: "idQjJRSBgr8?si=wKBYiN2ybYeC070H", thumbnail: "/shortform/project-changi-1.webp" },
+      { id: "Sq17YYl45xA?si=tEW5JCziciwu-OKL", thumbnail: "/shortform/project-changi-2.webp" },
+      { id: "5heIQRMPEj4?si=B9ojlh566weN1dSd", thumbnail: "/shortform/project-changi-3.webp" },
+      { id: "coeF7Y7SKsw?si=DwHUkw8GofBULiWA", thumbnail: "/shortform/project-changi-4.webp" },
+      { id: "diD-dDPgW_I?si=sOjBy_l4qRKVJW16", thumbnail: "/shortform/project-changi-5.webp" },
+      { id: "r1OREtLjAz4?si=kVoSFEuh1nP2EXs4", thumbnail: "/shortform/project-changi-6.webp" },
+      { id: "bTVpIblMR0k?si=VTAUZRBj1ZPx2ZBm", thumbnail: "/shortform/project-changi-7.webp" },
     ]
   },
   {
@@ -70,9 +70,9 @@ const projects = [
     category: "Branding Campaign",
     description: "Short-form vehicle showcases and lifestyle pieces for Wuling's Indonesian arm — supporting product launches and dealership campaigns with a sharp, platform-native visual language.",
     videos: [
-      { id: "t4Od_Q3A-kM?si=sCk8YIxvjQbQZltR", thumbnail: "/assets/shortform/project-wuling-1.webp" },
-      { id: "MOzSv3n6y_4?si=OlmPCtVUZJRNaqff", thumbnail: "/assets/shortform/project-wuling-2.webp" },
-      { id: "ZyJ9YA98jqk?si=HV-vMSe_razhxIad", thumbnail: "/assets/shortform/project-wuling-3.webp" },
+      { id: "t4Od_Q3A-kM?si=sCk8YIxvjQbQZltR", thumbnail: "/shortform/project-wuling-1.webp" },
+      { id: "MOzSv3n6y_4?si=OlmPCtVUZJRNaqff", thumbnail: "/shortform/project-wuling-2.webp" },
+      { id: "ZyJ9YA98jqk?si=HV-vMSe_razhxIad", thumbnail: "/shortform/project-wuling-3.webp" },
     ]
   },
   {
@@ -82,12 +82,12 @@ const projects = [
     category: "Corporate Branding",
     description: "Short-form reels and announcement edits for Mantappu Corp's owned media presence — covering corporate channel content, behind-the-scenes, and brand campaigns under one of Indonesia's biggest creator networks.",
     videos: [
-      { id: "egQqNXgkjwM?si=GBSMuii3lbj8IJeJ", thumbnail: "/assets/shortform/project-mantappu-corp-1.webp" },
-      { id: "HTsUGJC-pUQ?si=9KSZduLJynwReOZZ", thumbnail: "/assets/shortform/project-mantappu-corp-2.webp" },
-      { id: "9qBRF-rFU-k?si=nAKeFmzn5nUDjsH6", thumbnail: "/assets/shortform/project-mantappu-corp-3.webp" },
-      { id: "gyPDXgF4LHM?si=bKjuxfiFVtVHepK6", thumbnail: "/assets/shortform/project-mantappu-corp-4.webp" },
-      { id: "YwPQvsoh73I?si=RbmwL5ghiNo1-fk7", thumbnail: "/assets/shortform/project-mantappu-corp-5.webp" },
-      { id: "e_qZt1qU9o0?si=88IDNJtvALkQYSwc", thumbnail: "/assets/shortform/project-mantappu-corp-6.webp" },
+      { id: "egQqNXgkjwM?si=GBSMuii3lbj8IJeJ", thumbnail: "/shortform/project-mantappu-corp-1.webp" },
+      { id: "HTsUGJC-pUQ?si=9KSZduLJynwReOZZ", thumbnail: "/shortform/project-mantappu-corp-2.webp" },
+      { id: "9qBRF-rFU-k?si=nAKeFmzn5nUDjsH6", thumbnail: "/shortform/project-mantappu-corp-3.webp" },
+      { id: "gyPDXgF4LHM?si=bKjuxfiFVtVHepK6", thumbnail: "/shortform/project-mantappu-corp-4.webp" },
+      { id: "YwPQvsoh73I?si=RbmwL5ghiNo1-fk7", thumbnail: "/shortform/project-mantappu-corp-5.webp" },
+      { id: "e_qZt1qU9o0?si=88IDNJtvALkQYSwc", thumbnail: "/shortform/project-mantappu-corp-6.webp" },
     ]
   },
   {
@@ -97,10 +97,10 @@ const projects = [
     category: "Education Content",
     description: "Short-form study tips, motivational clips, and SNBT-prep content for Mantappu Academy's student-facing channels — tuned for TikTok and Instagram engagement during peak exam-prep season.",
     videos: [
-      { id: "syrjTpZh-Q0?si=v-8Hr4o-CjAn3UvD", thumbnail: "/assets/shortform/project-mantappu-academy-1.webp" },
-      { id: "041XaH9LyDw?si=7_ZpM2I1eu0Gg7az", thumbnail: "/assets/shortform/project-mantappu-academy-2.webp" },
-      { id: "11-NXb_IXms?si=Hr3saqpAXodIVu6D", thumbnail: "/assets/shortform/project-mantappu-academy-3.webp" },
-      { id: "x0L4M4tcWBw?si=SGbb5BniYcCNiSCN", thumbnail: "/assets/shortform/project-mantappu-academy-4.webp" },
+      { id: "syrjTpZh-Q0?si=v-8Hr4o-CjAn3UvD", thumbnail: "/shortform/project-mantappu-academy-1.webp" },
+      { id: "041XaH9LyDw?si=7_ZpM2I1eu0Gg7az", thumbnail: "/shortform/project-mantappu-academy-2.webp" },
+      { id: "11-NXb_IXms?si=Hr3saqpAXodIVu6D", thumbnail: "/shortform/project-mantappu-academy-3.webp" },
+      { id: "x0L4M4tcWBw?si=SGbb5BniYcCNiSCN", thumbnail: "/shortform/project-mantappu-academy-4.webp" },
     ]
   },
   {
@@ -110,10 +110,10 @@ const projects = [
     category: "Various Clients",
     description: "A long-running roster of short-form work for content creators and individual clients across Indonesia — from creator collaborations to one-off campaign pieces. The brief stays the same: hook fast, edit tight, ship daily.",
     videos: [
-      { id: "f9GQW8Wp9b4?si=z9qeB8SvZYMIvSj-", thumbnail: "/assets/shortform/project-others-1.webp" },
-      { id: "LbipgWAwYIg?si=RM1cpeYgQTaw4uCv", thumbnail: "/assets/shortform/project-others-2.webp" },
-      { id: "HQPLrIV1OWM?si=gllzoQ6u96FdiTDO", thumbnail: "/assets/shortform/project-others-3.webp" },
-      { id: "4VJ_rnda2PU?si=Y39baRjXs6c4GFy_", thumbnail: "/assets/shortform/project-others-4.webp" },
+      { id: "f9GQW8Wp9b4?si=z9qeB8SvZYMIvSj-", thumbnail: "/shortform/project-others-1.webp" },
+      { id: "LbipgWAwYIg?si=RM1cpeYgQTaw4uCv", thumbnail: "/shortform/project-others-2.webp" },
+      { id: "HQPLrIV1OWM?si=gllzoQ6u96FdiTDO", thumbnail: "/shortform/project-others-3.webp" },
+      { id: "4VJ_rnda2PU?si=Y39baRjXs6c4GFy_", thumbnail: "/shortform/project-others-4.webp" },
     ]
   }
 ];

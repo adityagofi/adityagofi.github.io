@@ -6,20 +6,20 @@ import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIco
 import SketchDecorations from '@/components/ui/SketchDecorations';
 
 const GRADUATION_IMAGES = [
-  { id: 1, url: '/assets/photography/grad-1.webp', title: 'Class of 2024' },
-  { id: 2, url: '/assets/photography/grad-2.webp', title: 'Golden Hour Celebration' },
-  { id: 3, url: '/assets/photography/grad-3.webp', title: 'Academic Excellence' },
-  { id: 4, url: '/assets/photography/grad-4.webp', title: 'Campus Memories' },
-  { id: 5, url: '/assets/photography/grad-5.webp', title: 'Future Leaders' },
-  { id: 6, url: '/assets/photography/grad-6.webp', title: 'Final Farewell' },
-  { id: 7, url: '/assets/photography/grad-7.webp', title: 'Success Path' },
+  { id: 1, url: '/photography/grad-1.webp', title: 'Class of 2024' },
+  { id: 2, url: '/photography/grad-2.webp', title: 'Golden Hour Celebration' },
+  { id: 3, url: '/photography/grad-3.webp', title: 'Academic Excellence' },
+  { id: 4, url: '/photography/grad-4.webp', title: 'Campus Memories' },
+  { id: 5, url: '/photography/grad-5.webp', title: 'Future Leaders' },
+  { id: 6, url: '/photography/grad-6.webp', title: 'Final Farewell' },
+  { id: 7, url: '/photography/grad-7.webp', title: 'Success Path' },
 ];
 
 const bannerImages = [
-  "/assets/photography/banner-1.webp",
-  "/assets/photography/banner-2.webp",
-  "/assets/photography/banner-3.webp",
-  "/assets/photography/banner-4.webp",
+  "/photography/banner-1.webp",
+  "/photography/banner-2.webp",
+  "/photography/banner-3.webp",
+  "/photography/banner-4.webp",
 ];
 
 const PHOTOGRAPHY_TAGS = ["Portrait", "Wedding", "Graduation", "Event", "Documentary", "Visual Storytelling"];

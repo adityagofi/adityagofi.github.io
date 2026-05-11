@@ -31,7 +31,7 @@ const RESEARCH_PROJECTS = [
     category: "Price Intelligence",
     description: "A scrapped data of fragrance prices for various retailers.",
     tags: ["Python", "Selenium", "Data Visualization"],
-    image: "/assets/research/project-1.webp",
+    image: "/research/project-1.webp",
     link: "",
     stats: { accuracy: "99.8%", frequency: "Hourly", coverage: "10+ Sites" }
   },
@@ -41,7 +41,7 @@ const RESEARCH_PROJECTS = [
     category: "Influencer Intelligence",
     description: "An automated KOL discovery pipeline that scrapes creator profiles across social platforms and enriches each record with engagement-rate (ER) calculations, follower demographics, and content category — building a searchable influencer database for campaign planning.",
     tags: ["Python", "Selenium", "ER Calculation", "Pandas"],
-    image: "/assets/research/project-2.webp",
+    image: "/research/project-2.webp",
     link: "",
     stats: { kols: "100+", erRange: "0.3% – 12%", platforms: "IG / TikTok / YT" }
   }
@@ -50,8 +50,8 @@ const RESEARCH_PROJECTS = [
 const RESEARCH_TAGS = ["Web Scraping", "Data Mining", "ETL Pipelines", "Competitive Intelligence", "Sentiment Analysis", "Market Trends", "Lead Generation"];
 
 const bannerImages = [
-  "/assets/research/banner-1.webp",
-  "/assets/research/banner-2.webp",
+  "/research/banner-1.webp",
+  "/research/banner-2.webp",
 ];
 
 export default function MarketResearchProject() {

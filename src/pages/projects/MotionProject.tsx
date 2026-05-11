@@ -8,10 +8,10 @@ import VideoModal from '@/components/ui/VideoModal';
 import SketchDecorations from '@/components/ui/SketchDecorations';
 
 const bannerImages = [
-  "/assets/motion/banner-1.mp4",
-  "/assets/motion/banner-2.mp4",
-  "/assets/motion/banner-3.mp4",
-  "/assets/motion/banner-4.mp4",
+  "/motion/banner-1.mp4",
+  "/motion/banner-2.mp4",
+  "/motion/banner-3.mp4",
+  "/motion/banner-4.mp4",
 ];
 
 const projects = [
@@ -23,11 +23,11 @@ const projects = [
     tools: ["After Effects", "Premiere Pro", " Adobe Illustrator"],
     process: ["ASSET PREPARATION", "COMPOSITING", "MOTION DESIGN", "BRAND DELIVERY"],
     videos: [
-      { id: "6e4iAQoJe2Q?si=ReCBPDVp_TZsN0-K", thumbnail: "/assets/motion/project-sats-1.webp" },
-      { id: "PSrjIgHP8_w?si=zmBX_iz5WLyCJbzP", thumbnail: "/assets/motion/project-sats-2.webp" },
-      { id: "DIZUdyIjFQI?si=0ot06FChsTNz46bp", thumbnail: "/assets/motion/project-sats-3.webp" },
-      { id: "aVfRjooW_HA?si=13jiIIVZYm6pi8TG", thumbnail: "/assets/motion/project-sats-4.webp" },
-      { id: "ZzpjP8yzEpU?si=ivQ-SYKeprDj4AMm", thumbnail: "/assets/motion/project-sats-5.webp" },
+      { id: "6e4iAQoJe2Q?si=ReCBPDVp_TZsN0-K", thumbnail: "/motion/project-sats-1.webp" },
+      { id: "PSrjIgHP8_w?si=zmBX_iz5WLyCJbzP", thumbnail: "/motion/project-sats-2.webp" },
+      { id: "DIZUdyIjFQI?si=0ot06FChsTNz46bp", thumbnail: "/motion/project-sats-3.webp" },
+      { id: "aVfRjooW_HA?si=13jiIIVZYm6pi8TG", thumbnail: "/motion/project-sats-4.webp" },
+      { id: "ZzpjP8yzEpU?si=ivQ-SYKeprDj4AMm", thumbnail: "/motion/project-sats-5.webp" },
     ]
   },
   {
@@ -38,11 +38,11 @@ const projects = [
     tools: ["After Effects", "Premiere Pro", "Adobe Illustrator"],
     process: ["BRAND ALIGNMENT", "COMPOSITING", "MOTION DESIGN", "FINAL ASSEMBLY"],
     videos: [
-      { id: "qLpifVZ-dmk?si=y35j26pEmsV8Puge", thumbnail: "/assets/motion/project-asahi-1.webp" },
-      { id: "8DDICzKh3WM?si=-azAmIfSRZNz8k1E", thumbnail: "/assets/motion/project-asahi-2.webp" },
-      { id: "xza2qTI-uyI?si=SVaS_w0cIWc_fHZw", thumbnail: "/assets/motion/project-asahi-3.webp" },
-      { id: "VyO0TLW2kNE?si=GL3A1Pv7hVPSACmp", thumbnail: "/assets/motion/project-asahi-4.webp" },
-      { id: "rsH6bARSwJE?si=Sp7FTKrRq6EGYJS0", thumbnail: "/assets/motion/project-asahi-5.webp" },
+      { id: "qLpifVZ-dmk?si=y35j26pEmsV8Puge", thumbnail: "/motion/project-asahi-1.webp" },
+      { id: "8DDICzKh3WM?si=-azAmIfSRZNz8k1E", thumbnail: "/motion/project-asahi-2.webp" },
+      { id: "xza2qTI-uyI?si=SVaS_w0cIWc_fHZw", thumbnail: "/motion/project-asahi-3.webp" },
+      { id: "VyO0TLW2kNE?si=GL3A1Pv7hVPSACmp", thumbnail: "/motion/project-asahi-4.webp" },
+      { id: "rsH6bARSwJE?si=Sp7FTKrRq6EGYJS0", thumbnail: "/motion/project-asahi-5.webp" },
     ]
   },
   {
@@ -53,7 +53,7 @@ const projects = [
     tools: ["After Effects", "Adobe Illustrator"],
     process: ["BRAND STUDY", "MOTION DESIGN", "FINAL DELIVERY"],
     videos: [
-      { id: "83hD6AzHgv4?si=Za_aCgtX0QwzPX6C", thumbnail: "/assets/motion/project-pagebypage-1.webp" },
+      { id: "83hD6AzHgv4?si=Za_aCgtX0QwzPX6C", thumbnail: "/motion/project-pagebypage-1.webp" },
     ]
   },
   {
@@ -64,11 +64,11 @@ const projects = [
     tools: ["After Effects", "Premiere Pro", "Adobe Illustrator"],
     process: ["CONCEPT", "STORYBOARDING", "MOTION DESIGN", "ON-STAGE DELIVERY"],
     videos: [
-      { id: "WUIYjz4xeNI?si=zjoN6V2sXLj0KRT9", thumbnail: "/assets/motion/project-rocketindo-1.webp" },
-      { id: "PJA_o4raqLU?si=XWDTtFD6kSvOWThG", thumbnail: "/assets/motion/project-rocketindo-2.webp" },
-      { id: "NXlX3jDOxyc?si=RHf95wQgMjpImr9B", thumbnail: "/assets/motion/project-rocketindo-3.webp" },
-      { id: "abun14N8HAc?si=xPJG5Jy_d8U2ZA2j", thumbnail: "/assets/motion/project-rocketindo-4.webp" },
-      { id: "nWGorJBpExY?si=EMLyQZ4zAjwd9ETc", thumbnail: "/assets/motion/project-rocketindo-5.webp" },
+      { id: "WUIYjz4xeNI?si=zjoN6V2sXLj0KRT9", thumbnail: "/motion/project-rocketindo-1.webp" },
+      { id: "PJA_o4raqLU?si=XWDTtFD6kSvOWThG", thumbnail: "/motion/project-rocketindo-2.webp" },
+      { id: "NXlX3jDOxyc?si=RHf95wQgMjpImr9B", thumbnail: "/motion/project-rocketindo-3.webp" },
+      { id: "abun14N8HAc?si=xPJG5Jy_d8U2ZA2j", thumbnail: "/motion/project-rocketindo-4.webp" },
+      { id: "nWGorJBpExY?si=EMLyQZ4zAjwd9ETc", thumbnail: "/motion/project-rocketindo-5.webp" },
     ]
   },
   {
@@ -79,9 +79,9 @@ const projects = [
     tools: ["After Effects", "Adobe Illustrator"],
     process: ["LOGO VECTORIZATION", "MOTION STORYBOARDING", "FLUID ANIMATION"],
     videos: [
-      { id: "4YGU5brEefo?si=ta8xPSxfSRpgDLtj", thumbnail: "/assets/motion/project-logos-1.webp" },
-      { id: "vO9dL6rn9c8?si=NivV2MCv6MNnjyBH", thumbnail: "/assets/motion/project-logos-2.webp" },
-      { id: "jDznvfNzPjE?si=11XdPkWC1DPx8IQ9", thumbnail: "/assets/motion/project-logos-3.webp" },
+      { id: "4YGU5brEefo?si=ta8xPSxfSRpgDLtj", thumbnail: "/motion/project-logos-1.webp" },
+      { id: "vO9dL6rn9c8?si=NivV2MCv6MNnjyBH", thumbnail: "/motion/project-logos-2.webp" },
+      { id: "jDznvfNzPjE?si=11XdPkWC1DPx8IQ9", thumbnail: "/motion/project-logos-3.webp" },
     ]
   },
   {
@@ -92,7 +92,7 @@ const projects = [
     tools: ["After Effects", "Premiere Pro"],
     process: ["STORYBOARDING", "VISUAL DESIGN", "MOTION & EDIT"],
     videos: [
-      { id: "aawdawdwdasdaws", thumbnail: "/assets/motion/project-advanced-agri-1.webp" },
+      { id: "aawdawdwdasdaws", thumbnail: "/motion/project-advanced-agri-1.webp" },
 
     ]
   },

@@ -133,7 +133,7 @@ export default function About() {
                   <div key={idx} className="flex items-center gap-3 md:gap-4 group cursor-default flex-shrink-0">
                     <div className="w-12 h-12 md:w-16 md:h-16 aspect-square rounded-xl bg-white/5 border border-white/10 overflow-hidden grayscale group-hover:grayscale-0 transition-all duration-500 group-hover:border-orange-500/50 group-hover:bg-orange-500/5 flex-shrink-0">
                       <img 
-                        src={`/assets/clients/${client.url}`} 
+                        src={`/clients/${client.url}`} 
                         alt={client.name} 
                         className="w-full h-full object-contain opacity-40 group-hover:opacity-100 transition-opacity"
                         referrerPolicy="no-referrer"

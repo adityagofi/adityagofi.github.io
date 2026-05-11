@@ -8,10 +8,10 @@ import SketchDecorations from '@/components/ui/SketchDecorations';
 import VideoModal from '@/components/ui/VideoModal';
 
 const bannerImages = [
-  "/assets/longform/banner-1.webp",
-  "/assets/longform/banner-2.webp",
-  "/assets/longform/banner-3.webp",
-  "/assets/longform/banner-4.webp",
+  "/longform/banner-1.webp",
+  "/longform/banner-2.webp",
+  "/longform/banner-3.webp",
+  "/longform/banner-4.webp",
 ];
 
 const SECTIONS = [
@@ -19,26 +19,26 @@ const SECTIONS = [
     title: "Jerome Polin Vlog Video",
     desc: "Dynamic, fast-paced vlogs that capture the essence of travel, food, and culture through Jerome's unique lens.",
     videos: [
-      { id: "pNlmn48warw?si=xLMth3AZ_SM7MAzx", title: "JEROME JADI ORANG ARAB!? MUKBANG MAKANAN ARAB + CERITA SERU FT. TASYA FARASYA", thumbnail: "/assets/longform/section-2-1.webp", desc: "Jerome x Tasya Farasya" },
-      { id: "Piuw_Kom4dA?si=xIPQzizw3TELcQkm", title: "PASAR MALAM VIRAL BANGKOK! IGA RAKSASA, SERANGGA GORENG, PENJUAL JUS VIRAL!? | WORLD TRIP 2", thumbnail: "/assets/longform/section-2-2.webp", desc: "Waseda Boys World Tour Thailand" },
-      { id: "bgrAJpyqVA4?si=kBU3gmU8O9ihip7ass", title: "REACTION REWIND INDONESIA 2023! TOMO PERTAMA KALI IKUT, SAMPE MERINDING!!", thumbnail: "/assets/longform/section-2-3.webp", desc: "Indonesian Reaction Rewind 2023" },
+      { id: "pNlmn48warw?si=xLMth3AZ_SM7MAzx", title: "JEROME JADI ORANG ARAB!? MUKBANG MAKANAN ARAB + CERITA SERU FT. TASYA FARASYA", thumbnail: "/longform/section-2-1.webp", desc: "Jerome x Tasya Farasya" },
+      { id: "Piuw_Kom4dA?si=xIPQzizw3TELcQkm", title: "PASAR MALAM VIRAL BANGKOK! IGA RAKSASA, SERANGGA GORENG, PENJUAL JUS VIRAL!? | WORLD TRIP 2", thumbnail: "/longform/section-2-2.webp", desc: "Waseda Boys World Tour Thailand" },
+      { id: "bgrAJpyqVA4?si=kBU3gmU8O9ihip7ass", title: "REACTION REWIND INDONESIA 2023! TOMO PERTAMA KALI IKUT, SAMPE MERINDING!!", thumbnail: "/longform/section-2-3.webp", desc: "Indonesian Reaction Rewind 2023" },
     ]
   },
   {
     title: "Mantappu Academy Education Video",
     desc: "Educational yet entertaining content focusing on personal growth, creativity, and academy life.",
     videos: [
-      { id: "C1-cGjurGyA?si=1s_ayLTSGpHorO5r", title: "NGERJAIN SOAL SOAL TENTANG SNBT!!!! WAJIB DIPAHAMI", thumbnail: "/assets/longform/section-3-1.webp", desc: "Soal SNBT" },
-      { id: "H96S0kHyQdk?si=5En0M_pGElt1J_xZ", title: "BAHAS & TRIK 15 SOAL ASLI SNBT PENGETAHUAN KUANTITATIF!", thumbnail: "/assets/longform/section-3-2.webp", desc: "Tips & Tricks Kerjain Soal SNBT" },
-      { id: "FqYIq9kdshM?si=apWzQ-7iotBVwzHJ", title: "LOGARITMA ITU GAMPANG!! Bahas Logaritma Kelas 10", thumbnail: "/assets/longform/section-3-3.webp", desc: "Belajar Logaritma" }
+      { id: "C1-cGjurGyA?si=1s_ayLTSGpHorO5r", title: "NGERJAIN SOAL SOAL TENTANG SNBT!!!! WAJIB DIPAHAMI", thumbnail: "/longform/section-3-1.webp", desc: "Soal SNBT" },
+      { id: "H96S0kHyQdk?si=5En0M_pGElt1J_xZ", title: "BAHAS & TRIK 15 SOAL ASLI SNBT PENGETAHUAN KUANTITATIF!", thumbnail: "/longform/section-3-2.webp", desc: "Tips & Tricks Kerjain Soal SNBT" },
+      { id: "FqYIq9kdshM?si=apWzQ-7iotBVwzHJ", title: "LOGARITMA ITU GAMPANG!! Bahas Logaritma Kelas 10", thumbnail: "/longform/section-3-3.webp", desc: "Belajar Logaritma" }
     ]
   },
   {
     title: "Independent & Client Productions",
     desc: "A range of long-form work spanning YouTube documenter pieces, marketing storytelling for brands, and academic short films — each crafted with the same attention to narrative pacing and cinematic finish.",
     videos: [
-      { id: "kZ7V5QMSrsA?si=9sy6tpGYuDKy22vc", title: "Stop PMO", thumbnail: "/assets/longform/section-1-1.webp", desc: "Short film how  to stop PMO" },
-      { id: "9MZHNkbAX4A?si=kjk2tNI2SHFEh5Ub", title: "Tiger Mothering", thumbnail: "/assets/longform/section-1-2.webp", desc: "A look at the pressures of academic excellence in a competitive environment." },
+      { id: "kZ7V5QMSrsA?si=9sy6tpGYuDKy22vc", title: "Stop PMO", thumbnail: "/longform/section-1-1.webp", desc: "Short film how  to stop PMO" },
+      { id: "9MZHNkbAX4A?si=kjk2tNI2SHFEh5Ub", title: "Tiger Mothering", thumbnail: "/longform/section-1-2.webp", desc: "A look at the pressures of academic excellence in a competitive environment." },
     ]
   }
 ];
