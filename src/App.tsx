@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Analytics } from '@vercel/analytics/react';
 import { ViewType, viewToPath, pathToView, viewToTitle } from '@/router/routes';
 import Navbar from '@/components/layout/Navbar';
 import Footer from '@/components/layout/Footer';
@@ -87,6 +88,7 @@ export default function App() {
         <WebDevelopmentProject />
       )}
       <Footer currentView={view} />
+      <Analytics />
     </main>
   );
 }
