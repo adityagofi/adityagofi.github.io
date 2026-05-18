@@ -127,7 +127,7 @@ export default function ShortFormVideoProject() {
     Object.fromEntries(projects.map(p => [p.id, 0]))
   );
   const [bannerDuration, setBannerDuration] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 5 : 20
+    typeof window !== 'undefined' && window.innerWidth < 768 ? 13 : 20
   );
   const [bannerItemVw, setBannerItemVw] = useState(() =>
     typeof window !== 'undefined' && window.innerWidth < 768 ? 50 : 25
@@ -136,7 +136,7 @@ export default function ShortFormVideoProject() {
   useEffect(() => {
     const update = () => {
       const isDesktop = window.innerWidth >= 768;
-      setBannerDuration(isDesktop ? 20 : 5);
+      setBannerDuration(isDesktop ? 20 : 13);
       setBannerItemVw(isDesktop ? 25 : 50);
     };
     update();
