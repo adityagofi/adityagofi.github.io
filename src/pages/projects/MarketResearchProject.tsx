@@ -56,7 +56,7 @@ const bannerImages = [
 
 export default function MarketResearchProject() {
   const [bannerDuration, setBannerDuration] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 20
+    typeof window !== 'undefined' && window.innerWidth < 768 ? 20 : 4
   );
 
   useEffect(() => {
