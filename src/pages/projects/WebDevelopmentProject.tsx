@@ -28,15 +28,6 @@ const TECH_STACK = [
 
 const WEB_PROJECTS = [
   {
-    id: 1,
-    title: "Benzwood Website",
-    category: "Corporate Portfolio",
-    description: "A showcase of premium woodworking and bespoke furniture, designed with a focus on high-quality visuals and smooth interactions.",
-    tags: ["React", "CSS", "Tailwind"],
-    image: "/web/project-1.webp",
-    link: "https://www.benzwood.com",
-    stats: { speed: "99/100", uptime: "100%", users: "Global" }
-  },
   {
     id: 2,
     title: "PageByPage Marketplace",
@@ -46,7 +37,17 @@ const WEB_PROJECTS = [
     image: "/web/project-2.webp",
     link: "https://pagebypage.co.id",
     stats: { speed: "98/100", uptime: "99.9%", users: "Users" }
+  },
+    id: 1,
+    title: "Benzwood Website",
+    category: "Corporate Portfolio",
+    description: "A showcase of premium woodworking and bespoke furniture, designed with a focus on high-quality visuals and smooth interactions.",
+    tags: ["React", "CSS", "Tailwind"],
+    image: "/web/project-1.webp",
+    link: "https://www.benzwood.com",
+    stats: { speed: "99/100", uptime: "100%", users: "Global" }
   }
+
 ];
 
 const PROCESS_STEPS = [
