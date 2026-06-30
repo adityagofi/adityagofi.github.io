@@ -16,6 +16,15 @@ const bannerImages = [
 
 const SECTIONS = [
   {
+    title: "Bung Korea - ADA APA YA?",
+    desc: "An episodic series exploring how the world sees Korea — blending on-the-ground reporting with sharp, culturally-grounded commentary.",
+    videos: [
+      { id: "GObm9cgIJtE", title: "Nikah di Korea RIBET Banget", thumbnail: "/longform/section-4-1.webp", desc: "Apa Kata Dunia Series" },
+      { id: "1ixCa2Bq2CI", title: "Kasta di Korea Ditentukan dari SENDOK", thumbnail: "/longform/section-4-2.webp", desc: "Apa Kata Dunia Series" },
+      { id: "Fhv3tLRkzPs", title: "Ide Kejahatan di Korea Makin PRIMITIF", thumbnail: "/longform/section-4-3.webp", desc: "Apa Kata Dunia Series" },
+    ]
+  },
+  {
     title: "Jerome Polin Vlog Video",
     desc: "Dynamic, fast-paced vlogs that capture the essence of travel, food, and culture through Jerome's unique lens.",
     videos: [
@@ -45,6 +54,7 @@ const SECTIONS = [
 
 // Highlight-only metadata that has no equivalent on the section video itself.
 const HIGHLIGHT_META = [
+  { duration: "00:00", date: "2024" },
   { duration: "29:48", date: "2023" },
   { duration: "17:48", date: "2024" },
   { duration: "06:09", date: "2023" }
