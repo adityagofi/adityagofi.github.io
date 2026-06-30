@@ -97,6 +97,16 @@ const productDesignProjects = [
 
 const socialMediaSlides = [
   [
+    "/social/slide-5-1.webp",
+    "/social/slide-5-2.webp",
+    "/social/slide-5-3.webp",
+    "/social/slide-5-4.webp",
+    "/social/slide-5-5.webp",
+    "/social/slide-5-6.webp",
+    "/social/slide-5-7.webp",
+    "/social/slide-5-8.webp",
+  ], 
+  [
     "/social/slide-1-1.webp",
     "/social/slide-1-2.webp",
     "/social/slide-1-3.webp",
