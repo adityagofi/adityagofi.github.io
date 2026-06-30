@@ -12,6 +12,8 @@ const bannerImages = [
   "/longform/banner-2.webp",
   "/longform/banner-3.webp",
   "/longform/banner-4.webp",
+  "/longform/banner-5.webp",
+  "/longform/banner-6.webp",
 ];
 
 const SECTIONS = [
