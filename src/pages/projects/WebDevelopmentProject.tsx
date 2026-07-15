@@ -28,8 +28,7 @@ const TECH_STACK = [
 
 const WEB_PROJECTS = [
   {
-  {
-    id: 2,
+    id: 1,
     title: "PageByPage Marketplace",
     category: "E-commerce Marketplace",
     description: "A high-performance marketplace platform built with React and powered by a headless Shopify backend, offering a seamless and intuitive shopping experience.",
@@ -38,7 +37,8 @@ const WEB_PROJECTS = [
     link: "https://pagebypage.co.id",
     stats: { speed: "98/100", uptime: "99.9%", users: "Users" }
   },
-    id: 1,
+  {
+    id: 2,
     title: "Benzwood Website",
     category: "Corporate Portfolio",
     description: "A showcase of premium woodworking and bespoke furniture, designed with a focus on high-quality visuals and smooth interactions.",
@@ -47,7 +47,6 @@ const WEB_PROJECTS = [
     link: "https://www.benzwood.com",
     stats: { speed: "99/100", uptime: "100%", users: "Global" }
   }
-
 ];
 
 const PROCESS_STEPS = [
