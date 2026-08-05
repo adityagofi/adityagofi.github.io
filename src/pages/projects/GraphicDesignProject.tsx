@@ -95,57 +95,36 @@ const productDesignProjects = [
   },
 ];
 
-const socialMediaSlides = [
-  [
-    "/social/slide-5-1.webp",
-    "/social/slide-5-2.webp",
-    "/social/slide-5-3.webp",
-    "/social/slide-5-4.webp",
-    "/social/slide-5-5.webp",
-    "/social/slide-5-6.webp",
-    "/social/slide-5-7.webp",
-    "/social/slide-5-8.webp",
-  ], 
-  [
-    "/social/slide-1-1.webp",
-    "/social/slide-1-2.webp",
-    "/social/slide-1-3.webp",
-    "/social/slide-1-4.webp",
-    "/social/slide-1-5.webp",
-    "/social/slide-1-6.webp",
-    "/social/slide-1-7.webp",
-    "/social/slide-1-8.webp",
-  ],
-  [
-    "/social/slide-2-1.webp",
-    "/social/slide-2-2.webp",
-    "/social/slide-2-3.webp",
-    "/social/slide-2-4.webp",
-    "/social/slide-2-5.webp",
-    "/social/slide-2-6.webp",
-    "/social/slide-2-7.webp",
-    "/social/slide-2-8.webp",
-  ],
-  [
-    "/social/slide-3-1.webp",
-    "/social/slide-3-2.webp",
-    "/social/slide-3-3.webp",
-    "/social/slide-3-4.webp",
-    "/social/slide-3-5.webp",
-    "/social/slide-3-6.webp",
-    "/social/slide-3-7.webp",
-    "/social/slide-3-8.webp",
-  ],
-  [
-    "/social/slide-4-1.webp",
-    "/social/slide-4-2.webp",
-    "/social/slide-4-3.webp",
-    "/social/slide-4-4.webp",
-    "/social/slide-4-5.webp",
-    "/social/slide-4-6.webp",
-    "/social/slide-4-7.webp",
-    "/social/slide-4-8.webp",
-  ]
+type GalleryCollection = {
+  name: string;
+  slug: string;
+  tint: [string, string];
+  images: string[];
+};
+
+// Social media collections — one client/campaign per filter. Rename the display
+// names below to match the real clients; each collection shows its own image set.
+const socialCollections: GalleryCollection[] = [
+  { name: "Realita Beach", slug: "realita-beach", tint: ["#1e2a33", "#0d141a"], images: [
+    "/social/slide-5-1.webp", "/social/slide-5-2.webp", "/social/slide-5-3.webp", "/social/slide-5-4.webp",
+    "/social/slide-5-5.webp", "/social/slide-5-6.webp", "/social/slide-5-7.webp", "/social/slide-5-8.webp",
+  ] },
+  { name: "RSPI", slug: "rspi", tint: ["#1f2b26", "#0e1512"], images: [
+    "/social/slide-1-1.webp", "/social/slide-1-2.webp", "/social/slide-1-3.webp", "/social/slide-1-4.webp",
+    "/social/slide-1-5.webp", "/social/slide-1-6.webp", "/social/slide-1-7.webp", "/social/slide-1-8.webp",
+  ] },
+  { name: "Mantappu Corp", slug: "mantappu-corp", tint: ["#2a1f2f", "#130f16"], images: [
+    "/social/slide-2-1.webp", "/social/slide-2-2.webp", "/social/slide-2-3.webp", "/social/slide-2-4.webp",
+    "/social/slide-2-5.webp", "/social/slide-2-6.webp", "/social/slide-2-7.webp", "/social/slide-2-8.webp",
+  ] },
+  { name: "Pocari Sweat", slug: "pocari-sweat", tint: ["#1a2733", "#0c1219"], images: [
+    "/social/slide-3-1.webp", "/social/slide-3-2.webp", "/social/slide-3-3.webp", "/social/slide-3-4.webp",
+    "/social/slide-3-5.webp", "/social/slide-3-6.webp", "/social/slide-3-7.webp", "/social/slide-3-8.webp",
+  ] },
+  { name: "Sweet", slug: "sweet", tint: ["#33202a", "#160f13"], images: [
+    "/social/slide-4-1.webp", "/social/slide-4-2.webp", "/social/slide-4-3.webp", "/social/slide-4-4.webp",
+    "/social/slide-4-5.webp", "/social/slide-4-6.webp", "/social/slide-4-7.webp", "/social/slide-4-8.webp",
+  ] },
 ];
 
 const uiUxRows = [
@@ -169,6 +148,21 @@ const uiUxRows = [
   ]
 ];
 
+const buildEcomImages = (slug: string, count: number) =>
+  Array.from({ length: count }, (_, i) => `/ecommerce/${slug}-${i + 1}.webp`);
+
+// Each collection maps to a set of product visuals. Adjust the image count per
+// collection by changing the second argument of buildEcomImages().
+const ecommerceCollections: GalleryCollection[] = [
+  { name: "Morning Chill Club", slug: "morning-chill-club", tint: ["#1e2f3a", "#0e161c"], images: buildEcomImages("morning-chill-club", 8) },
+  { name: "Disturb Me Not",     slug: "disturb-me-not",     tint: ["#2a1f3a", "#120f18"], images: buildEcomImages("disturb-me-not", 8) },
+  { name: "Volume On",          slug: "volume-on",          tint: ["#123230", "#0a1614"], images: buildEcomImages("volume-on", 8) },
+  { name: "Lemme C",            slug: "lemme-c",            tint: ["#3a2e12", "#161009"], images: buildEcomImages("lemme-c", 8) },
+  { name: "Nonchalant",         slug: "nonchalant",         tint: ["#332b24", "#15110d"], images: buildEcomImages("nonchalant", 8) },
+  { name: "Darling Picasso",    slug: "darling-picasso",    tint: ["#3a1a2e", "#160e13"], images: buildEcomImages("darling-picasso", 8) },
+  { name: "Naked Spice",        slug: "naked-spice",        tint: ["#3a251a", "#16100b"], images: buildEcomImages("naked-spice", 8) },
+  { name: "Moss Brillionaire",  slug: "moss-brillionaire",  tint: ["#25321c", "#101509"], images: buildEcomImages("moss-brillionaire", 8) },
+];
 
 function ProductGallery({ images }: { images: string[] }) {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -286,11 +280,76 @@ function ProductGallery({ images }: { images: string[] }) {
   );
 }
 
+// Shared filterable gallery: one collection active at a time, animated pill,
+// clean image-only grid. Used by both the Social Media and Ecommerce sections.
+function FilterableGallery({
+  collections,
+  aspectClass,
+  layoutId,
+}: {
+  collections: GalleryCollection[];
+  aspectClass: string;
+  layoutId: string;
+}) {
+  const [activeFilter, setActiveFilter] = useState<string>(collections[0].name);
+  const active = collections.find((c) => c.name === activeFilter) ?? collections[0];
+
+  return (
+    <div>
+      {/* Collection filter */}
+      <div className="flex flex-wrap gap-2 md:gap-3 mb-8 md:mb-12">
+        {collections.map((c) => (
+          <button
+            key={c.slug}
+            onClick={() => setActiveFilter(c.name)}
+            className={`relative px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold whitespace-nowrap transition-colors cursor-pointer ${
+              activeFilter === c.name ? "text-white" : "text-white/50 hover:text-white/80"
+            }`}
+          >
+            {activeFilter === c.name && (
+              <motion.div
+                layoutId={layoutId}
+                className="absolute inset-0 rounded-full bg-orange-500"
+                transition={{ type: "spring", stiffness: 400, damping: 32 }}
+              />
+            )}
+            <span className="relative z-10">{c.name}</span>
+          </button>
+        ))}
+      </div>
+
+      {/* Image grid */}
+      <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+        <AnimatePresence mode="popLayout">
+          {active.images.map((src, i) => (
+            <motion.div
+              key={`${active.slug}-${i}`}
+              layout
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 0.9 }}
+              transition={{ type: "spring", stiffness: 320, damping: 30 }}
+              className={`relative ${aspectClass} rounded-xl md:rounded-2xl overflow-hidden border border-white/10`}
+              style={{ background: `linear-gradient(140deg, ${active.tint[0]}, ${active.tint[1]})` }}
+            >
+              <img
+                src={src}
+                alt={active.name}
+                onError={(e) => { e.currentTarget.style.opacity = "0"; }}
+                className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
+              />
+            </motion.div>
+          ))}
+        </AnimatePresence>
+      </motion.div>
+    </div>
+  );
+}
+
 export default function GraphicDesignProject() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [currentSocialSlide, setCurrentSocialSlide] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [socialDirection, setSocialDirection] = useState(0);
   const [bannerDuration, setBannerDuration] = useState(() =>
     typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 20
   );
@@ -313,15 +372,6 @@ export default function GraphicDesignProject() {
     setCurrentSlide((prev) => (prev - 1 + bookletProjects.length) % bookletProjects.length);
   };
 
-  const nextSocialSlide = () => {
-    setSocialDirection(1);
-    setCurrentSocialSlide((prev) => (prev + 1) % socialMediaSlides.length);
-  };
-  const prevSocialSlide = () => {
-    setSocialDirection(-1);
-    setCurrentSocialSlide((prev) => (prev - 1 + socialMediaSlides.length) % socialMediaSlides.length);
-  };
-
   const slideVariants = {
     enter: (direction: number) => ({
       x: direction > 0 ? 500 : -500,
@@ -342,26 +392,6 @@ export default function GraphicDesignProject() {
       opacity: 0,
       scale: 1.05,
       filter: "blur(10px)"
-    })
-  };
-
-  const socialVariants = {
-    enter: (direction: number) => ({
-      x: direction > 0 ? 300 : -300,
-      opacity: 0,
-      filter: "blur(5px)"
-    }),
-    center: {
-      zIndex: 1,
-      x: 0,
-      opacity: 1,
-      filter: "blur(0px)"
-    },
-    exit: (direction: number) => ({
-      zIndex: 0,
-      x: direction < 0 ? 300 : -300,
-      opacity: 0,
-      filter: "blur(5px)"
     })
   };
 
@@ -436,7 +466,7 @@ export default function GraphicDesignProject() {
         </div>
       </section>
 
-      {/* Project 1: Social Media Design - 2 Row Slider */}
+      {/* Project 1: Social Media Design - Filterable Gallery */}
       <section className="py-32 px-6 md:px-32 bg-zinc-900/30 relative overflow-hidden">
         {/* Grid Background */}
         <motion.div 
@@ -450,108 +480,62 @@ export default function GraphicDesignProject() {
         />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-20">
+          <div className="mb-12 md:mb-16">
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-7xl font-bold mb-8 tracking-tighter">Social Media Design</h2>
+              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">Social Media Design</h2>
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
-                Transforming complex data into visual stories that resonate. Every pixel is placed with purpose to ensure clarity, engagement, and a seamless flow of information across digital platforms.
+                Transforming brand stories into scroll-stopping social content. Every post is crafted with intent — balancing bold visuals, clarity, and a consistent identity that drives engagement across every platform.
               </p>
             </motion.div>
           </div>
 
-          <div className="relative group/social">
-            <div className="relative h-[720px] md:h-[800px] w-full">
-              <AnimatePresence mode="popLayout" custom={socialDirection}>
-                <motion.div
-                  key={currentSocialSlide}
-                  custom={socialDirection}
-                  variants={socialVariants}
-                  initial="enter"
-                  animate="center"
-                  exit="exit"
-                  transition={{
-                    x: { type: "spring", stiffness: 300, damping: 30 },
-                    opacity: { duration: 0.4 }
-                  }}
-                  className="absolute inset-0"
-                >
-                  <div className="flex flex-col gap-4 md:gap-6 h-full justify-center">
-                    {/* Row 1 — wraps to 2-up on mobile, stays 4-up on md+ */}
-                    <div className="flex flex-wrap md:flex-nowrap justify-center gap-3 md:gap-8">
-                      {socialMediaSlides[currentSocialSlide].slice(0, 4).map((src, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0.5, rotate: i % 2 === 0 ? -5 : 5 }}
-                          animate={{ opacity: 1, scale: 0.9, rotate: i % 2 === 0 ? -2 : 3 }}
-                          className={`w-[40%] md:w-[22%] aspect-[3/4] rounded-2xl overflow-hidden border border-white/5 shadow-2xl flex-shrink-0 group ${i % 2 === 0 ? 'md:mt-0' : 'md:mt-[30px]'}`}
-                        >
-                          <img src={src} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                        </motion.div>
-                      ))}
-                    </div>
-                    {/* Row 2 — same wrap behaviour */}
-                    <div className="flex flex-wrap md:flex-nowrap justify-center gap-3 md:gap-8">
-                      {socialMediaSlides[currentSocialSlide].slice(4, 8).map((src, i) => (
-                        <motion.div
-                          key={i}
-                          initial={{ opacity: 0, scale: 0.5, rotate: i % 2 === 0 ? 5 : -5 }}
-                          animate={{ opacity: 1, scale: 0.9, rotate: i % 2 === 0 ? 3 : -2 }}
-                          className={`w-[40%] md:w-[22%] aspect-[3/4] rounded-2xl overflow-hidden border border-white/5 shadow-2xl flex-shrink-0 group ${i % 2 === 0 ? 'md:mt-[30px]' : 'md:mt-0'}`}
-                        >
-                          <img src={src} alt="" className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" referrerPolicy="no-referrer" />
-                        </motion.div>
-                      ))}
-                    </div>
-                  </div>
-                </motion.div>
-              </AnimatePresence>
+          <FilterableGallery collections={socialCollections} aspectClass="aspect-[3/4]" layoutId="socialFilterPill" />
+        </div>
+      </section>
 
-              {/* Navigation Buttons */}
-              <div className="absolute top-1/2 -translate-y-1/2 left-2 md:-left-12 z-50">
-                <button 
-                  onClick={prevSocialSlide}
-                  className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-orange-500 transition-all cursor-pointer shadow-2xl"
-                >
-                  <StopMotionIcon
-                    paths={STOP_MOTION_PATHS.arrowLeft}
-                    size={28}
-                    strokeWidth={8}
-                    wobble={true}
-                  />
-                </button>
-              </div>
-              <div className="absolute top-1/2 -translate-y-1/2 right-2 md:-right-12 z-50">
-                <button 
-                  onClick={nextSocialSlide}
-                  className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-orange-500 transition-all cursor-pointer shadow-2xl"
-                >
-                  <StopMotionIcon
-                    paths={STOP_MOTION_PATHS.arrowRight}
-                    size={28}
-                    strokeWidth={8}
-                    wobble={true}
-                  />
-                </button>
-              </div>
-            </div>
+      {/* Project: Ecommerce Design - Product Imaging Showcase */}
+      <section className="py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
+        {/* Grid Background */}
+        <motion.div
+          className="absolute inset-0 opacity-[0.05] pointer-events-none"
+          style={{
+            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
+            backgroundSize: '60px 60px'
+          }}
+          animate={{ backgroundPositionX: ["0px", "-60px"] }}
+          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
+        />
 
-            <div className="flex justify-center gap-3 mt-12">
-              {socialMediaSlides.map((_, i) => (
-                <button
-                  key={i}
-                  onClick={() => {
-                    setSocialDirection(i > currentSocialSlide ? 1 : -1);
-                    setCurrentSocialSlide(i);
-                  }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === currentSocialSlide ? 'bg-orange-500 w-8' : 'bg-white/20 hover:bg-white/40'}`}
-                />
-              ))}
-            </div>
+        <div className="max-w-7xl mx-auto relative z-10">
+          <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+            >
+              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">Ecommerce Design</h2>
+              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
+                Ecommerce product visuals where design meets image-making. Beyond composing each frame, I retouch and composite — reconstructing props, scenes, and details that were never captured in the original photoshoot — to craft polished, on-brand imagery for every collection.
+              </p>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: 0.1 }}
+              className="shrink-0 text-left md:text-right"
+            >
+              <p className="text-white/30 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-2">Client</p>
+              <p className="text-2xl md:text-3xl font-bold tracking-tight text-white">Page by Page</p>
+            </motion.div>
           </div>
+
+          <FilterableGallery collections={ecommerceCollections} aspectClass="aspect-square" layoutId="ecomFilterPill" />
         </div>
       </section>
 

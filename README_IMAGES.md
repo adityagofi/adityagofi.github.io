@@ -39,6 +39,18 @@ All raster images should be exported as **WebP** (quality ~80–85). Sizes below
     - Product 1: `product-1-main.webp` (**1500 × 1500 px**, 1:1) + elements `product-1-element-1.webp` to `4.webp` (**800 × 800 px**, 1:1)
     - Product 2: `product-2-main.webp` (**1500 × 1500 px**) + elements `product-2-element-1.webp` to `4.webp` (**800 × 800 px**)
 
+### Ecommerce Design (`/assets/ecommerce/`)
+- **Product Visuals** — **1200 × 1200 px** (1:1 square). Grouped by client/brand collection; each collection has **8 images** (`-1` … `-8`). To change a collection's image count, edit `buildEcomImages("<slug>", N)` inside `GraphicDesignProject.tsx`.
+    - `morning-chill-club-1.webp` … `-8.webp` (Morning Chill Club)
+    - `disturb-me-not-1.webp` … `-8.webp` (Disturb Me Not)
+    - `volume-on-1.webp` … `-8.webp` (Volume On)
+    - `lemme-c-1.webp` … `-8.webp` (Lemme C)
+    - `nonchalant-1.webp` … `-8.webp` (Nonchalant)
+    - `darling-picasso-1.webp` … `-8.webp` (Darling Picasso)
+    - `naked-spice-1.webp` … `-8.webp` (Naked Spice)
+    - `moss-brillionaire-1.webp` … `-8.webp` (Moss Brillionaire)
+- **Style**: Retouched / composited product imagery, shown in a filterable image-only grid (one client collection at a time). Each tile has a colored gradient fallback, so missing images degrade gracefully.
+
 ### Short Form Video (`/assets/shortform/`)
 - **Banners**: `banner-1.webp` to `banner-4.webp` — **1920 × 1080 px** (16:9)
 - **Project Thumbnails** (vertical reel/TikTok stills, 6 per project, 7 projects total) — **1080 × 1920 px** (9:16 portrait):
@@ -93,5 +105,6 @@ All raster images should be exported as **WebP** (quality ~80–85). Sizes below
 | Booklet / social slides | 3:4 | 1200 × 1600 |
 | Infographic / data card | 4:5 | 1200 × 1500 |
 | Product photo | 1:1 | 1500 × 1500 (main) / 800 × 800 (element) |
+| Ecommerce listing | 1:1 | 1200 × 1200 |
 
 *Note: Ensure all file names are lowercase and match the extensions exactly. Export as WebP at quality ~80–85 to balance sharpness with file size.*
