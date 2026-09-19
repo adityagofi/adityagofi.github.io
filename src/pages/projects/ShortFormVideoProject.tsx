@@ -1,20 +1,12 @@
-import { motion, AnimatePresence } from 'motion/react';
-import { useEffect, useState } from 'react';
-import { Zap, Smartphone, TrendingUp, AlertCircle } from 'lucide-react';
-import { SHORT_FORM_VIDEO_TAGS } from '@/lib/constants';
-import { heroEnter, scrollFadeUp, scrollSlideIn } from '@/lib/animations';
+import ScribblePlay from '@/components/ui/ScribblePlay';
+import ProjectHero from '@/components/ui/ProjectHero';
 import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
-import SketchDecorations from '@/components/ui/SketchDecorations';
 import VideoModal from '@/components/ui/VideoModal';
+import { scrollSlideIn } from '@/lib/animations';
+import { AlertCircle } from 'lucide-react';
+import { AnimatePresence, motion } from 'motion/react';
+import { useState } from 'react';
 
-const bannerImages = [
-  "/shortform/banner-1.mp4",
-  "/shortform/banner-2.mp4",
-  "/shortform/banner-3.mp4",
-  "/shortform/banner-4.mp4",
-  "/shortform/banner-5.mp4",
-  "/shortform/banner-6.mp4",
-];
 
 const projects = [
   {
@@ -126,25 +118,8 @@ export default function ShortFormVideoProject() {
   const [projectDirections, setProjectDirections] = useState<Record<string, number>>(
     Object.fromEntries(projects.map(p => [p.id, 0]))
   );
-  const [bannerDuration, setBannerDuration] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 13 : 20
-  );
-  const [bannerItemVw, setBannerItemVw] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 50 : 25
-  );
 
-  useEffect(() => {
-    const update = () => {
-      const isDesktop = window.innerWidth >= 768;
-      setBannerDuration(isDesktop ? 20 : 13);
-      setBannerItemVw(isDesktop ? 25 : 50);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
 
-  const bannerTotalVw = bannerImages.length * 2 * bannerItemVw;
 
   const nextProjectSlide = (projectId: string, totalVideos: number) => {
     setProjectDirections(prev => ({ ...prev, [projectId]: 1 }));
@@ -196,91 +171,12 @@ export default function ShortFormVideoProject() {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <motion.div
-            key={`${bannerDuration}-${bannerItemVw}`}
-            className="flex h-full"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: bannerDuration, repeat: Infinity, ease: "linear" }}
-            style={{ width: `${bannerTotalVw}vw` }}
-          >
-            {[...bannerImages, ...bannerImages].map((src, i) => (
-              <div key={i} className="h-full flex-shrink-0" style={{ width: `${bannerItemVw}vw` }}>
-                {src.endsWith('.mp4') ? (
-                  <video
-                    src={src}
-                    autoPlay
-                    loop
-                    muted
-                    playsInline
-                    preload="auto"
-                    className="w-full h-full object-cover brightness-[0.5]"
-                  />
-                ) : (
-                  <img
-                    src={src}
-                    alt=""
-                    className="w-full h-full object-cover brightness-[0.3]"
-                    referrerPolicy="no-referrer"
-                  />
-                )}
-              </div>
-            ))}
-          </motion.div>
-        </div>
+      <ProjectHero view="short-form" sections={projects.map(project => ({ id: `project-${project.id}`, label: project.title }))} />
 
-        <SketchDecorations />
-
-        <div className="relative z-20 text-center px-6">
-          <motion.div {...heroEnter}>
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
-              Short Form <span className="text-orange-500">Video</span>
-            </h1>
-            <p className="text-white/60 text-[10px] md:text-sm font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">
-              Stopping the Scroll in Three Seconds
-            </p>
-          </motion.div>
-
-        </div>
-
-        <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex gap-4 md:gap-12 text-white/60 uppercase text-[9px] md:text-[10px] tracking-[0.15em] md:tracking-[0.3em] font-bold">
-          <div className="flex items-center gap-2"><Zap size={14} /> Tiktok, Reels, Short Video</div>
-          <div className="flex items-center gap-2 md:flex hidden"><Smartphone size={14} /> Vertical Native</div>
-          <div className="flex items-center gap-2"><TrendingUp size={14} /> Viral Velocity</div>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="pt-16 pb-12 px-6 md:px-20 max-w-7xl mx-auto text-center relative z-10">
-        <motion.p
-          {...scrollFadeUp}
-          className="text-white/70 text-xl md:text-2xl leading-relaxed mb-16 max-w-5xl mx-auto font-light"
-        >
-          Transforming attention into vertical impact. I specialize in crafting high-engagement short-form content that captures the viewer's interest in the first 3 seconds and maintains momentum until the final frame.
-        </motion.p>
-
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {SHORT_FORM_VIDEO_TAGS.map((tag, i) => (
-            <motion.span 
-              key={tag}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="px-6 py-2.5 border border-white/10 rounded-full text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-white/40 hover:text-orange-500 hover:border-orange-500/50 transition-all cursor-default"
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects List */}
+{/* Projects List */}
       <div className="pb-8 space-y-16">
         {projects.map((project, index) => (
-          <section key={project.id} className="px-6 md:px-32">
+          <section id={`project-${project.id}`} key={project.id} className="px-6 md:px-32">
             <div className={`max-w-7xl mx-auto flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 md:gap-20`}>
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
@@ -323,7 +219,7 @@ export default function ShortFormVideoProject() {
                      <div
                        className="w-[55%] h-[75%] md:w-[45%] md:h-[80%] rounded-[50%]"
                        style={{
-                         background: 'radial-gradient(ellipse at center, rgba(249,115,22,0.45) 0%, rgba(249,115,22,0.18) 40%, transparent 75%)',
+                         background: 'radial-gradient(ellipse at center, rgba(255,106,0,0.45) 0%, rgba(255,106,0,0.18) 40%, transparent 75%)',
                          filter: 'blur(60px)'
                        }}
                      />
@@ -339,7 +235,7 @@ export default function ShortFormVideoProject() {
                         initial="enter"
                         animate="center"
                         exit="exit"
-                        transition={{ duration: 0.6, ease: [0.23, 1, 0.32, 1] }}
+                        transition={{ duration: 0.32, ease: [0.22, 1, 0.36, 1] }}
                         className="relative flex items-center justify-center gap-0 md:gap-8 w-full h-full"
                        >
                          {getVisibleVideos(project.videos, projectSlides[project.id]).map((video, vIndex) => (
@@ -353,13 +249,14 @@ export default function ShortFormVideoProject() {
                               zIndex: vIndex === 1 ? 20 : 10
                             }}
                             className={`relative aspect-[9/16] w-[40%] md:w-[38%] bg-zinc-800 rounded-[0.5rem] md:rounded-[1rem] overflow-hidden shadow-2xl border border-white/10 group cursor-pointer ${vIndex === 1 ? 'shadow-orange-500/20' : ''}`}
+                            role="button" tabIndex={0} aria-label={`Play ${project.title} video ${project.videos.findIndex(v => v.id === video.id) + 1}`}
+                            onKeyDown={event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } }}
                             onClick={() => setSelection({
                               videos: project.videos.map(v => v.id),
                               index: project.videos.findIndex(v => v.id === video.id),
                             })}
                            >
-                             <img 
-                              src={video.thumbnail} 
+                             <img loading="lazy" decoding="async" src={video.thumbnail}
                               alt="" 
                               className="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700" 
                               referrerPolicy="no-referrer" 
@@ -370,14 +267,7 @@ export default function ShortFormVideoProject() {
                                   whileHover={{ scale: 1.05 }}
                                   className="w-12 h-12 md:w-16 md:h-16 rounded-full bg-white/10 backdrop-blur-[2px] border border-white/50 flex items-center justify-center group-hover:bg-orange-500  transition-all duration-500 shadow-xl"
                                  >
-                                   <StopMotionIcon
-                                     paths={STOP_MOTION_PATHS.play}
-                                     size={42}
-                                     strokeWidth={3}
-                                     drawDuration={0}
-                                     staggerDelay={0}
-                                     wobble
-                                   />
+                                   <ScribblePlay size={42} />
                                  </motion.div>
                                </div>
                              )}
@@ -392,7 +282,7 @@ export default function ShortFormVideoProject() {
                      <>
                        <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:-left-8 z-50">
                          <button
-                           onClick={() => prevProjectSlide(project.id, project.videos.length)}
+                           aria-label="Previous video" onClick={() => prevProjectSlide(project.id, project.videos.length)}
                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-orange-500  transition-all cursor-pointer shadow-2xl"
                          >
                            <StopMotionIcon
@@ -407,7 +297,7 @@ export default function ShortFormVideoProject() {
                        </div>
                        <div className="absolute top-1/2 -translate-y-1/2 -right-4 md:-right-8 z-50">
                          <button
-                           onClick={() => nextProjectSlide(project.id, project.videos.length)}
+                           aria-label="Next video" onClick={() => nextProjectSlide(project.id, project.videos.length)}
                            className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-orange-500 transition-all cursor-pointer shadow-2xl"
                          >
                            <StopMotionIcon
@@ -430,8 +320,9 @@ export default function ShortFormVideoProject() {
                     {project.videos.map((_, dotIndex) => (
                       <button
                         key={dotIndex}
+                        aria-label={`Show ${project.title} video ${dotIndex + 1}`} aria-current={dotIndex === projectSlides[project.id]}
                         onClick={() => goToSlide(project.id, dotIndex)}
-                        className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${dotIndex === projectSlides[project.id] ? 'bg-orange-500 w-6' : 'bg-white/20 hover:bg-white/40'}`}
+                        className={`carousel-dot w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${dotIndex === projectSlides[project.id] ? 'bg-orange-500 w-6' : 'bg-white/20 hover:bg-white/40'}`}
                       />
                     ))}
                   </div>

@@ -1,6 +1,6 @@
 {
   "homepage": "https://adityagofi.github.io/",
-  "name": "react-example",
+  "name": "gofi-portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -8,10 +8,11 @@
     "predeploy": "npm run build",
     "deploy": "gh-pages -d dist",
     "dev": "vite --port=3000 --host=0.0.0.0",
-    "build": "vite build",
+    "build": "vite build && node scripts/prerender.mjs",
     "preview": "vite preview",
-    "clean": "rm -rf dist",
-    "lint": "tsc --noEmit"
+    "clean": "node -e \"require('node:fs').rmSync('dist', { recursive: true, force: true })\"",
+    "lint": "tsc --noEmit",
+    "check:build": "node scripts/check-build.mjs"
   },
   "dependencies": {
     "@fortawesome/fontawesome-svg-core": "^7.2.0",

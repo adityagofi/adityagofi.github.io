@@ -1,0 +1,1 @@
+export default function NotFound() { return <section className="empty-state section-shell"><p className="eyebrow">404 / Page not found</p><h1>Looks like a wrong turn.</h1><p>This page may have moved, or the address may be incomplete. Explore the portfolio to get back on track.</p><a href="/#work" className="button">Back to the work ↗</a></section>; }

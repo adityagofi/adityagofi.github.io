@@ -1,10 +1,7 @@
-import { useEffect, useState } from 'react';
-import { motion, AnimatePresence } from 'motion/react';
-import { Palette, Layers, PenTool } from 'lucide-react';
-import { GRAPHIC_DESIGN_TAGS } from '@/lib/constants';
-import { heroEnter, scrollFadeUp } from '@/lib/animations';
+import ProjectHero from '@/components/ui/ProjectHero';
 import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
-import SketchDecorations from '@/components/ui/SketchDecorations';
+import { AnimatePresence, motion } from 'motion/react';
+import { useEffect, useState } from 'react';
 
 const TOOL_LOGOS: Record<string, { bg: string; fg: string; label: string }> = {
   "After Effects":      { bg: "#00005B", fg: "#D8A8FF", label: "Ae" },
@@ -21,34 +18,11 @@ const TOOL_LOGOS: Record<string, { bg: string; fg: string; label: string }> = {
 const tileFor = (tool: string) =>
   TOOL_LOGOS[tool.trim()] ?? { bg: "#1A1A1A", fg: "#FFFFFF", label: tool.trim().slice(0, 2) };
 
-const bannerImages = [
-  "/graphic/banner-1.webp",
-  "/graphic/banner-2.webp",
-  "/graphic/banner-3.webp",
-  "/graphic/banner-4.webp",
-];
 
-const infographicImages = [
-  "/graphic/infographic-1.webp",
-  "/graphic/infographic-2.webp",
-  "/graphic/infographic-3.webp",
-  "/graphic/infographic-4.webp",
-  "/graphic/infographic-5.webp",
-  "/graphic/infographic-6.webp",
-  "/graphic/infographic-7.webp",
-  "/graphic/infographic-8.webp",
-  "/graphic/infographic-9.webp",
-  "/graphic/infographic-10.webp",
-  "/graphic/infographic-11.webp",
-  "/graphic/infographic-12.webp",
-  "/graphic/infographic-13.webp",
-  "/graphic/infographic-14.webp",
-  "/graphic/infographic-15.webp",
-];
 
 const bookletProjects = [
   {
-    clientName: "Benz Wood",
+    clientName: "Benzwood",
     industry: "Interior Contractor",
     description: "A refined company profile that captures Benz Wood's mastery of custom interior carpentry. Warm editorial photography is paired with elegant typography to convey the craftsmanship and material honesty behind every build.",
     images: [
@@ -196,8 +170,8 @@ function ProductGallery({ images }: { images: string[] }) {
           <button
             key={i}
             onClick={() => setWindowStart(i)}
-            aria-label={`Go to page ${i + 1}`}
-            className={`w-2 rounded-full transition-all duration-300 cursor-pointer ${
+            aria-label={`Go to thumbnail page ${i + 1}`} aria-current={i === windowStart}
+            className={`carousel-dot w-2 rounded-full transition-all duration-300 cursor-pointer ${
               i === windowStart ? 'bg-orange-500 h-8' : 'bg-white/20 h-2 hover:bg-white/40'
             }`}
           />
@@ -230,6 +204,7 @@ function ProductGallery({ images }: { images: string[] }) {
             {images.map((src, i) => (
               <motion.button
                 key={i}
+                aria-label={`View design ${i + 1}`} aria-pressed={i === activeIndex} tabIndex={i >= windowStart && i < windowStart + VISIBLE_COUNT ? 0 : -1}
                 onClick={() => setActiveIndex(i)}
                 animate={{ scale: i === activeIndex ? 1.04 : 1 }}
                 transition={{ scale: { type: 'spring', stiffness: 280, damping: 22 } }}
@@ -239,7 +214,7 @@ function ProductGallery({ images }: { images: string[] }) {
                     : 'border-white/10 hover:border-white/40 opacity-50 hover:opacity-90'
                 }`}
               >
-                <img src={src} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                <img loading="lazy" decoding="async" src={src} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
               </motion.button>
             ))}
           </motion.div>
@@ -263,9 +238,9 @@ function ProductGallery({ images }: { images: string[] }) {
       {/* Active Main Image — square 1080×1080 */}
       <div className="relative w-[1080px] max-w-full aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03]">
         <AnimatePresence mode="wait">
-          <motion.img
-            key={activeIndex}
+          <motion.img loading="lazy" decoding="async" key={activeIndex}
             src={images[activeIndex]}
+            aria-label={`Selected product design ${activeIndex + 1}`}
             initial={{ opacity: 0, scale: 1.08 }}
             animate={{ opacity: 1, scale: 1.04 }}
             exit={{ opacity: 0, scale: 1 }}
@@ -301,9 +276,10 @@ function FilterableGallery({
         {collections.map((c) => (
           <button
             key={c.slug}
+            aria-pressed={activeFilter === c.name}
             onClick={() => setActiveFilter(c.name)}
             className={`relative px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold whitespace-nowrap transition-colors cursor-pointer ${
-              activeFilter === c.name ? "text-white" : "text-white/50 hover:text-white/80"
+              activeFilter === c.name ? "text-black" : "text-white/50 hover:text-white/80"
             }`}
           >
             {activeFilter === c.name && (
@@ -332,10 +308,8 @@ function FilterableGallery({
               className={`relative ${aspectClass} rounded-xl md:rounded-2xl overflow-hidden border border-white/10`}
               style={{ background: `linear-gradient(140deg, ${active.tint[0]}, ${active.tint[1]})` }}
             >
-              <img
-                src={src}
-                alt={active.name}
-                onError={(e) => { e.currentTarget.style.opacity = "0"; }}
+              <img loading="lazy" decoding="async" src={src}
+                alt={`${active.name} — design ${i + 1}`}
                 className="w-full h-full object-cover"
                 referrerPolicy="no-referrer"
               />
@@ -350,18 +324,7 @@ function FilterableGallery({
 export default function GraphicDesignProject() {
   const [currentSlide, setCurrentSlide] = useState(0);
   const [direction, setDirection] = useState(0);
-  const [bannerDuration, setBannerDuration] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 6 : 20
-  );
 
-  useEffect(() => {
-    const update = () => {
-      setBannerDuration(window.innerWidth >= 768 ? 20 : 6);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
 
   const nextSlide = () => {
     setDirection(1);
@@ -397,77 +360,10 @@ export default function GraphicDesignProject() {
 
   return (
     <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <motion.div
-            key={bannerDuration}
-            className="flex h-full"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: bannerDuration, repeat: Infinity, ease: "linear" }}
-            style={{ width: "200%" }}
-          >
-            {[...bannerImages, ...bannerImages].map((src, i) => (
-              <div key={i} className="w-1/2 md:w-1/4 h-full flex-shrink-0">
-                <img
-                  src={src}
-                  alt=""
-                  className="w-full h-full object-cover brightness-[0.7]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ))}
-          </motion.div>
-        </div>
+      <ProjectHero view="graphic" sections={[{ id: "social-design", label: "Social media" }, { id: "ecommerce-design", label: "E-commerce" }, { id: "interface-design", label: "UI/UX" }, { id: "booklet-design", label: "Booklets" }, { id: "product-design", label: "Products" }]} />
 
-        <SketchDecorations />
-
-        <div className="relative z-20 text-center px-6">
-          <motion.div {...heroEnter}>
-            <h1 className="text-5xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
-              Graphic <span className="text-orange-500">Design</span>
-            </h1>
-            <p className="text-white/100 text-[10px] md:text-sm font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">
-              Crafting Visual Identities That Resonate
-            </p>
-          </motion.div>
-
-        </div>
-
-        <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex gap-4 md:gap-12 text-white/100 uppercase text-[9px] md:text-[10px] tracking-[0.15em] md:tracking-[0.3em] font-bold">
-          <div className="flex items-center gap-2"><Palette size={14} /> Bold Identity</div>
-          <div className="flex items-center gap-2 md:flex hidden"><Layers size={14} /> Layered Systems</div>
-          <div className="flex items-center gap-2"><PenTool size={14} /> Bespoke Craft</div>
-        </div>
-      </section>
-
-      {/* Intro Section */}
-      <section className="pt-16 pb-12 px-6 md:px-20 max-w-7xl mx-auto text-center relative z-10">
-        <motion.p
-          {...scrollFadeUp}
-          className="text-white/70 text-xl md:text-2xl leading-relaxed mb-16 max-w-5xl mx-auto font-light"
-        >
-          Elevating brand identities through intentional design. I specialize in creating visual systems and digital assets that communicate core values with clarity, aesthetic excellence, and strategic impact.
-        </motion.p>
-
-        <div className="flex flex-wrap justify-center gap-4 mb-12">
-          {GRAPHIC_DESIGN_TAGS.map((tag, i) => (
-            <motion.span 
-              key={tag}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
-              className="px-6 py-2.5 border border-white/10 rounded-full text-[10px] md:text-xs uppercase tracking-[0.2em] font-bold text-white/40 hover:text-orange-500 hover:border-orange-500/50 transition-all cursor-default"
-            >
-              {tag}
-            </motion.span>
-          ))}
-        </div>
-      </section>
-
-      {/* Project 1: Social Media Design - Filterable Gallery */}
-      <section className="py-32 px-6 md:px-32 bg-zinc-900/30 relative overflow-hidden">
+{/* Project 1: Social Media Design - Filterable Gallery */}
+      <section id="social-design" className="py-32 px-6 md:px-32 bg-zinc-900/30 relative overflow-hidden">
         {/* Grid Background */}
         <motion.div 
           className="absolute inset-0 opacity-[0.1] pointer-events-none" 
@@ -482,9 +378,7 @@ export default function GraphicDesignProject() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-12 md:mb-16">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              data-reveal
             >
               <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">Social Media Design</h2>
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
@@ -497,8 +391,8 @@ export default function GraphicDesignProject() {
         </div>
       </section>
 
-      {/* Project: Ecommerce Design - Product Imaging Showcase */}
-      <section className="py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
+      {/* Project: E-commerce Design - Product Imaging Showcase */}
+      <section id="ecommerce-design" className="py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
         {/* Grid Background */}
         <motion.div
           className="absolute inset-0 opacity-[0.05] pointer-events-none"
@@ -513,21 +407,16 @@ export default function GraphicDesignProject() {
         <div className="max-w-7xl mx-auto relative z-10">
           <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              data-reveal
             >
-              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">Ecommerce Design</h2>
+              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">E-commerce Design</h2>
               <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
                 Ecommerce product visuals where design meets image-making. Beyond composing each frame, I retouch and composite — reconstructing props, scenes, and details that were never captured in the original photoshoot — to craft polished, on-brand imagery for every collection.
               </p>
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: 0.1 }}
+              data-reveal
               className="shrink-0 text-left md:text-right"
             >
               <p className="text-white/30 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-2">Client</p>
@@ -540,63 +429,29 @@ export default function GraphicDesignProject() {
       </section>
 
       {/* Project: UI UX Design - Animated Infinite Rows */}
-      <section className="py-32 overflow-hidden">
+      <section id="interface-design" className="py-32 overflow-hidden">
         <div className="max-w-7xl mx-auto px-6 md:px-32 mb-16 text-center">
           <motion.h2 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            data-reveal
             className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter"
           >
-            UI UX Website Design
+            UI/UX Design
           </motion.h2>
           <motion.p 
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ delay: 0.1 }}
+            data-reveal
             className="text-white/60 text-base md:text-lg max-w-2xl mx-auto"
           >
             Crafting intuitive digital experiences that combine functional precision with aesthetic clarity. Focusing on user-centered design systems and interactive prototypes.
           </motion.p>
         </div>
 
-        <div className="space-y-6 md:space-y-10">
-          {uiUxRows.map((row, rowIndex) => (
-            <div key={rowIndex} className="relative flex">
-              <motion.div 
-                className="flex gap-6 md:gap-10 shrink-0"
-                animate={{ 
-                  x: rowIndex % 2 === 0 ? ["0%", "-50%"] : ["-50%", "0%"] 
-                }}
-                transition={{ 
-                  duration: 40 + rowIndex * 5, 
-                  repeat: Infinity, 
-                  ease: "linear" 
-                }}
-                style={{ width: "fit-content" }}
-              >
-                {[...row, ...row].map((src, i) => (
-                  <div 
-                    key={i} 
-                    className="w-[280px] md:w-[450px] aspect-video rounded-[1rem] overflow-hidden border border-white/5 bg-white/5 shrink-0"
-                  >
-                    <img 
-                      src={src} 
-                      alt="" 
-                      className="w-full h-full object-cover"
-                      referrerPolicy="no-referrer"
-                    />
-                  </div>
-                ))}
-              </motion.div>
-            </div>
-          ))}
+        <div className="section-shell grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {uiUxRows.flat().map((src, i) => <figure key={src} className="rounded-xl overflow-hidden border border-white/10"><img src={src} alt={`Website interface design ${i + 1}`} width="800" height="450" loading="lazy" decoding="async" className="w-full aspect-video object-cover" /></figure>)}
         </div>
       </section>
 
       {/* Project 2: Company Profile Booklet - Collage Slider */}
-      <section className="py-20 md:py-24 px-6 md:px-32 overflow-hidden">
+      <section id="booklet-design" className="py-20 md:py-24 px-6 md:px-32 overflow-hidden">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-14">
             <div>
@@ -661,7 +516,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: 1, y: 0, opacity: 1 }}
                       transition={{ delay: 0.1, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[0]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[0]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 2: Top Left - Abstract Angle */}
@@ -671,7 +526,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: -8, x: 70, opacity: 1 }}
                       transition={{ delay: 0.2, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[1]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[1]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 3: Top Right - Abstract Angle */}
@@ -681,7 +536,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: 6, x: -100, opacity: 1 }}
                       transition={{ delay: 0.15, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[2]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[2]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 4: Mid Left - Overlapping */}
@@ -691,7 +546,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: -4, x: 100, opacity: 1 }}
                       transition={{ delay: 0.3, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[3]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[3]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 5: Mid Right - Floating */}
@@ -701,7 +556,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: 5, x: -10, opacity: 1 }}
                       transition={{ delay: 0.25, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[4]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[4]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 6: Bottom Left Center - Tucked Behind */}
@@ -711,7 +566,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: -2, y: 0, opacity: 1 }}
                       transition={{ delay: 0.35, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[5]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[5]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 7: Bottom Right Center - Dynamic */}
@@ -721,7 +576,7 @@ export default function GraphicDesignProject() {
                       animate={{ rotate: 8, y: 0, opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.4 }}
                     >
-                      <img src={bookletProjects[currentSlide].images[6]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[6]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
                     </motion.div>
                   </div>
                 </motion.div>
@@ -730,7 +585,7 @@ export default function GraphicDesignProject() {
               {/* Navigation Buttons */}
               <div className="absolute top-1/2 -translate-y-1/2 left-2 md:-left-12 z-50">
                 <button 
-                  onClick={prevSlide}
+                  aria-label="Previous project" onClick={prevSlide}
                   className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer shadow-2xl"
                 >
                   <StopMotionIcon
@@ -743,7 +598,7 @@ export default function GraphicDesignProject() {
               </div>
               <div className="absolute top-1/2 -translate-y-1/2 right-2 md:-right-12 z-50">
                 <button 
-                  onClick={nextSlide}
+                  aria-label="Next project" onClick={nextSlide}
                   className="w-10 h-10 md:w-14 md:h-14 rounded-full bg-white/10 backdrop-blur-xl border border-white/20 flex items-center justify-center hover:bg-white hover:text-black transition-all cursor-pointer shadow-2xl"
                 >
                   <StopMotionIcon
@@ -761,12 +616,13 @@ export default function GraphicDesignProject() {
               {bookletProjects.map((_, i) => (
                 <button
                   key={i}
+                  aria-label={`Show booklet ${i + 1}`} aria-current={i === currentSlide}
                   onClick={() => {
                     if (i === currentSlide) return;
                     setDirection(i > currentSlide ? 1 : -1);
                     setCurrentSlide(i);
                   }}
-                  className={`w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === currentSlide ? 'bg-orange-500 w-8' : 'bg-white/20 hover:bg-white/40'}`}
+                  className={`carousel-dot w-2 h-2 rounded-full transition-all duration-300 cursor-pointer ${i === currentSlide ? 'bg-orange-500 w-8' : 'bg-white/20 hover:bg-white/40'}`}
                 />
               ))}
             </div>
@@ -775,7 +631,7 @@ export default function GraphicDesignProject() {
       </section>
 
       {/* Project 3: Product Design Portfolio - Page by Page */}
-      <section className="py-32 bg-[#121212] relative overflow-hidden">
+      <section id="product-design" className="py-32 bg-[#121212] relative overflow-hidden">
         {/* Grid Background */}
         <motion.div 
           className="absolute inset-0 opacity-[0.03] pointer-events-none" 
@@ -824,10 +680,7 @@ export default function GraphicDesignProject() {
                         return (
                           <motion.div
                             key={tool}
-                            initial={{ opacity: 0, y: 10, scale: 0.9 }}
-                            whileInView={{ opacity: 1, y: 0, scale: 1 }}
-                            viewport={{ once: true, amount: 0.3 }}
-                            transition={{ delay: tIdx * 0.08, duration: 0.5, ease: [0.22, 1, 0.36, 1] }}
+                            data-reveal
                             className="group relative"
                           >
                             {/* Hover tooltip */}

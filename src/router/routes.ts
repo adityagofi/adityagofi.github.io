@@ -36,7 +36,7 @@ export const pathToView: Record<string, ViewType> = Object.entries(viewToPath).r
 );
 
 export const viewToTitle: Record<ViewType, string> = {
-  'home': "Gofi's Portfolio",
+  'home': "Gofi — Digital Experiences | Development, Design & Data",
   'services': "Services | Gofi's Portfolio",
   'contact': "Contact | Gofi's Portfolio",
   'motion': "Motion Graphics | Gofi's Portfolio",
@@ -49,3 +49,8 @@ export const viewToTitle: Record<ViewType, string> = {
   'data-analysis': "Data Analysis | Gofi's Portfolio",
   'meta-ads': "Meta Ads | Gofi's Portfolio",
 };
+
+export function resolveView(pathname: string): ViewType | "not-found" {
+  const path = pathname.replace(/\/index\.html$/, "/").replace(/\.html$/, "").replace(/\/+$/, "") || "/";
+  return Object.hasOwn(pathToView, path) ? pathToView[path] : "not-found";
+}

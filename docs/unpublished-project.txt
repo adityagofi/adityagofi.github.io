@@ -1,0 +1,14 @@
+Preserved draft: missing local artwork and placeholder YouTube ID. Restore to MotionProject after supplying valid assets.
+
+  {
+    id: "project-advanced-agri",
+    client: "PT ADVANCED AGRI",
+    category: "Company Profile",
+    desc: "A company profile video for PT Advanced Agri Indonesia communicating their vision, services, and field operations, motion graphics paired with footage edits for a broadcast-ready piece.",
+    tools: ["After Effects", "Premiere Pro"],
+    process: ["STORYBOARDING", "VISUAL DESIGN", "MOTION & EDIT"],
+    videos: [
+      { id: "aawdawdwdasdaws", thumbnail: "/motion/project-advanced-agri-1.webp" },
+
+    ]
+  },

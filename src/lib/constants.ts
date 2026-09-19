@@ -1,3 +1,6 @@
+import type { ViewType } from '@/router/routes';
+export type PortfolioProject = { view: ViewType; title: string; desc: string; tags: string[]; image: string };
+
 export const MOTION_GRAPHICS_TAGS = [
   "SaaS Explainer",
   "Motion Logo",
@@ -32,59 +35,61 @@ export const LONG_FORM_VIDEO_TAGS = [
   "Storytelling"
 ];
 
-export const CREATIVE_PROJECTS = [
+export const CREATIVE_PROJECTS: PortfolioProject[] = [
   {
+    view: "motion",
     title: "Motion Graphics",
     desc: "Bring your brand to life with animation that moves people — from logo reveals to full SaaS explainer videos.",
     tags: MOTION_GRAPHICS_TAGS,
     image: "/projects/motion.webp"
   },
   {
+    view: "graphic",
     title: "Graphic Design",
     desc: "Visual identities that stand out in a crowded market. From branding to digital assets.",
     tags: GRAPHIC_DESIGN_TAGS,
     image: "/projects/graphic.webp"
   },
   {
-    title: "Short Form Video",
+    view: "short-form",
+    title: "Short-Form Video",
     desc: "Engaging content for TikTok, Reels, and Shorts that captures attention in seconds.",
     tags: ["Reels", "TikTok", "Ads", "Viral Content"],
     image: "/projects/short-form.webp"
   },
   {
-    title: "Long Form Video",
+    view: "long-form",
+    title: "Long-Form Video",
     desc: "Documentaries, interviews, and long-form storytelling.",
     tags: ["YouTube", "Documentary", "Interviews"],
     image: "/projects/long-form.webp"
-  },
-  {
-    title: "Photography",
-    desc: "Capturing moments and products with a professional eye.",
-    tags: ["Product", "Lifestyle", "Portrait"],
-    image: "/projects/photography.webp"
   }
 ];
 
-export const TECHNICAL_PROJECTS = [
+export const TECHNICAL_PROJECTS: PortfolioProject[] = [
   {
+    view: "web-dev",
     title: "Web Development",
     desc: "High-performance websites built with modern frameworks like React and Next.js.",
     tags: ["React", "TypeScript", "Tailwind", "Next.js"],
     image: "/projects/web-dev.webp"
   },
   {
+    view: "data-analysis",
     title: "Data Analysis & Visualization",
     desc: "Turning raw data into actionable insights and intuitive visualizations using Python, Tableau, and ML models.",
     tags: ["Python", "Pandas", "Tableau", "ML"],
     image: "/projects/data-analysis.webp"
   },
   {
+    view: "market-research",
     title: "Market Research",
     desc: "Automated scraping and analysis to understand market trends.",
     tags: ["Scraping", "Automation", "Competitor Analysis"],
     image: "/projects/market-research.webp"
   },
   {
+    view: "meta-ads",
     title: "Meta Ads",
     desc: "Data-driven advertising campaigns that convert.",
     tags: ["Facebook Ads", "Instagram Ads", "ROAS Optimization"],

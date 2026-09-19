@@ -1,5 +1,5 @@
-import { motion } from 'motion/react';
-import { useEffect, useState, CSSProperties } from 'react';
+import { motion, useReducedMotion } from 'motion/react';
+import { CSSProperties, useEffect, useState } from 'react';
 
 type StopMotionIconProps = {
   // Each path renders as one stroke animated in. They draw in sequence.
@@ -46,21 +46,22 @@ export default function StopMotionIcon({
   className = '',
   style,
 }: StopMotionIconProps) {
+  const reducedMotion = useReducedMotion();
   const [frameIdx, setFrameIdx] = useState(0);
 
   useEffect(() => {
-    if (!wobble) return;
+    if (!wobble || reducedMotion) return;
     const interval = 1000 / wobbleFps;
     const id = window.setInterval(() => {
       setFrameIdx(i => (i + 1) % FRAMES.length);
     }, interval);
     return () => window.clearInterval(id);
-  }, [wobble, wobbleFps]);
+  }, [wobble, wobbleFps, reducedMotion]);
 
   const frame = FRAMES[frameIdx];
 
   return (
-    <svg
+    <svg aria-hidden="true" focusable="false"
       viewBox={viewBox}
       width={size}
       height={size}
@@ -80,6 +81,7 @@ export default function StopMotionIcon({
         }}
       >
         {paths.map((d, i) => {
+          if (reducedMotion) return <path key={i} d={d} />;
           if (loop) {
             return (
               <motion.path

@@ -1,87 +1,12 @@
-import { motion } from 'motion/react';
-import { Send, Mail, MapPin, Phone, Github, Twitter, Linkedin, Instagram } from 'lucide-react';
-import { useState, FormEvent } from 'react';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faBehance } from '@fortawesome/free-brands-svg-icons';
-import { heroEnterDelay } from '@/lib/animations';
-
+import { CONTACT } from '@/lib/site';
+import { ArrowUpRight, Mail, MapPin, MessageCircle } from 'lucide-react';
 export default function Contact() {
-  return (
-    <section id="contact-page" className="pt-40 pb-48 bg-[#121212] min-h-screen selection:bg-orange-500">
-      <div className="max-w-7xl mx-auto px-6 md:px-18">
-        <div className="max-w-4xl">
-          
-          <motion.h1
-            {...heroEnterDelay(0.1)}
-            className="text-4xl md:text-6xl lg:text-7xl font-bold text-white mb-10 leading-[0.9] "
-          >
-            Let's build
-            something <br />
-            <span className="text-white/80">extraordinary.</span>
-          </motion.h1>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-20 items-start">
-            <motion.div
-              {...heroEnterDelay(0.25)}
-            >
-              <p className="text-white/50 text-xl leading-relaxed mb-12">
-                I'm currently available for new projects and collaborations. If you have an idea that needs a blend of creative vision and technical precision, reach out.
-              </p>
-              
-              <div className="flex flex-wrap gap-4">
-                {[
-                  { icon: Instagram, url: "https://www.instagram.com/adityagofi_/", label: "Instagram" },
-                  { icon: Linkedin, url: "https://www.linkedin.com/in/adityagofi/", label: "LinkedIn" },
-                  { icon: (props: any) => (
-                    <FontAwesomeIcon icon={faBehance} style={{ width: props.size, height: props.size }} />
-                  ), url: "https://www.behance.net/adityagofi", label: "Behance" },
-                  { icon: Github, url: "https://github.com/adityagofi", label: "GitHub" },
-                ].map((social, i) => (
-                  <motion.a
-                    key={i}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.05 }}
-                    whileTap={{ scale: 0.95 }}
-                    className="flex items-center gap-3 px-6 py-3 rounded-full border border-white/10 text-white/70 hover:text-white hover:border-orange-500/50 hover:bg-orange-500/5 transition-all duration-300"
-                  >
-                    <social.icon size={18} />
-                    <span className="text-sm font-medium">{social.label}</span>
-                  </motion.a>
-                ))}
-              </div>
-            </motion.div>
-
-            <motion.div
-              {...heroEnterDelay(0.4)}
-              className="space-y-12"
-            >
-              <div className="group">
-                <div className="text-orange-500/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-4 group-hover:text-orange-500 transition-colors">Direct Email</div>
-                <a href="mailto:gofisaputra4@gmail.com" className="text-2xl md:text-3xl text-white hover:text-orange-500 transition-all duration-300 block font-light">
-                  gofisaputra4@gmail.com
-                </a>
-              </div>
-
-              <div className="group">
-                <div className="text-orange-500/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-4 group-hover:text-orange-500 transition-colors">Whatsapp / Call</div>
-                <a href="http://wa.me/6282236127366" target="_blank" rel="noopener noreferrer" className="text-2xl md:text-3xl text-white hover:text-orange-500 transition-all duration-300 block font-light">
-                  +62 822 3612 7366
-                </a>
-              </div>
-
-              <div>
-                <div className="text-orange-500/40 font-bold uppercase tracking-[0.2em] text-[10px] mb-4">Base Location</div>
-                <div className="text-2xl text-white/70 font-light flex items-center gap-3">
-                   <MapPin size={20} className="text-orange-500/50" />
-                   South Jakarta, Indonesia
-                </div>
-              </div>
-            </motion.div>
-          </div>
-        </div>
-      </div>
-    </section>
-  );
+  return <section className="section-shell" aria-labelledby="contact-title"><header className="page-intro"><p className="eyebrow">Let’s collaborate</p><h1 id="contact-title">Good work starts<br /><span className="muted">with a conversation.</span></h1><p>Have a project in mind? Tell me what you’re working on and where you need a hand. We’ll work out the next steps together.</p></header>
+    <div className="contact-grid"><div className="contact-options">
+      <a className="contact-option" href={`mailto:${CONTACT.email}`}><Mail size={25} /><div><small>Email me</small><strong>{CONTACT.email}</strong></div><ArrowUpRight size={20} className="ml-auto" /></a>
+      <a className="contact-option" href={CONTACT.whatsapp} target="_blank" rel="noopener noreferrer"><MessageCircle size={25} /><div><small>Chat on WhatsApp</small><strong>+62 822 3612 7366</strong></div><ArrowUpRight size={20} className="ml-auto" /></a>
+      <p className="text-sm text-white/60 flex items-center gap-2 mt-4"><MapPin size={17} />{CONTACT.location}</p>
+      <div className="contact-socials">{[['Instagram','https://www.instagram.com/adityagofi_/'],['LinkedIn','https://www.linkedin.com/in/adityagofi/'],['Behance','https://www.behance.net/adityagofi'],['GitHub','https://github.com/adityagofi']].map(([label,url]) => <a className="text-link" href={url} key={label} target="_blank" rel="noopener noreferrer">{label}<ArrowUpRight size={14}/></a>)}</div>
+    </div><div className="contact-details"><h2>A little context goes a long way.</h2><p>Your brief doesn’t need to be perfect. A few details will help get the conversation started:</p><ul><li>What you’re building and who it’s for</li><li>The kind of digital work you need help with</li><li>Your ideal timeline and budget range</li></ul><p>Still exploring? Share your idea and we can figure out the scope together.</p></div></div>
+  </section>;
 }

@@ -1,23 +1,16 @@
-import { useEffect, useState } from 'react';
-import { motion } from 'motion/react';
-import {
-  BarChart3,
-  TrendingUp,
-  Target,
-  Zap,
-  Users,
-  ArrowUpRight,
-  Instagram,
-  Facebook,
-  Activity,
-  DollarSign,
-  PieChart,
-  MousePointer2
-} from 'lucide-react';
-import { heroEnter } from '@/lib/animations';
+import ScribblePlay from '@/components/ui/ScribblePlay';
+import ProjectHero from '@/components/ui/ProjectHero';
 import VideoModal from '@/components/ui/VideoModal';
-import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
-import SketchDecorations from '@/components/ui/SketchDecorations';
+import {
+Activity,
+DollarSign,
+PieChart,
+Target,
+TrendingUp,
+Users
+} from 'lucide-react';
+import { motion } from 'motion/react';
+import { useState } from 'react';
 
 const ADS_STATS = [
   { label: "Total Students Reached", value: "2M+", icon: <Users size={20} /> },
@@ -45,89 +38,25 @@ const ADS_PROJECTS = [
   }
 ];
 
-const bannerImages = [
-  "/meta/banner-1.webp",
-  "/meta/banner-2.webp",
-  "/meta/banner-3.webp",
-  "/meta/banner-4.webp",
-];
 
 export default function MetaAdsProject() {
   const [selection, setSelection] = useState<{ videos: string[]; index: number } | null>(null);
-  const [bannerDuration, setBannerDuration] = useState(() =>
-    typeof window !== 'undefined' && window.innerWidth < 768 ? 4 : 20
-  );
 
-  useEffect(() => {
-    window.scrollTo(0, 0);
-  }, []);
 
-  useEffect(() => {
-    const update = () => {
-      setBannerDuration(window.innerWidth >= 768 ? 20 : 4);
-    };
-    update();
-    window.addEventListener('resize', update);
-    return () => window.removeEventListener('resize', update);
-  }, []);
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-orange-500 relative overflow-hidden">
       {/* Hero Section */}
-      <section className="relative h-[50vh] md:h-[60vh] overflow-hidden flex items-center justify-center">
-        <div className="absolute inset-0 z-0">
-          <motion.div
-            key={bannerDuration}
-            className="flex h-full"
-            animate={{ x: ["0%", "-50%"] }}
-            transition={{ duration: bannerDuration, repeat: Infinity, ease: "linear" }}
-            style={{ width: "200%" }}
-          >
-            {[...bannerImages, ...bannerImages].map((src, i) => (
-              <div key={i} className="w-1/4 h-full flex-shrink-0">
-                <img 
-                  src={src} 
-                  alt="" 
-                  className="w-full h-full object-cover brightness-[0.3]"
-                  referrerPolicy="no-referrer"
-                />
-              </div>
-            ))}
-          </motion.div>
-        </div>
-
-
-        <SketchDecorations />
-
-        <div className="relative z-20 text-center px-6">
-          <motion.div {...heroEnter}>
-            <h1 className="text-4xl md:text-8xl font-black uppercase tracking-tighter leading-none mb-4">
-              Meta <span className="text-orange-500">Ads</span>
-            </h1>
-            <p className="text-white/60 text-[10px] md:text-sm font-bold tracking-[0.2em] md:tracking-[0.3em] uppercase">
-              Performance-Driven Creative for Explosive Growth
-            </p>
-          </motion.div>
-
-        </div>
-
-        <div className="absolute bottom-6 md:bottom-12 left-1/2 -translate-x-1/2 flex gap-4 md:gap-12 text-white/60 uppercase text-[9px] md:text-[10px] tracking-[0.15em] md:tracking-[0.3em] font-bold">
-          <div className="flex items-center gap-2"><Target size={14} /> Performance First</div>
-          <div className="flex items-center gap-2 md:flex hidden"><TrendingUp size={14} /> High ROAS</div>
-          <div className="flex items-center gap-2"><Zap size={14} /> Rapid Scale</div>
-        </div>
-      </section>
+      <ProjectHero view="meta-ads" sections={[{ id: "campaign-overview", label: "Overview" }, { id: "featured-campaign", label: "Campaign" }, { id: "ads-framework", label: "Process" }]} />
 
       {/* Intro Stats */}
-      <section className="py-20 px-6 max-w-7xl mx-auto border-y border-white/5 bg-white/[0.02]">
+      <section id="campaign-overview" className="py-20 px-6 max-w-7xl mx-auto border-y border-white/5 bg-white/[0.02]">
+        <h2 className="sr-only">Campaign overview</h2>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-8 md:gap-12">
           {ADS_STATS.map((stat, i) => (
             <motion.div 
               key={i}
-              initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              transition={{ delay: i * 0.1 }}
+              data-reveal
               className="text-center"
             >
               <div className="flex justify-center text-orange-500 mb-4">{stat.icon}</div>
@@ -139,13 +68,11 @@ export default function MetaAdsProject() {
       </section>
 
       {/* Featured Project - Mantappu Academy */}
-      <section className="py-32 px-6">
+      <section id="featured-campaign" className="py-32 px-6">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <motion.div
-              initial={{ opacity: 0, x: -30 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              data-reveal
             >
               <span className="text-orange-500 font-bold uppercase tracking-[0.4em] text-[10px]">{ADS_PROJECTS[0].featuredOverline}</span>
               <h2 className="text-5xl md:text-7xl font-black uppercase tracking-tighter mt-4 mb-8 leading-none">
@@ -174,9 +101,7 @@ export default function MetaAdsProject() {
             </motion.div>
 
             <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              data-reveal
               className="relative group pt-10"
             >
               <div className="absolute inset-0 bg-orange-500/10 blur-[100px] rounded-full" />
@@ -184,13 +109,13 @@ export default function MetaAdsProject() {
               {/* Ad Video Preview */}
               <div className="relative aspect-[9/16] max-w-[320px] mx-auto rounded-[1.5rem] overflow-hidden shadow-2xl bg-black group/video">
                 <div className="absolute inset-0 z-10">
-                  <img
-                    src={ADS_PROJECTS[0].videoThumb}
+                  <img loading="lazy" decoding="async" src={ADS_PROJECTS[0].videoThumb}
                     className="w-full h-full object-cover group-hover/video:scale-105 transition-all duration-700"
                     alt={ADS_PROJECTS[0].title}
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent" />
                   <button
+                    aria-label="Play Meta Ads campaign video"
                     onClick={() => setSelection({ videos: [ADS_PROJECTS[0].videoId], index: 0 })}
                     className="absolute inset-0 flex items-center justify-center cursor-pointer group/btn"
                   >
@@ -199,14 +124,7 @@ export default function MetaAdsProject() {
                       whileTap={{ scale: 0.95 }}
                       className="w-16 h-16 md:w-20 md:h-20 rounded-full bg-white/10 backdrop-blur-[2px] border border-white/50 flex items-center justify-center transition-all duration-500 shadow-xl relative z-20 group-hover/btn:bg-orange-500 group-hover/btn:border-orange-500"
                     >
-                      <StopMotionIcon
-                        paths={STOP_MOTION_PATHS.play}
-                        size={42}
-                        strokeWidth={3}
-                        drawDuration={0}
-                        staggerDelay={0}
-                        wobble
-                      />
+                      <ScribblePlay size={42} />
                     </motion.div>
                   </button>
 
@@ -233,7 +151,7 @@ export default function MetaAdsProject() {
       </section>
 
       {/* Methodology Section */}
-      <section className="py-40 px-6 bg-white/[0.02] border-y border-white/5">
+      <section id="ads-framework" className="py-40 px-6 bg-white/[0.02] border-y border-white/5">
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
             <div>
@@ -244,7 +162,7 @@ export default function MetaAdsProject() {
               
               <div className="space-y-12">
                 {[
-                  { icon: <Target className="text-orange-500" />, title: "Creative Sprints", desc: "Developing 5-10 hook variations weekly to find winners." },
+                  { icon: <Target className="text-orange-500" />, title: "Content Iteration", desc: "Developing 5-10 hook variations weekly to find winners." },
                   { icon: <Activity className="text-orange-500" />, title: "Full Funnel Tracking", desc: "Implementing CAPI and advanced tracking to battle attribution loss." },
                   { icon: <PieChart className="text-orange-500" />, title: "Budget Scaling", desc: "Horizontal and vertical scaling strategies to grow spend without breaking ROAS." }
                 ].map((item, i) => (
@@ -288,7 +206,7 @@ export default function MetaAdsProject() {
                           initial={{ width: 0 }}
                           whileInView={{ width: `${metric.progress}%` }}
                           viewport={{ once: true }}
-                          transition={{ duration: 1.5, ease: "easeOut" }}
+                          transition={{ duration: 0.45, ease: "easeOut" }}
                           className="h-full bg-orange-500"
                         />
                       </div>
