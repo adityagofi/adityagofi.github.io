@@ -1,4 +1,5 @@
 import ScribblePlay from '@/components/ui/ScribblePlay';
+import { COLLAGE_COLORS as C, Doodle, FloatingDoodles, MarkerScribble, ToolChips, type FloatingItem } from '@/components/ui/Collage';
 import ProjectHero from '@/components/ui/ProjectHero';
 import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
 import VideoModal from '@/components/ui/VideoModal';
@@ -110,6 +111,23 @@ const projects = [
   }
 ];
 
+// One doodle arrangement per section, alternating sides with the content.
+const SECTION_DOODLES: FloatingItem[][] = [
+  [{ kind: 'burst', color: C.orange, size: 80, top: '8%', right: '4%', rotate: 10 }, { kind: 'squiggle', color: C.violet, size: 100, bottom: '10%', left: '2%', desktopOnly: true }, { kind: 'sparkle', color: C.yellow, size: 40, top: '20%', left: '46%', desktopOnly: true }],
+  [{ kind: 'flower', color: C.green, size: 70, top: '10%', left: '3%', rotate: -12 }, { kind: 'asterisk', color: C.pink, size: 46, bottom: '14%', right: '5%', desktopOnly: true }, { kind: 'circle', color: C.yellow, size: 90, top: '6%', right: '30%', desktopOnly: true }],
+  [{ kind: 'sparkle', color: C.orange, size: 54, top: '8%', right: '6%' }, { kind: 'blob', color: C.violet, size: 80, bottom: '8%', left: '4%', rotate: 14, desktopOnly: true }, { kind: 'plus', color: C.green, size: 36, top: '40%', left: '48%', desktopOnly: true }],
+  [{ kind: 'smile', color: C.yellow, size: 70, top: '10%', left: '4%', rotate: -8 }, { kind: 'burst', color: C.pink, size: 70, bottom: '10%', right: '4%', rotate: 20, desktopOnly: true }],
+  [{ kind: 'arrow', color: C.orange, size: 96, top: '8%', right: '5%', rotate: 6, desktopOnly: true }, { kind: 'flower', color: C.violet, size: 60, bottom: '10%', left: '3%' }, { kind: 'sparkle', color: C.white, size: 34, top: '30%', left: '44%', desktopOnly: true }],
+  [{ kind: 'blob', color: C.green, size: 76, top: '8%', left: '4%', rotate: -6, desktopOnly: true }, { kind: 'asterisk', color: C.orange, size: 50, bottom: '12%', right: '6%' }],
+  [{ kind: 'circle', color: C.pink, size: 90, top: '6%', right: '6%', desktopOnly: true }, { kind: 'burst', color: C.yellow, size: 64, bottom: '10%', left: '4%', rotate: -10 }],
+];
+
+const PLATFORMS = [
+  { name: "TikTok", color: C.pink },
+  { name: "Reels", color: C.violet },
+  { name: "Shorts", color: C.orange },
+];
+
 export default function ShortFormVideoProject() {
   const [selection, setSelection] = useState<{ videos: string[]; index: number } | null>(null);
   const [projectSlides, setProjectSlides] = useState<Record<string, number>>(
@@ -173,23 +191,54 @@ export default function ShortFormVideoProject() {
     <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
       <ProjectHero view="short-form" sections={projects.map(project => ({ id: `project-${project.id}`, label: project.title }))} />
 
+      {/* Collage intro band */}
+      <section aria-label="How I make short-form video" className="paper-grid relative overflow-hidden px-6 md:px-32 py-12 md:py-16 border-y border-white/10">
+        <FloatingDoodles items={[
+          { kind: 'sparkle', color: C.yellow, size: 40, top: '14%', left: '38%', desktopOnly: true },
+          { kind: 'squiggle', color: C.green, size: 90, bottom: '6%', right: '3%', desktopOnly: true },
+        ]} scatter={{ seed: 5, count: 18, heading: false, free: [44, 60] }} />
+        <div className="relative z-10 max-w-7xl mx-auto flex flex-col md:flex-row md:items-center md:justify-between gap-8">
+          <div>
+            <p className="handwritten text-3xl md:text-5xl text-white leading-tight">Hook fast, edit tight, <span className="text-orange-500">ship daily</span> :)</p>
+            <p className="text-white/70 mt-3 max-w-xl">Vertical edits for brands, hospitals, airports and creators, built to stop the scroll in the first second.</p>
+          </div>
+          <div className="flex flex-wrap items-end gap-8">
+            <ToolChips tools={["Premiere Pro", "After Effects"]} label="Edit stack :)" />
+            <div>
+              <p className="handwritten text-lg text-white mb-2">Made for</p>
+              <ul className="flex gap-2">
+                {PLATFORMS.map((platform, i) => (
+                  <li key={platform.name} className="px-3 py-1.5 rounded-md bg-white text-black text-sm font-black shadow-[3px_3px_0_#00000080]" style={{ rotate: `${[-4, 3, -2][i]}deg`, borderBottom: `4px solid ${platform.color}` }}>{platform.name}</li>
+                ))}
+              </ul>
+            </div>
+          </div>
+        </div>
+      </section>
+
 {/* Projects List */}
-      <div className="pb-8 space-y-16">
+      <div className="pb-8">
         {projects.map((project, index) => (
-          <section id={`project-${project.id}`} key={project.id} className="px-6 md:px-32">
-            <div className={`max-w-7xl mx-auto flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 md:gap-20`}>
+          <section id={`project-${project.id}`} key={project.id} className="paper-grid relative overflow-hidden px-6 md:px-32 py-14 md:py-20">
+            <FloatingDoodles items={SECTION_DOODLES[index % SECTION_DOODLES.length]} scatter={{ seed: 40 + index * 7, count: 22, heading: false, free: index % 2 === 0 ? [54, 94] : [2, 44] }} />
+            <div className={`relative z-10 max-w-7xl mx-auto flex flex-col ${index % 2 === 0 ? 'lg:flex-row' : 'lg:flex-row-reverse'} items-center gap-12 md:gap-20`}>
               {/* Content */}
               <div className="w-full lg:w-1/2 space-y-6">
                 <motion.div
                   {...scrollSlideIn(index % 2 === 0 ? -30 : 30)}
                 >
-                  <p className="text-orange-500 font-mono text-xs tracking-[0.3em] uppercase mb-4">{project.category}</p>
-                  <h2 className="text-4xl md:text-7xl font-bold text-white mb-2 tracking-tighter">{project.title}</h2>
-                  <h3 className="text-2xl md:text-4xl font-bold text-white/60 mb-4">{project.subtitle}</h3>
-                  <p className="text-white/60 leading-relaxed text-sm md:text-base max-w-md text-justify">
+                  <p className="handwritten text-xl md:text-2xl text-orange-500 mb-3">Project {project.id} <span className="text-white">/ {project.category}</span></p>
+                  <h2 className="text-4xl md:text-7xl font-bold text-white mb-1 tracking-tighter">{project.title}</h2>
+                  <MarkerScribble className="mb-4" />
+                  <h3 className="inline-flex items-center gap-2 text-xl md:text-3xl font-bold text-white mb-5">
+                    <Doodle kind="sparkle" color={C.yellow} size={22} />
+                    {project.subtitle}
+                  </h3>
+                  <p className="text-white/70 leading-relaxed text-sm md:text-base max-w-md">
                     {project.description}
                   </p>
-                  <div className="flex items-start gap-2 mt-4 max-w-md text-white/30 text-sm italic">
+                  <p className="handwritten text-lg text-white mt-4">{project.videos.length} videos in this set <span className="text-orange-500">↘</span></p>
+                  <div className="flex items-start gap-2 mt-2 max-w-md text-white/50 text-sm italic">
                     <AlertCircle size={16} className="flex-shrink-0 mt-0.5 text-orange-500" />
                     <p>Note: Some videos don't include background music due to copyright restrictions.</p>
                   </div>
@@ -199,16 +248,6 @@ export default function ShortFormVideoProject() {
               {/* Video Slider/Collage */}
               <div className="w-full lg:w-1/2 group/slider relative">
                 <div className="relative h-[380px] md:h-[550px] flex items-center justify-center">
-                   {/* Middle Overlay Layer */}
-                   <motion.div
-                    className="absolute inset-0 opacity-[0.03] pointer-events-none"
-                    style={{
-                      backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-                      backgroundSize: '60px 60px'
-                    }}
-                    animate={{ backgroundPositionX: ["0px", "-60px"] }}
-                    transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
-                   />
 
                    {/* Orange Gradient Glow — sits behind the focused card */}
                    <motion.div
@@ -248,7 +287,7 @@ export default function ShortFormVideoProject() {
                               rotate: vIndex === 0 ? -8 : vIndex === 2 ? 8 : 0,
                               zIndex: vIndex === 1 ? 20 : 10
                             }}
-                            className={`relative aspect-[9/16] w-[40%] md:w-[38%] bg-zinc-800 rounded-[0.5rem] md:rounded-[1rem] overflow-hidden shadow-2xl border border-white/10 group cursor-pointer ${vIndex === 1 ? 'shadow-orange-500/20' : ''}`}
+                            className={`relative aspect-[9/16] w-[40%] md:w-[38%] bg-white p-1 md:p-1.5 rounded-[0.6rem] md:rounded-[1rem] overflow-hidden shadow-2xl group cursor-pointer ${vIndex === 1 ? 'shadow-orange-500/30' : ''}`}
                             role="button" tabIndex={0} aria-label={`Play ${project.title} video ${project.videos.findIndex(v => v.id === video.id) + 1}`}
                             onKeyDown={event => { if (event.key === "Enter" || event.key === " ") { event.preventDefault(); event.currentTarget.click(); } }}
                             onClick={() => setSelection({
@@ -258,7 +297,7 @@ export default function ShortFormVideoProject() {
                            >
                              <img loading="lazy" decoding="async" src={video.thumbnail}
                               alt="" 
-                              className="w-full h-full object-cover brightness-75 group-hover:brightness-90 transition-all duration-700" 
+                              className="w-full h-full object-cover rounded-[0.35rem] md:rounded-[0.7rem] brightness-90 group-hover:brightness-100 transition-all duration-700" 
                               referrerPolicy="no-referrer" 
                              />
                              {vIndex === 1 && (

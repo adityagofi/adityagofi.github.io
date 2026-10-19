@@ -1,24 +1,9 @@
+import { COLLAGE_COLORS as C, CollageHeading, FloatingDoodles, MarkerScribble, Swatches, ToolChips } from '@/components/ui/Collage';
 import ProjectHero from '@/components/ui/ProjectHero';
 import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
 import { AnimatePresence, motion } from 'motion/react';
+import type React from 'react';
 import { useEffect, useState } from 'react';
-
-const TOOL_LOGOS: Record<string, { bg: string; fg: string; label: string }> = {
-  "After Effects":      { bg: "#00005B", fg: "#D8A8FF", label: "Ae" },
-  "Premiere Pro":       { bg: "#1F0033", fg: "#EA77FF", label: "Pr" },
-  "Adobe Illustrator":  { bg: "#330000", fg: "#FF9A00", label: "Ai" },
-  "Photoshop":          { bg: "#001E36", fg: "#31A8FF", label: "Ps" },
-  "InDesign":           { bg: "#49021F", fg: "#FF3366", label: "Id" },
-  "Lightroom":          { bg: "#001E36", fg: "#31A8FF", label: "Lr" },
-  "Audition":           { bg: "#00081C", fg: "#9999FF", label: "Au" },
-  "Cinema 4D":          { bg: "#011A6B", fg: "#F4F8FC", label: "C4D" },
-  "Figma":              { bg: "#0A0A0A", fg: "#FFFFFF", label: "Fg" },
-};
-
-const tileFor = (tool: string) =>
-  TOOL_LOGOS[tool.trim()] ?? { bg: "#1A1A1A", fg: "#FFFFFF", label: tool.trim().slice(0, 2) };
-
-
 
 const bookletProjects = [
   {
@@ -236,7 +221,7 @@ function ProductGallery({ images }: { images: string[] }) {
       </div>
 
       {/* Active Main Image — square 1080×1080 */}
-      <div className="relative w-[1080px] max-w-full aspect-square rounded-2xl overflow-hidden border border-white/10 bg-white/[0.03]">
+      <div className="sticker sticker-tape relative w-[1080px] max-w-full" style={{ '--tilt': '-1.5deg' } as React.CSSProperties}><div className="sticker-inner relative w-full aspect-square overflow-hidden bg-white/[0.03]">
         <AnimatePresence mode="wait">
           <motion.img loading="lazy" decoding="async" key={activeIndex}
             src={images[activeIndex]}
@@ -250,13 +235,15 @@ function ProductGallery({ images }: { images: string[] }) {
             referrerPolicy="no-referrer"
           />
         </AnimatePresence>
-      </div>
+      </div></div>
     </div>
   );
 }
 
 // Shared filterable gallery: one collection active at a time, animated pill,
 // clean image-only grid. Used by both the Social Media and Ecommerce sections.
+const TILTS = [-2, 1.5, -1, 2.5, -2.5, 1, -1.5, 2];
+
 function FilterableGallery({
   collections,
   aspectClass,
@@ -279,7 +266,7 @@ function FilterableGallery({
             aria-pressed={activeFilter === c.name}
             onClick={() => setActiveFilter(c.name)}
             className={`relative px-4 md:px-5 py-2 rounded-full text-xs md:text-sm font-bold whitespace-nowrap transition-colors cursor-pointer ${
-              activeFilter === c.name ? "text-black" : "text-white/50 hover:text-white/80"
+              activeFilter === c.name ? "text-black" : "text-white border border-white/60 hover:bg-white hover:text-black"
             }`}
           >
             {activeFilter === c.name && (
@@ -295,7 +282,7 @@ function FilterableGallery({
       </div>
 
       {/* Image grid */}
-      <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3 md:gap-5">
+      <motion.div layout className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-4 md:gap-7">
         <AnimatePresence mode="popLayout">
           {active.images.map((src, i) => (
             <motion.div
@@ -305,14 +292,16 @@ function FilterableGallery({
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 0.9 }}
               transition={{ type: "spring", stiffness: 320, damping: 30 }}
-              className={`relative ${aspectClass} rounded-xl md:rounded-2xl overflow-hidden border border-white/10`}
-              style={{ background: `linear-gradient(140deg, ${active.tint[0]}, ${active.tint[1]})` }}
+              className={`sticker ${i % 3 === 0 ? 'sticker-tape' : ''}`}
+              style={{ '--tilt': `${TILTS[i % TILTS.length]}deg` } as React.CSSProperties}
             >
-              <img loading="lazy" decoding="async" src={src}
-                alt={`${active.name} — design ${i + 1}`}
-                className="w-full h-full object-cover"
-                referrerPolicy="no-referrer"
-              />
+              <div className={`sticker-inner relative ${aspectClass} overflow-hidden`} style={{ background: `linear-gradient(140deg, ${active.tint[0]}, ${active.tint[1]})` }}>
+                <img loading="lazy" decoding="async" src={src}
+                  alt={`${active.name} — design ${i + 1}`}
+                  className="w-full h-full object-cover"
+                  referrerPolicy="no-referrer"
+                />
+              </div>
             </motion.div>
           ))}
         </AnimatePresence>
@@ -363,99 +352,74 @@ export default function GraphicDesignProject() {
       <ProjectHero view="graphic" sections={[{ id: "social-design", label: "Social media" }, { id: "ecommerce-design", label: "E-commerce" }, { id: "interface-design", label: "UI/UX" }, { id: "booklet-design", label: "Booklets" }, { id: "product-design", label: "Products" }]} />
 
 {/* Project 1: Social Media Design - Filterable Gallery */}
-      <section id="social-design" className="py-32 px-6 md:px-32 bg-zinc-900/30 relative overflow-hidden">
-        {/* Grid Background */}
-        <motion.div 
-          className="absolute inset-0 opacity-[0.1] pointer-events-none" 
-          style={{ 
-            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', 
-            backgroundSize: '60px 60px' 
-          }}
-          animate={{ backgroundPositionX: ["0px", "-60px"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
+      <section id="social-design" className="paper-grid py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'burst', color: C.orange, size: 84, top: '3%', right: '2%', rotate: 12 },
+          { kind: 'squiggle', color: C.violet, size: 90, top: '46%', left: '-3%', rotate: -10, desktopOnly: true },
+          { kind: 'sparkle', color: C.yellow, size: 40, top: '38%', right: '1%', desktopOnly: true },
+          { kind: 'flower', color: C.green, size: 64, bottom: '2%', left: '-1%', rotate: 20 },
+          { kind: 'asterisk', color: C.pink, size: 42, bottom: '14%', right: '1%', desktopOnly: true },
+        ]} scatter={{ seed: 3, count: 26 }} />
         
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-12 md:mb-16">
-            <motion.div
-              data-reveal
-            >
-              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">Social Media Design</h2>
-              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
-                Transforming brand stories into scroll-stopping social content. Every post is crafted with intent — balancing bold visuals, clarity, and a consistent identity that drives engagement across every platform.
-              </p>
-            </motion.div>
-          </div>
+          <CollageHeading index="01" kicker="Social media" title={<>Social Media <span className="text-orange-500">Design</span></>}
+            aside={<ToolChips tools={["Adobe Illustrator", "Photoshop"]} />}>
+            Transforming brand stories into scroll-stopping social content. Every post is crafted with intent — balancing bold visuals, clarity, and a consistent identity that drives engagement across every platform.
+          </CollageHeading>
 
           <FilterableGallery collections={socialCollections} aspectClass="aspect-[3/4]" layoutId="socialFilterPill" />
         </div>
       </section>
 
       {/* Project: E-commerce Design - Product Imaging Showcase */}
-      <section id="ecommerce-design" className="py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
-        {/* Grid Background */}
-        <motion.div
-          className="absolute inset-0 opacity-[0.05] pointer-events-none"
-          style={{
-            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)',
-            backgroundSize: '60px 60px'
-          }}
-          animate={{ backgroundPositionX: ["0px", "-60px"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
+      <section id="ecommerce-design" className="paper-grid py-24 md:py-32 px-6 md:px-32 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'blob', color: C.violet, size: 80, top: '3%', right: '3%', rotate: -8, desktopOnly: true },
+          { kind: 'sparkle', color: C.orange, size: 44, top: '34%', right: '1%' },
+          { kind: 'circle', color: C.yellow, size: 80, bottom: '6%', right: '-1%', rotate: 10, desktopOnly: true },
+          { kind: 'plus', color: C.green, size: 36, bottom: '2%', left: '1%' },
+        ]} scatter={{ seed: 7, count: 26 }} />
 
         <div className="max-w-7xl mx-auto relative z-10">
-          <div className="mb-12 md:mb-16 flex flex-col md:flex-row md:items-end md:justify-between gap-6 md:gap-10">
-            <motion.div
-              data-reveal
-            >
-              <h2 className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter">E-commerce Design</h2>
-              <p className="text-white/60 text-base md:text-lg leading-relaxed max-w-2xl">
-                Ecommerce product visuals where design meets image-making. Beyond composing each frame, I retouch and composite — reconstructing props, scenes, and details that were never captured in the original photoshoot — to craft polished, on-brand imagery for every collection.
-              </p>
-            </motion.div>
-
-            <motion.div
-              data-reveal
-              className="shrink-0 text-left md:text-right"
-            >
-              <p className="text-white/30 text-[10px] md:text-xs uppercase tracking-[0.3em] font-bold mb-2">Client</p>
-              <p className="text-2xl md:text-3xl font-bold tracking-tight text-white">Page by Page</p>
-            </motion.div>
-          </div>
+          <CollageHeading index="02" kicker="E-commerce · Page by Page" title={<>E-commerce <span className="text-orange-500">Design</span></>}
+            aside={<ToolChips tools={["Photoshop"]} label="Retouch & composite :)" />}>
+            Ecommerce product visuals where design meets image-making. Beyond composing each frame, I retouch and composite — reconstructing props, scenes, and details that were never captured in the original photoshoot — to craft polished, on-brand imagery for every collection.
+          </CollageHeading>
 
           <FilterableGallery collections={ecommerceCollections} aspectClass="aspect-square" layoutId="ecomFilterPill" />
         </div>
       </section>
 
       {/* Project: UI UX Design - Animated Infinite Rows */}
-      <section id="interface-design" className="py-32 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 md:px-32 mb-16 text-center">
-          <motion.h2 
-            data-reveal
-            className="text-4xl md:text-7xl font-bold mb-6 tracking-tighter"
-          >
-            UI/UX Design
-          </motion.h2>
-          <motion.p 
-            data-reveal
-            className="text-white/60 text-base md:text-lg max-w-2xl mx-auto"
-          >
+      <section id="interface-design" className="paper-grid py-24 md:py-32 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'arrow', color: C.orange, size: 100, top: '8%', left: '6%', rotate: -6, desktopOnly: true },
+          { kind: 'smile', color: C.yellow, size: 70, top: '6%', right: '8%', rotate: 8 },
+          { kind: 'burst', color: C.green, size: 70, bottom: '6%', right: '5%', rotate: -12, desktopOnly: true },
+        ]} scatter={{ seed: 11, count: 26 }} />
+        <div className="max-w-7xl mx-auto px-6 md:px-32">
+          <CollageHeading index="03" kicker="Interfaces" align="center" title={<>UI/UX <span className="text-orange-500">Design</span></>}>
             Crafting intuitive digital experiences that combine functional precision with aesthetic clarity. Focusing on user-centered design systems and interactive prototypes.
-          </motion.p>
+          </CollageHeading>
         </div>
 
-        <div className="section-shell grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-          {uiUxRows.flat().map((src, i) => <figure key={src} className="rounded-xl overflow-hidden border border-white/10"><img src={src} alt={`Website interface design ${i + 1}`} width="800" height="450" loading="lazy" decoding="async" className="w-full aspect-video object-cover" /></figure>)}
+        <div className="section-shell relative z-10 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {uiUxRows.flat().map((src, i) => <figure key={src} className={`sticker ${i % 4 === 1 ? 'sticker-tape' : ''}`} style={{ '--tilt': `${TILTS[i % TILTS.length] / 2}deg` } as React.CSSProperties}><img src={src} alt={`Website interface design ${i + 1}`} width="800" height="450" loading="lazy" decoding="async" className="w-full aspect-video object-cover" /></figure>)}
         </div>
       </section>
 
       {/* Project 2: Company Profile Booklet - Collage Slider */}
-      <section id="booklet-design" className="py-20 md:py-24 px-6 md:px-32 overflow-hidden">
+      <section id="booklet-design" className="paper-grid py-20 md:py-24 px-6 md:px-32 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'flower', color: C.pink, size: 56, top: '45%', right: '-1%', rotate: 15, desktopOnly: true },
+          { kind: 'squiggle', color: C.yellow, size: 100, bottom: '8%', left: '2%', rotate: 6, desktopOnly: true },
+        ]} scatter={{ seed: 17, count: 26 }} />
         <div className="max-w-7xl mx-auto">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-12 md:mb-14">
             <div>
-              <h2 className="text-3xl md:text-5xl font-bold mb-6">Company Profile Booklet</h2>
+              <p className="handwritten text-xl md:text-2xl text-orange-500 mb-2">Project 04 <span className="text-white">/ Print</span></p>
+              <h2 className="text-3xl md:text-5xl font-bold mb-1">Company Profile <span className="text-orange-500">Booklet</span></h2>
+              <MarkerScribble className="mb-6" />
               <div className="space-y-2 text-white/60 text-sm">
                 <AnimatePresence mode="wait">
                   <motion.div
@@ -511,72 +475,72 @@ export default function GraphicDesignProject() {
                 >
                   <div className="relative w-full h-full">
                     <motion.div
-                      className="absolute top-[20%] left-[25%] md:top-[8%] md:left-[26%] lg:top-[5%] lg:left-[32%] w-[50%] md:w-[44%] lg:w-[32%] aspect-[3/4] z-20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-xl overflow-hidden border border-white/10"
+                      className="absolute top-[20%] left-[25%] md:top-[8%] md:left-[26%] lg:top-[5%] lg:left-[32%] w-[50%] md:w-[44%] lg:w-[32%] aspect-[3/4] z-20 shadow-[0_50px_100px_-20px_rgba(0,0,0,0.5)] rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: -2, y: 20, opacity: 0 }}
                       animate={{ rotate: 1, y: 0, opacity: 1 }}
                       transition={{ delay: 0.1, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[0]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[0]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 2: Top Left - Abstract Angle */}
                     <motion.div
-                      className="absolute top-[8%] left-[-15%] md:top-[6%] md:left-[3%] lg:top-[2%] lg:left-[7%] w-[25%] md:w-[22%] lg:w-[16%] aspect-[3/4] z-10 shadow-2xl rounded-xl overflow-hidden border border-white/10"
+                      className="absolute top-[8%] left-[-15%] md:top-[6%] md:left-[3%] lg:top-[2%] lg:left-[7%] w-[25%] md:w-[22%] lg:w-[16%] aspect-[3/4] z-10 shadow-2xl rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: -15, x: -40, opacity: 0 }}
                       animate={{ rotate: -8, x: 70, opacity: 1 }}
                       transition={{ delay: 0.2, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[1]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[1]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 3: Top Right - Abstract Angle */}
                     <motion.div
-                      className="absolute top-[12%] right-[-20%] md:top-[14%] md:right-[3%] lg:top-[8%] lg:right-[6%] w-[25%] md:w-[22%] lg:w-[17%] aspect-[3/4] z-10 shadow-2xl rounded-xl overflow-hidden border border-white/10"
+                      className="absolute top-[12%] right-[-20%] md:top-[14%] md:right-[3%] lg:top-[8%] lg:right-[6%] w-[25%] md:w-[22%] lg:w-[17%] aspect-[3/4] z-10 shadow-2xl rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: 12, x: 40, opacity: 0 }}
                       animate={{ rotate: 6, x: -100, opacity: 1 }}
                       transition={{ delay: 0.15, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[2]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[2]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 4: Mid Left - Overlapping */}
                     <motion.div
-                      className="absolute top-[45%] left-[-20%] md:top-[50%] md:left-[-2%] lg:top-[42%] lg:left-[0%] w-[30%] md:w-[26%] lg:w-[19%] aspect-[3/4] z-30 shadow-2xl rounded-xl overflow-hidden border border-white/10"
+                      className="absolute top-[45%] left-[-20%] md:top-[50%] md:left-[-2%] lg:top-[42%] lg:left-[0%] w-[30%] md:w-[26%] lg:w-[19%] aspect-[3/4] z-30 shadow-2xl rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: -8, x: -30, opacity: 0 }}
                       animate={{ rotate: -4, x: 100, opacity: 1 }}
                       transition={{ delay: 0.3, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[3]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[3]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 5: Mid Right - Floating */}
                     <motion.div
-                      className="absolute top-[52%] right-[-4%] md:top-[55%] md:right-[-2%] lg:top-[48%] lg:right-[6%] w-[30%] md:w-[26%] lg:w-[20%] aspect-[3/4] z-30 shadow-2xl rounded-xl overflow-hidden border border-white/10"
+                      className="absolute top-[52%] right-[-4%] md:top-[55%] md:right-[-2%] lg:top-[48%] lg:right-[6%] w-[30%] md:w-[26%] lg:w-[20%] aspect-[3/4] z-30 shadow-2xl rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: 10, x: 30, opacity: 0 }}
                       animate={{ rotate: 5, x: -10, opacity: 1 }}
                       transition={{ delay: 0.25, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[4]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[4]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 6: Bottom Left Center - Tucked Behind */}
                     <motion.div
-                      className="absolute bottom-[10%] left-[20%] md:bottom-[2%] md:left-[10%] lg:bottom-[-3%] lg:left-[22%] w-[25%] md:w-[20%] lg:w-[14%] aspect-[3/4] z-40 shadow-xl rounded-xl overflow-hidden border border-white/10"
+                      className="absolute bottom-[10%] left-[20%] md:bottom-[2%] md:left-[10%] lg:bottom-[-3%] lg:left-[22%] w-[25%] md:w-[20%] lg:w-[14%] aspect-[3/4] z-40 shadow-xl rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: -5, y: 40, opacity: 0 }}
                       animate={{ rotate: -2, y: 0, opacity: 1 }}
                       transition={{ delay: 0.35, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[5]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[5]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
 
                     {/* Image 7: Bottom Right Center - Dynamic */}
                     <motion.div
-                      className="absolute bottom-[5%] right-[22%] md:bottom-[-2%] md:right-[24%] lg:bottom-[-6%] lg:right-[28%] w-[25%] md:w-[22%] lg:w-[16%] aspect-[3/4] z-40 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)] rounded-xl overflow-hidden border border-white/10"
+                      className="absolute bottom-[5%] right-[22%] md:bottom-[-2%] md:right-[24%] lg:bottom-[-6%] lg:right-[28%] w-[25%] md:w-[22%] lg:w-[16%] aspect-[3/4] z-40 shadow-[0_40px_80px_-15px_rgba(0,0,0,0.6)] rounded-lg overflow-hidden bg-white p-1 md:p-1.5"
                       initial={{ rotate: 15, y: 60, opacity: 0 }}
                       animate={{ rotate: 8, y: 0, opacity: 1 }}
                       transition={{ delay: 0.4, duration: 0.4 }}
                     >
-                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[6]} alt="" className="w-full h-full object-cover" referrerPolicy="no-referrer" />
+                      <img loading="lazy" decoding="async" src={bookletProjects[currentSlide].images[6]} alt="" className="w-full h-full object-cover rounded" referrerPolicy="no-referrer" />
                     </motion.div>
                   </div>
                 </motion.div>
@@ -631,24 +595,21 @@ export default function GraphicDesignProject() {
       </section>
 
       {/* Project 3: Product Design Portfolio - Page by Page */}
-      <section id="product-design" className="py-32 bg-[#121212] relative overflow-hidden">
-        {/* Grid Background */}
-        <motion.div 
-          className="absolute inset-0 opacity-[0.03] pointer-events-none" 
-          style={{ 
-            backgroundImage: 'linear-gradient(to right, #ffffff 1px, transparent 1px), linear-gradient(to bottom, #ffffff 1px, transparent 1px)', 
-            backgroundSize: '60px 60px' 
-          }}
-          animate={{ backgroundPositionX: ["0px", "-60px"] }}
-          transition={{ duration: 3, repeat: Infinity, ease: "linear" }}
-        />
+      <section id="product-design" className="paper-grid py-24 md:py-32 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'burst', color: C.yellow, size: 80, top: '6%', left: '5%', rotate: -10 },
+          { kind: 'sparkle', color: C.white, size: 40, top: '12%', right: '10%', desktopOnly: true },
+          { kind: 'blob', color: C.orange, size: 70, bottom: '6%', right: '6%', rotate: 20, desktopOnly: true },
+        ]} scatter={{ seed: 23, count: 26, free: [0, 52] }} />
         
         <div className="max-w-7xl mx-auto px-6 md:px-32 relative z-10">
-          <div className="flex flex-col items-center mb-32">
-            <h2 className="text-3xl md:text-6xl font-bold  text-center">Product Design Portfolio</h2>
+          <div className="flex flex-col items-center mb-16 md:mb-24 text-center">
+            <p className="handwritten text-xl md:text-2xl text-orange-500 mb-2">Project 05 <span className="text-white">/ Packaging</span></p>
+            <h2 className="text-3xl md:text-6xl font-bold">Product Design <span className="text-orange-500">Portfolio</span></h2>
+            <MarkerScribble className="mt-2 mx-auto" />
           </div>
           
-          <div className="space-y-64">
+          <div className="space-y-32">
             {productDesignProjects.map((project, index) => (
               <div key={index} className="relative flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
                 {/* Left Side: Image Gallery */}
@@ -667,51 +628,9 @@ export default function GraphicDesignProject() {
                     </div>
                   </div>
 
-                  {/* Tools */}
-                  <div>
-                    <div className="flex items-center gap-4 text-white/30 text-xs md:text-sm uppercase tracking-widest font-bold mb-6">
-                      <div className="w-12 h-[1px] bg-white/20" />
-                      Toolkit
-                      <div className="text-orange-500 font-mono text-[10px]">/ {project.tools.length}</div>
-                    </div>
-                    <div className="flex flex-wrap gap-4">
-                      {project.tools.map((tool, tIdx) => {
-                        const tile = tileFor(tool);
-                        return (
-                          <motion.div
-                            key={tool}
-                            data-reveal
-                            className="group relative"
-                          >
-                            {/* Hover tooltip */}
-                            <div className="absolute -top-11 left-1/2 -translate-x-1/2 px-3 py-1.5 rounded-lg bg-black/90 backdrop-blur-md border border-white/10 text-[10px] uppercase tracking-widest font-bold text-white whitespace-nowrap opacity-0 group-hover:opacity-100 translate-y-2 group-hover:translate-y-0 transition-all duration-300 pointer-events-none shadow-xl">
-                              {tool.trim()}
-                              <div className="absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 bg-black/90 border-r border-b border-white/10" />
-                            </div>
-                            {/* Branded tile */}
-                            <div
-                              className="relative w-14 h-14 md:w-16 md:h-16 rounded-2xl flex items-center justify-center border border-white/10 group-hover:border-white/30 group-hover:scale-110 transition-all duration-500 cursor-default shadow-lg overflow-hidden"
-                              style={{ backgroundColor: tile.bg }}
-                            >
-                              <div
-                                className="absolute inset-0 opacity-60 pointer-events-none"
-                                style={{ background: `radial-gradient(circle at 25% 20%, ${tile.fg}22, transparent 60%)` }}
-                              />
-                              <div
-                                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none"
-                                style={{ background: `radial-gradient(circle at 50% 100%, ${tile.fg}40, transparent 70%)` }}
-                              />
-                              <span
-                                className="relative z-10 font-black text-lg md:text-xl tracking-tight leading-none"
-                                style={{ color: tile.fg, fontFamily: "system-ui, -apple-system, 'Segoe UI', Roboto, sans-serif" }}
-                              >
-                                {tile.label}
-                              </span>
-                            </div>
-                          </motion.div>
-                        );
-                      })}
-                    </div>
+                  <div className="flex flex-wrap gap-8">
+                    <ToolChips tools={project.tools} />
+                    <Swatches colors={project.colors} />
                   </div>
                 </div>
               </div>

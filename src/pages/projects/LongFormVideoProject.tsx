@@ -1,5 +1,7 @@
 import ScribblePlay from '@/components/ui/ScribblePlay';
+import { COLLAGE_COLORS as C, FloatingDoodles, MarkerScribble, cornerDoodles } from '@/components/ui/Collage';
 import ProjectHero from '@/components/ui/ProjectHero';
+import type React from 'react';
 import StopMotionIcon, { STOP_MOTION_PATHS } from '@/components/ui/StopMotionIcon';
 import VideoModal from '@/components/ui/VideoModal';
 import { Calendar, Clock } from 'lucide-react';
@@ -112,13 +114,20 @@ export default function LongFormVideoProject() {
       <ProjectHero view="long-form" sections={[{ id: "featured-productions", label: "Featured" }, ...SECTIONS.map((section, index) => ({ id: `collection-${index}`, label: section.title }))]} />
 
 {/* Highlight Slider Section */}
-      <section id="featured-productions" className="py-12 relative overflow-hidden">
-        <div className="max-w-6xl mx-auto px-6 mb-10 text-center">
-          <h2 className="text-3xl md:text-5xl font-bold mb-6">Featured Productions</h2>
-          <p className="text-white/40 max-w-xl mx-auto">Selected long-form projects where narrative depth meets visual excellence.</p>
+      <section id="featured-productions" className="paper-grid py-16 md:py-20 relative overflow-hidden">
+        <FloatingDoodles items={[
+          { kind: 'burst', color: C.yellow, size: 80, top: '4%', left: '4%', rotate: -10, desktopOnly: true },
+          { kind: 'arrow', color: C.orange, size: 90, top: '6%', right: '8%', rotate: 8, desktopOnly: true },
+        ]} scatter={{ seed: 71, count: 24, band: 22, front: false }} />
+        <div className="relative z-10 max-w-6xl mx-auto px-6 mb-10 text-center">
+          <p className="handwritten text-xl md:text-2xl text-orange-500 mb-2">Featured <span className="text-white">/ Long-form</span></p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-1">Featured Productions</h2>
+          <MarkerScribble className="mx-auto mb-5" />
+          <p className="text-white/70 max-w-xl mx-auto">Selected long-form projects where narrative depth meets visual excellence.</p>
         </div>
 
-        <div className="relative group/gallery max-w-6xl mx-auto px-6">
+        <div className="relative z-10 group/gallery max-w-6xl mx-auto px-6">
+          <FloatingDoodles items={cornerDoodles(5)} spill />
           <div className="relative h-[400px] md:h-[600px] flex items-center justify-center overflow-visible">
             {/* Nav Controls — always shown, wobble */}
             <div className="absolute top-1/2 -translate-y-1/2 -left-4 md:left-2 z-20">
@@ -227,22 +236,25 @@ export default function LongFormVideoProject() {
 
       {/* Sections for Specific Categories */}
       {SECTIONS.map((section, sIdx) => (
-        <section id={`collection-${sIdx}`} key={section.title} className={`py-24 px-6 md:px-32 ${sIdx % 2 !== 0 ? 'bg-white/5' : ''}`}>
-          <div className="max-w-7xl mx-auto">
+        <section id={`collection-${sIdx}`} key={section.title} className="paper-grid relative overflow-hidden py-20 md:py-24 px-6 md:px-32">
+          <FloatingDoodles scatter={{ seed: 80 + sIdx * 9, count: 22, band: 45, free: [95, 98], front: false }} />
+          <div className="relative z-10 max-w-7xl mx-auto">
             <div className="mb-16 max-w-2xl">
-              <span className="text-orange-500 text-[10px] uppercase tracking-widest font-bold mb-4 block">0{sIdx + 1} / Collection</span>
-              <h2 className="text-4xl md:text-6xl font-bold mb-6 tracking-tight">{section.title}</h2>
-              <p className="text-white/40 text-lg leading-relaxed">{section.desc}</p>
+              <p className="handwritten text-xl md:text-2xl text-orange-500 mb-2">Collection 0{sIdx + 1} <span className="text-white">/ {section.videos.length} videos</span></p>
+              <h2 className="text-4xl md:text-6xl font-bold mb-1 tracking-tight">{section.title}</h2>
+              <MarkerScribble className="mb-6" />
+              <p className="text-white/70 text-lg leading-relaxed">{section.desc}</p>
             </div>
 
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-10">
               {section.videos.map((v, vIdx) => (
               <button
                 key={v.id}
                 onClick={() => setSelection({ videos: section.videos.map(sv => sv.id), index: vIdx })}
                 className="group/item cursor-pointer text-left"
               >
-                <div className="relative aspect-video rounded-3xl overflow-hidden mb-6 border border-white/5 shadow-2xl">
+                <div className={`sticker ${vIdx === 1 ? 'sticker-tape' : ''} mb-6`} style={{ '--tilt': `${[-2, 1.5, -1][vIdx % 3]}deg` } as React.CSSProperties}>
+                <div className="sticker-inner relative aspect-video overflow-hidden">
                   <img loading="lazy" decoding="async" src={v.thumbnail}
                     alt={v.title}
                     className="w-full h-full object-cover brightness-100 group-hover/item:scale-110 transition-transform duration-700"
@@ -254,8 +266,9 @@ export default function LongFormVideoProject() {
                     </div>
                   </div>
                 </div>
-                <h3 className="text-xl font-bold mb-2 text-white/90 group-hover/item:text-orange-500 transition-colors uppercase tracking-tight">{v.title}</h3>
-                <p className="text-white/40 text-sm leading-relaxed font-light">{v.desc}</p>
+                </div>
+                <h3 className="text-xl font-bold mb-2 text-white group-hover/item:text-orange-500 transition-colors uppercase tracking-tight">{v.title}</h3>
+                <p className="text-white/70 text-sm leading-relaxed">{v.desc}</p>
               </button>
               ))}
             </div>

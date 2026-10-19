@@ -1,4 +1,5 @@
 import MotionVideoSlider from '@/components/ui/MotionVideoSlider';
+import { COLLAGE_COLORS as C, FloatingDoodles, MarkerScribble, ToolChips, cornerDoodles } from '@/components/ui/Collage';
 import ProjectHero from '@/components/ui/ProjectHero';
 import VideoModal from '@/components/ui/VideoModal';
 import { ArrowLeft, ArrowRight } from 'lucide-react';
@@ -78,23 +79,6 @@ const projects = [
 
 
 
-// Brand-coloured product tiles. `bg` is the dark backplate, `fg` the lighter
-// mark colour, `label` the two-letter wordmark.
-const TOOL_LOGOS: Record<string, { bg: string; fg: string; label: string }> = {
-  "After Effects":      { bg: "#00005B", fg: "#D8A8FF", label: "Ae" },
-  "Premiere Pro":       { bg: "#1F0033", fg: "#EA77FF", label: "Pr" },
-  "Adobe Illustrator":  { bg: "#330000", fg: "#FF9A00", label: "Ai" },
-  "Photoshop":          { bg: "#001E36", fg: "#31A8FF", label: "Ps" },
-  "InDesign":           { bg: "#49021F", fg: "#FF3366", label: "Id" },
-  "Lightroom":          { bg: "#001E36", fg: "#31A8FF", label: "Lr" },
-  "Audition":           { bg: "#00081C", fg: "#9999FF", label: "Au" },
-  "Cinema 4D":          { bg: "#011A6B", fg: "#F4F8FC", label: "C4D" },
-  "Figma":              { bg: "#0A0A0A", fg: "#FFFFFF", label: "Fg" },
-};
-
-const tileFor = (tool: string) =>
-  TOOL_LOGOS[tool.trim()] ?? { bg: "#1A1A1A", fg: "#FFFFFF", label: tool.trim().slice(0, 2) };
-
 type Selection = { videos: string[]; index: number } | null;
 
 export default function MotionProject() {
@@ -105,17 +89,22 @@ export default function MotionProject() {
   };
   return <div className="motion-portfolio">
     <ProjectHero view="motion" sections={projects.map(project => ({ id: project.id, label: project.client === 'LOGO MOTION' ? 'Logo motion' : project.client === 'PAGE BY PAGE' ? 'Page by Page' : project.client === 'ROCKETINDO' ? 'Rocketindo' : project.client }))} />
-    <section id="selected-projects" aria-labelledby="motion-work-title">
-      <div className="motion-collection-heading">
-        <div><p className="eyebrow">Selected work / Motion</p><h2 id="motion-work-title">Identity, in motion.</h2></div>
+    <section id="selected-projects" aria-labelledby="motion-work-title" className="paper-grid relative overflow-hidden">
+      <FloatingDoodles items={[
+        { kind: 'burst', color: C.orange, size: 84, top: '1%', right: '2%', rotate: 12 },
+        { kind: 'squiggle', color: C.violet, size: 90, top: '0.5%', right: '22%', desktopOnly: true },
+      ]} scatter={{ seed: 61, count: 60, band: 7, front: false }} />
+      <div className="motion-collection-heading relative z-10">
+        <div><p className="handwritten text-xl md:text-2xl text-orange-500 mb-2">Selected work <span className="text-white">/ Motion</span></p><h2 id="motion-work-title">Identity, in motion.</h2><MarkerScribble className="mt-2" /></div>
         <p>Brand stories, product launches, and on-screen experiences. Explore each collection and press play.</p>
       </div>
-      <div className="motion-case-list">
+      <div className="motion-case-list relative z-10">
         {projects.map((project, projectIndex) => {
           const current = slides[project.id] ?? 0;
-          return <article key={project.id} id={project.id} className="motion-case" aria-labelledby={`${project.id}-title`}>
+          return <article key={project.id} id={project.id} className="motion-case relative" aria-labelledby={`${project.id}-title`}>
+            <FloatingDoodles items={cornerDoodles(projectIndex * 3 + 1)} spill />
             <header className="motion-case-heading">
-              <div className="motion-case-title"><span className="motion-case-number">{String(projectIndex + 1).padStart(2, '0')}</span><h3 id={`${project.id}-title`}>{project.client === 'PAGE BY PAGE' ? 'Page by Page' : project.client === 'LOGO MOTION' ? 'Logo motion' : project.client === 'ROCKETINDO' ? 'Rocketindo' : project.client}</h3></div>
+              <div className="motion-case-title"><span className="handwritten text-xl text-orange-500">Project {String(projectIndex + 1).padStart(2, '0')}</span><h3 id={`${project.id}-title`}>{project.client === 'PAGE BY PAGE' ? 'Page by Page' : project.client === 'LOGO MOTION' ? 'Logo motion' : project.client === 'ROCKETINDO' ? 'Rocketindo' : project.client}</h3></div>
               <span className="motion-category">{project.category}</span>
             </header>
             <div className="motion-case-grid">
@@ -133,7 +122,7 @@ export default function MotionProject() {
               </div>
               <div className="motion-case-info">
                 <div><p className="eyebrow">About the project</p><p className="motion-description">{project.desc}</p></div>
-                <div><p className="eyebrow">Toolkit</p><ul className="motion-tools">{project.tools.map(tool => { const tile = tileFor(tool); return <li key={tool}><span aria-hidden="true" style={{ background: tile.bg, color: tile.fg }}>{tile.label}</span>{tool.trim()}</li>; })}</ul></div>
+                <ToolChips tools={project.tools} />
                 <div><p className="eyebrow">Process</p><ol className="motion-process">{project.process.map((step, index) => <li key={step}><span aria-hidden="true">{String(index + 1).padStart(2, '0')}</span>{step.toLowerCase()}</li>)}</ol></div>
               </div>
             </div>
