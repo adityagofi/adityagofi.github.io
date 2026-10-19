@@ -1,4 +1,4 @@
-import{c as k,r as h,j as t}from"./index-N-dtXph_.js";import{S as N}from"./ScribblePlay-DiOsZJ_6.js";import{P as S}from"./ProjectHero-lsEq_MK3.js";import{S as b,a as f}from"./StopMotionIcon-CLc5XAt3.js";import{V as C}from"./VideoModal-4-RmbEje.js";import{a as n}from"./proxy-BlNnyhLJ.js";import{A as P}from"./index-DoJ_Wms5.js";import"./external-link-CADmujrD.js";/**
+import{c as k,r as h,j as t}from"./index-CNHdD3VE.js";import{S as N}from"./ScribblePlay-O8zgoWb9.js";import{P as S}from"./ProjectHero-CQZkzC63.js";import{S as b,a as f}from"./StopMotionIcon-DZ9K99ZG.js";import{V as C}from"./VideoModal-BOguLRqq.js";import{a as n}from"./proxy-sZBLPtkJ.js";import{A as P}from"./index-CZTDs8hP.js";import"./external-link-CwnlrYk3.js";/**
  * @license lucide-react v0.546.0 - ISC
  *
  * This source code is licensed under the ISC license.
