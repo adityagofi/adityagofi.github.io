@@ -91,8 +91,8 @@ export const TECHNICAL_PROJECTS: PortfolioProject[] = [
   {
     view: "meta-ads",
     title: "Meta Ads",
-    desc: "Data-driven advertising campaigns that convert.",
-    tags: ["Facebook Ads", "Instagram Ads", "ROAS Optimization"],
+    desc: "Full-funnel Meta campaigns, backed by automated reporting and dashboards.",
+    tags: ["Meta Ads Manager", "Looker Studio", "Apps Script", "ROAS Optimization"],
     image: "/projects/meta-ads.webp"
   }
 ];
