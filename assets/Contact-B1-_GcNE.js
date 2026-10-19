@@ -1,0 +1,16 @@
+import{c as t,j as e,a as s,A as a}from"./index-m8XWIIRM.js";/**
+ * @license lucide-react v0.546.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const l=[["path",{d:"m22 7-8.991 5.727a2 2 0 0 1-2.009 0L2 7",key:"132q7q"}],["rect",{x:"2",y:"4",width:"20",height:"16",rx:"2",key:"izxlao"}]],c=t("mail",l);/**
+ * @license lucide-react v0.546.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const r=[["path",{d:"M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0",key:"1r0f0z"}],["circle",{cx:"12",cy:"10",r:"3",key:"ilqhr7"}]],o=t("map-pin",r);/**
+ * @license lucide-react v0.546.0 - ISC
+ *
+ * This source code is licensed under the ISC license.
+ * See the LICENSE file in the root directory of this source tree.
+ */const d=[["path",{d:"M2.992 16.342a2 2 0 0 1 .094 1.167l-1.065 3.29a1 1 0 0 0 1.236 1.168l3.413-.998a2 2 0 0 1 1.099.092 10 10 0 1 0-4.777-4.719",key:"1sd12s"}]],h=t("message-circle",d);function m(){return e.jsxs("section",{className:"section-shell","aria-labelledby":"contact-title",children:[e.jsxs("header",{className:"page-intro",children:[e.jsx("p",{className:"eyebrow",children:"Let’s collaborate"}),e.jsxs("h1",{id:"contact-title",children:["Good work starts",e.jsx("br",{}),e.jsx("span",{className:"muted",children:"with a conversation."})]}),e.jsx("p",{children:"Have a project in mind? Tell me what you’re working on and where you need a hand. We’ll work out the next steps together."})]}),e.jsxs("div",{className:"contact-grid",children:[e.jsxs("div",{className:"contact-options",children:[e.jsxs("a",{className:"contact-option",href:`mailto:${s.email}`,children:[e.jsx(c,{size:25}),e.jsxs("div",{children:[e.jsx("small",{children:"Email me"}),e.jsx("strong",{children:s.email})]}),e.jsx(a,{size:20,className:"ml-auto"})]}),e.jsxs("a",{className:"contact-option",href:s.whatsapp,target:"_blank",rel:"noopener noreferrer",children:[e.jsx(h,{size:25}),e.jsxs("div",{children:[e.jsx("small",{children:"Chat on WhatsApp"}),e.jsx("strong",{children:"+62 822 3612 7366"})]}),e.jsx(a,{size:20,className:"ml-auto"})]}),e.jsxs("p",{className:"text-sm text-white/60 flex items-center gap-2 mt-4",children:[e.jsx(o,{size:17}),s.location]}),e.jsx("div",{className:"contact-socials",children:[["Instagram","https://www.instagram.com/adityagofi_/"],["LinkedIn","https://www.linkedin.com/in/adityagofi/"],["Behance","https://www.behance.net/adityagofi"],["GitHub","https://github.com/adityagofi"]].map(([i,n])=>e.jsxs("a",{className:"text-link",href:n,target:"_blank",rel:"noopener noreferrer",children:[i,e.jsx(a,{size:14})]},i))})]}),e.jsxs("div",{className:"contact-details",children:[e.jsx("h2",{children:"A little context goes a long way."}),e.jsx("p",{children:"Your brief doesn’t need to be perfect. A few details will help get the conversation started:"}),e.jsxs("ul",{children:[e.jsx("li",{children:"What you’re building and who it’s for"}),e.jsx("li",{children:"The kind of digital work you need help with"}),e.jsx("li",{children:"Your ideal timeline and budget range"})]}),e.jsx("p",{children:"Still exploring? Share your idea and we can figure out the scope together."})]})]})]})}export{m as default};
