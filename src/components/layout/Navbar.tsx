@@ -52,7 +52,7 @@ export default function Navbar({ currentView }: { currentView: ViewType | 'not-f
             {projectsOpen && <div id="project-navigation" className="nav-dropdown">
               <a className="all-work-link" href="/#work" onClick={() => { setOpen(false); closeProjects(); }}>Explore all work <ArrowUpRight size={16} /></a>
               <div className="nav-project-groups">
-                {[{ name: 'Design & media', items: CREATIVE_PROJECTS }, { name: 'Build & grow', items: TECHNICAL_PROJECTS }].map(group => <div key={group.name}><p className="eyebrow">{group.name}</p>{group.items.map(item => <a key={item.view} href={viewToPath[item.view]} aria-current={currentView === item.view ? 'page' : undefined} onClick={() => { setOpen(false); closeProjects(); }}>{item.title}</a>)}</div>)}
+                {[{ name: 'Design & media', items: CREATIVE_PROJECTS }, { name: 'Data & marketing', items: TECHNICAL_PROJECTS }].map(group => <div key={group.name}><p className="eyebrow">{group.name}</p>{group.items.map(item => <a key={item.view} href={viewToPath[item.view]} aria-current={currentView === item.view ? 'page' : undefined} onClick={() => { setOpen(false); closeProjects(); }}>{item.title}</a>)}</div>)}
               </div>
             </div>}
           </div>
