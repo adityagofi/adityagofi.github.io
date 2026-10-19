@@ -1,5 +1,6 @@
 import ScribblePlay from '@/components/ui/ScribblePlay';
 import ProjectHero from '@/components/ui/ProjectHero';
+import EvidenceTabs, { type EvidenceItem } from '@/components/ui/EvidenceTabs';
 import VideoModal from '@/components/ui/VideoModal';
 import {
 ArrowUpRight,
@@ -81,7 +82,7 @@ const PIPELINE = [
   { icon: <LayoutDashboard size={16} />, title: "Looker Studio", desc: "A dashboard per objective." }
 ];
 
-const EVIDENCE = [
+const EVIDENCE: EvidenceItem[] = [
   { label: "Traffic dashboard", src: "/meta/pagebypage-looker-traffic-dashboard.webp", width: 1007, height: 655, alt: "Looker Studio traffic dashboard with landing page views and cost per landing page view per creative", caption: "Looker Studio: landing page views and cost per result for each creative." },
   { label: "Sales dashboard", src: "/meta/pagebypage-looker-sales-dashboard.webp", width: 1007, height: 641, alt: "Looker Studio sales dashboard with spend, purchases, purchase value and ROAS per creative", caption: "Looker Studio: spend through to ROAS for each sales creative." },
   { label: "Google Sheets", src: "/meta/pagebypage-sheets-apps-script.webp", width: 1600, height: 821, alt: "Google Sheets filled daily by Apps Script with Meta ad-level data, demographics, funnel and CPAS tabs; IDs blurred", caption: "Filled daily by Apps Script: ad-level data, demographics, funnels and CPAS. IDs blurred." },
@@ -122,8 +123,6 @@ const card = "rounded-2xl bg-white/5 border border-white/10";
 
 export default function MetaAdsProject() {
   const [selection, setSelection] = useState<{ videos: string[]; index: number } | null>(null);
-  const [evidenceIndex, setEvidenceIndex] = useState(0);
-  const evidence = EVIDENCE[evidenceIndex];
 
   return (
     <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-orange-500 relative overflow-hidden">
@@ -274,26 +273,7 @@ export default function MetaAdsProject() {
             </ol>
           </div>
 
-          <div data-reveal>
-            <div role="tablist" aria-label="Campaign evidence" className="flex flex-wrap gap-2 mb-4">
-              {EVIDENCE.map((item, i) => (
-                <button key={item.label} type="button" role="tab" id={`evidence-tab-${i}`} aria-selected={i === evidenceIndex} aria-controls="evidence-panel"
-                  onClick={() => setEvidenceIndex(i)}
-                  className={`px-4 py-2 rounded-full text-sm font-bold border transition-colors ${i === evidenceIndex ? 'bg-orange-500 border-orange-500 text-black' : 'border-white/15 text-white/70 hover:border-white/40'}`}>
-                  {item.label}
-                </button>
-              ))}
-            </div>
-            <figure id="evidence-panel" role="tabpanel" aria-labelledby={`evidence-tab-${evidenceIndex}`}>
-              <a href={evidence.src} target="_blank" rel="noreferrer" className="flex justify-center rounded-2xl">
-                <img loading="lazy" decoding="async" src={evidence.src} alt={evidence.alt} width={evidence.width} height={evidence.height} className="w-auto h-auto max-w-full max-h-[70vh] rounded-2xl border border-white/10 hover:border-orange-500/60 transition-colors" />
-              </a>
-              <figcaption className="mt-3 flex items-start justify-between gap-4 text-sm text-white/50">
-                <span>{evidence.caption}</span>
-                <a href={evidence.src} target="_blank" rel="noreferrer" className="shrink-0 inline-flex items-center gap-1 text-orange-500 hover:text-orange-400">Full size <ArrowUpRight size={14} /></a>
-              </figcaption>
-            </figure>
-          </div>
+          <EvidenceTabs items={EVIDENCE} label="Campaign evidence" />
         </div>
       </section>
 

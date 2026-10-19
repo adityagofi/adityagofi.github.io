@@ -77,8 +77,8 @@ export const TECHNICAL_PROJECTS: PortfolioProject[] = [
   {
     view: "data-analysis",
     title: "Data Analysis & Visualization",
-    desc: "Turning raw data into actionable insights and intuitive visualizations using Python, Tableau, and ML models.",
-    tags: ["Python", "Pandas", "Tableau", "ML"],
+    desc: "Marketing analytics and data science: GA4 and Looker Studio dashboards, automated reporting, and Python models.",
+    tags: ["GA4", "Looker Studio", "Python", "Tableau"],
     image: "/projects/data-analysis.webp"
   },
   {

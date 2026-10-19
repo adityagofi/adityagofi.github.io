@@ -13,7 +13,7 @@ const descriptions: Record<PageView, string> = {
   photography: 'Gofi’s photography collection is being curated. Get in touch to discuss a shoot or request relevant photography work samples.',
   'web-dev': 'Explore websites developed by Gofi, including the PageByPage marketplace and Benzwood portfolio, built with React, Shopify, and Tailwind CSS.',
   'market-research': 'Explore market research projects by Gofi, with web scraping, competitor analysis, and automation for actionable market insights.',
-  'data-analysis': 'Explore Gofi’s data analysis portfolio, including Tableau dashboards, sentiment analysis, machine learning, and predictive models.',
+  'data-analysis': 'Gofi’s data work: GA4 and Looker Studio marketing analytics, Apps Script reporting automation, Tableau dashboards, and Python machine learning projects.',
   'meta-ads': 'Gofi’s Meta Ads work: full-funnel Facebook and Instagram campaigns, Looker Studio dashboards, and reporting automated with Google Apps Script.',
   'not-found': 'This page could not be found. Explore Gofi’s digital portfolio or get in touch about a project.',
 };
