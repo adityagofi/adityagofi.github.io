@@ -14,7 +14,7 @@ export default function EvidenceTabs({ items, label }: { items: EvidenceItem[]; 
         {items.map((tab, i) => (
           <button key={tab.label} type="button" role="tab" id={`${id}-tab-${i}`} aria-selected={i === index} aria-controls={`${id}-panel`}
             onClick={() => setIndex(i)}
-            className={`px-4 py-2 rounded-full text-sm font-bold border transition-colors ${i === index ? 'bg-orange-500 border-orange-500 text-black' : 'border-white/15 text-white/70 hover:border-white/40'}`}>
+            className={`px-4 py-2 rounded-full text-sm font-bold border transition-colors ${i === index ? 'bg-orange-500 border-orange-500 text-black' : 'border-white/70 text-white hover:bg-white hover:text-black'}`}>
             {tab.label}
           </button>
         ))}
