@@ -37,9 +37,9 @@ const SECTIONS = [
   },
   {
     title: "Independent & Client Productions",
-    desc: "A range of long-form work spanning YouTube documenter pieces, marketing storytelling for brands, and academic short films — each crafted with the same attention to narrative pacing and cinematic finish.",
+    desc: "A range of long-form work spanning YouTube documentary pieces, marketing storytelling for brands, and academic short films — each crafted with the same attention to narrative pacing and cinematic finish.",
     videos: [
-      { id: "kZ7V5QMSrsA?si=9sy6tpGYuDKy22vc", title: "Stop PMO", thumbnail: "/longform/section-1-1.webp", desc: "Short film how  to stop PMO" },
+      { id: "kZ7V5QMSrsA?si=9sy6tpGYuDKy22vc", title: "Stop PMO", thumbnail: "/longform/section-1-1.webp", desc: "A short film on how to stop PMO." },
       { id: "9MZHNkbAX4A?si=kjk2tNI2SHFEh5Ub", title: "Tiger Mothering", thumbnail: "/longform/section-1-2.webp", desc: "A look at the pressures of academic excellence in a competitive environment." },
     ]
   }
@@ -47,7 +47,7 @@ const SECTIONS = [
 
 // Highlight-only metadata that has no equivalent on the section video itself.
 const HIGHLIGHT_META = [
-  { duration: "00:00", date: "2024" },
+  { duration: "11:24", date: "2024" },
   { duration: "29:48", date: "2023" },
   { duration: "17:48", date: "2024" },
   { duration: "06:09", date: "2023" }
