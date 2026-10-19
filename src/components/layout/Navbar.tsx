@@ -37,7 +37,7 @@ export default function Navbar({ currentView }: { currentView: ViewType | 'not-f
       }} onBlur={event => {
         if (!event.currentTarget.contains(event.relatedTarget) && !projectsPinned) { setOpen(false); closeProjects(); }
       }}>
-        <a href="/" className="wordmark" aria-label="Gofi — home">gofi<span>.</span></a>
+        <a href="/" className="wordmark" aria-label="go. — home">go<span>.</span></a>
         <button ref={toggleRef} className="menu-toggle" aria-label={open ? 'Close navigation' : 'Open navigation'} aria-expanded={open} aria-controls="main-navigation" onClick={() => setOpen(!open)}>{open ? <X /> : <Menu />}</button>
         <div id="main-navigation" className={`nav-links ${open ? 'is-open' : ''}`}>
           {link('home', 'Home')}

@@ -13,7 +13,7 @@ export const COLLAGE_COLORS = {
 };
 
 export type DoodleKind = 'burst' | 'sparkle' | 'squiggle' | 'asterisk' | 'arrow' | 'flower' | 'circle' | 'smile' | 'plus' | 'blob'
-  | 'zigzag' | 'spiral' | 'heart' | 'star' | 'scribble' | 'dots' | 'lightning' | 'triangle' | 'loop' | 'dot';
+  | 'zigzag' | 'spiral' | 'star' | 'scribble' | 'dots' | 'lightning' | 'triangle' | 'loop' | 'dot';
 
 function scallopPath(points = 12, outer = 46, inner = 38) {
   const step = (Math.PI * 2) / points;
@@ -57,8 +57,6 @@ export function Doodle({ kind, color = COLLAGE_COLORS.orange, size = 64, classNa
       return <svg {...common}><path d="M6 64 L20 38 L34 64 L48 38 L62 64 L76 38 L94 64" {...stroke} /></svg>;
     case 'spiral':
       return <svg {...common}><path d="M52 50 C52 44 60 44 60 52 C60 62 44 64 42 52 C40 36 64 32 70 50 C76 70 46 80 34 66 C20 50 30 22 56 20 C80 18 92 42 86 62" {...stroke} strokeWidth={5} /></svg>;
-    case 'heart':
-      return <svg {...common}><path d="M50 86 C20 64 8 46 14 30 C20 14 42 14 50 32 C58 14 80 14 86 30 C92 46 80 64 50 86Z" fill={color} /></svg>;
     case 'star':
       return <svg {...common}><path d="M50 6 L61 37 L94 38 L68 58 L77 90 L50 71 L23 90 L32 58 L6 38 L39 37Z" fill={color} /></svg>;
     case 'scribble':
@@ -92,7 +90,7 @@ export type FloatingItem = {
   front?: boolean;
 };
 
-const SCATTER_KINDS: DoodleKind[] = ['sparkle', 'zigzag', 'dot', 'heart', 'scribble', 'star', 'spiral', 'dots', 'lightning', 'triangle', 'loop', 'plus', 'asterisk', 'squiggle', 'circle'];
+const SCATTER_KINDS: DoodleKind[] = ['sparkle', 'zigzag', 'dot', 'scribble', 'star', 'spiral', 'dots', 'lightning', 'triangle', 'loop', 'plus', 'asterisk', 'squiggle', 'circle'];
 const SCATTER_COLORS = [COLLAGE_COLORS.orange, COLLAGE_COLORS.violet, COLLAGE_COLORS.green, COLLAGE_COLORS.yellow, COLLAGE_COLORS.pink, COLLAGE_COLORS.white];
 
 export type ScatterOptions = {
@@ -114,7 +112,7 @@ export function scatterDoodles({ seed, count, heading = true, free = [0, 94], ba
   const rand = () => { state = (state * 9301 + 49297) % 233280; return state / 233280; };
   return Array.from({ length: count }, (_, i) => {
     const kind = SCATTER_KINDS[Math.floor(rand() * SCATTER_KINDS.length)];
-    const small = kind === 'dot' || kind === 'plus' || kind === 'sparkle' || kind === 'star' || kind === 'heart';
+    const small = kind === 'dot' || kind === 'plus' || kind === 'sparkle' || kind === 'star';
     let top = rand() * 92;
     const zone = rand();
     let x: number;
@@ -143,7 +141,7 @@ export function scatterDoodles({ seed, count, heading = true, free = [0, 94], ba
   });
 }
 
-const CORNER_KINDS: DoodleKind[] = ['burst', 'flower', 'star', 'sparkle', 'heart', 'lightning', 'blob', 'asterisk', 'smile', 'spiral'];
+const CORNER_KINDS: DoodleKind[] = ['burst', 'flower', 'star', 'sparkle', 'lightning', 'blob', 'asterisk', 'smile', 'spiral'];
 
 /** Three or four doodles peeking out from the corners of a card, drawn in front like stuck-on stickers. */
 export function cornerDoodles(seed: number): FloatingItem[] {
