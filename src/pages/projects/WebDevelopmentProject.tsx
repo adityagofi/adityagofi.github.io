@@ -48,7 +48,7 @@ export default function WebDevelopmentProject() {
 
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-orange-500 relative overflow-hidden">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500 relative overflow-hidden">
       {/* Hero Section */}
       <ProjectHero view="web-dev" sections={[{ id: "case-studies", label: "Projects" }, { id: "capabilities", label: "Capabilities" }, { id: "workflow", label: "Process" }]} />
 

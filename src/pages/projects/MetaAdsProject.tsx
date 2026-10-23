@@ -125,7 +125,7 @@ export default function MetaAdsProject() {
   const [selection, setSelection] = useState<{ videos: string[]; index: number } | null>(null);
 
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-orange-500 relative overflow-hidden">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500 relative overflow-hidden">
       <ProjectHero view="meta-ads" sections={[
         { id: "page-by-page", label: "Page by Page" },
         { id: "reporting-system", label: "Reporting" },

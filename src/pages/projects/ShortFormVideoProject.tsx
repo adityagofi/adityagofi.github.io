@@ -188,7 +188,7 @@ export default function ShortFormVideoProject() {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500">
       <ProjectHero view="short-form" sections={projects.map(project => ({ id: `project-${project.id}`, label: project.title }))} />
 
       {/* Collage intro band */}

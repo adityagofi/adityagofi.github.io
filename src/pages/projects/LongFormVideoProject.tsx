@@ -109,7 +109,7 @@ export default function LongFormVideoProject() {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500">
       {/* Hero Section - Infinite Banner */}
       <ProjectHero view="long-form" sections={[{ id: "featured-productions", label: "Featured" }, ...SECTIONS.map((section, index) => ({ id: `collection-${index}`, label: section.title }))]} />
 

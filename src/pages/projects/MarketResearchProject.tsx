@@ -40,7 +40,7 @@ export default function MarketResearchProject() {
 
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500">
       {/* Hero Section */}
       <ProjectHero view="market-research" sections={[{ id: "case-studies", label: "Projects" }, { id: "capabilities", label: "Capabilities" }]} />
 

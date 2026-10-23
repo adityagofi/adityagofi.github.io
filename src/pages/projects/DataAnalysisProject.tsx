@@ -115,7 +115,7 @@ const card = "rounded-2xl bg-white/5 border border-white/10";
 
 export default function DataAnalysisProject() {
   return (
-    <div className="min-h-screen bg-[#0a0a0a] text-white font-sans selection:bg-orange-500 relative overflow-hidden">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500 relative overflow-hidden">
       <ProjectHero view="data-analysis" sections={[
         { id: "marketing-analytics", label: "Marketing analytics" },
         { id: "toolkit", label: "Toolkit" },

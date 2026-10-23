@@ -348,7 +348,7 @@ export default function GraphicDesignProject() {
   };
 
   return (
-    <div className="min-h-screen bg-[#121212] text-white font-sans selection:bg-orange-500">
+    <div className="min-h-screen text-white font-sans selection:bg-orange-500">
       <ProjectHero view="graphic" sections={[{ id: "social-design", label: "Social media" }, { id: "ecommerce-design", label: "E-commerce" }, { id: "interface-design", label: "UI/UX" }, { id: "booklet-design", label: "Booklets" }, { id: "product-design", label: "Products" }]} />
 
 {/* Project 1: Social Media Design - Filterable Gallery */}

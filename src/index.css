@@ -112,7 +112,6 @@ section[id] { scroll-margin-top: 100px; }
 .project-summary { font-size: 16px; color: var(--muted); margin-block: 25px; max-width: 560px; }
 .project-hero-grid > img { width: 100%; aspect-ratio: 4/3; height: auto; object-fit: cover; border-radius: 16px; border: 1px solid var(--line); }
 .project-page { overflow-x: clip; }
-.project-page > div { background: var(--surface); }
 .project-page h2 { font-size: clamp(28px,3.4vw,46px); line-height: 1.15; text-transform: none; letter-spacing: -.045em; }
 .project-page h3 { letter-spacing: -.025em; line-height: 1.25; }
 .project-page section { padding-block: 64px; }
@@ -396,3 +395,10 @@ section[id] { scroll-margin-top: 100px; }
 .sticker-tape::after { content: ''; position: absolute; top: -10px; left: 50%; width: 64px; height: 20px; translate: -50% 0; rotate: -4deg; background: #f5e9c8cc; box-shadow: 0 1px 2px #0003; z-index: 2; }
 @media (max-width: 767px) { .collage-desktop-only { display: none; } .collage-doodle svg { width: 70%; height: auto; } .sticker { padding: 4px; } }
 @media (prefers-reduced-motion: reduce) { .collage-doodle { animation: none; } .sticker, .sticker:hover { transition: none; } }
+
+/* Cursor glow: a small orange light behind the content that follows the mouse.
+   z-index -1 keeps it under every element, so only the page background is tinted. */
+.cursor-glow { position: fixed; inset: 0; z-index: -1; pointer-events: none; opacity: 0; transition: opacity .5s ease;
+  background: radial-gradient(240px circle at var(--glow-x, 50%) var(--glow-y, 30%), #ff6a0040, #ff6a0014 45%, transparent 75%); }
+.cursor-glow.is-active { opacity: 1; }
+@media (hover: none), (pointer: coarse), (prefers-reduced-motion: reduce) { .cursor-glow { display: none; } }
