@@ -58,41 +58,41 @@ const DATA_PROJECTS = [
 ];
 
 
-// Page by Page website analytics, GA4 range 21 Sep – 18 Oct 2026. Revenue is kept confidential.
+// Page by Page website analytics, GA4 range 21 Sep – 18 Oct 2026. Only active users, total LPV and ROAS are shown; other figures stay confidential.
 const GA4_KPIS = [
   { label: "Active users", value: "18.4k" },
-  { label: "Page views", value: "23.9k" },
-  { label: "Paid social sessions", value: "6k" },
-  { label: "Organic search CTR", value: "23.4%" }
+  { label: "Total landing page views", value: "11,282" },
+  { label: "Retargeting ROAS", value: "1.8x" },
+  { label: "Data stack", value: "GA4 · Looker", small: true }
 ];
 
 const GA4_INSIGHTS = [
   {
     icon: <LineChart size={18} />,
     kicker: "Campaign impact",
-    title: "One product page took 59% of all views",
-    body: "The Nonchalant product page drew 14.2k of 23.9k views, peaking from 5 to 11 October while the Nonchalant sales ads were running. Paid social brought 6k sessions, the second-largest source after direct."
+    title: "One product page drew most of the views",
+    body: "The Nonchalant product page took the majority of all page views, peaking in the week the Nonchalant sales ads were running. Paid social was the second-largest traffic source after direct."
   },
   {
     icon: <Target size={18} />,
     kicker: "Recommendation",
     title: "Clicks arrive, but they don't stay",
-    body: "Average engagement on the Nonchalant product page was about 1 second, compared with 22 seconds on the homepage and 1m 49s on the Meet Your Alter Ego page. The next test: send part of the traffic to richer pages and compare checkouts."
+    body: "Engagement time on the Nonchalant product page was far shorter than on the homepage or the Meet Your Alter Ego page. The next test: send part of the traffic to richer pages and compare checkouts."
   },
   {
     icon: <Search size={18} />,
     kicker: "Search demand",
     title: "Ads are building brand search",
-    body: "Brand queries such as “page by page” make up most of the 259 organic clicks, at an average position of 3.5. Product names like “morning chill club” are now searched and rank in the top three."
+    body: "Brand queries such as “page by page” make up most of the organic clicks, and product names like “morning chill club” are now searched and rank near the top of Google."
   }
 ];
 
 const ANALYTICS_EVIDENCE: EvidenceItem[] = [
-  { label: "GA4 · Pages", src: "/data/pagebypage-ga4-pages-and-screens.webp", width: 1151, height: 742, alt: "GA4 pages and screens report showing views, users and engagement time per page; revenue blurred", caption: "GA4 pages and screens: which pages the campaigns actually drove people to. Revenue blurred." },
-  { label: "GA4 · Search queries", src: "/data/pagebypage-ga4-organic-search-queries.webp", width: 1223, height: 737, alt: "GA4 organic Google Search queries report with clicks, impressions, CTR and average position", caption: "Organic Google Search queries in GA4: brand demand growing alongside the ads." },
-  { label: "GA4 · Acquisition", src: "/data/pagebypage-ga4-reports-snapshot.webp", width: 1412, height: 810, alt: "GA4 reports snapshot with users, sessions and top traffic sources; revenue blurred", caption: "GA4 reports snapshot: users, sessions and top traffic sources. Revenue blurred." },
-  { label: "Looker · Traffic", src: "/meta/pagebypage-looker-traffic-dashboard.webp", width: 1007, height: 655, alt: "Looker Studio traffic dashboard with landing page views and cost per landing page view per creative", caption: "Looker Studio dashboard I built for the traffic campaign." },
-  { label: "Looker · Sales", src: "/meta/pagebypage-looker-sales-dashboard.webp", width: 1007, height: 641, alt: "Looker Studio sales dashboard with spend, purchases, purchase value and ROAS per creative", caption: "Looker Studio dashboard I built for the sales campaign, from spend to ROAS." },
+  { label: "GA4 · Pages", src: "/data/pagebypage-ga4-pages-and-screens.webp", width: 1151, height: 742, alt: "GA4 pages and screens report showing views, users and engagement time per page; figures blurred", caption: "GA4 pages and screens: which pages the campaigns drove people to. Figures blurred except active users." },
+  { label: "GA4 · Search queries", src: "/data/pagebypage-ga4-organic-search-queries.webp", width: 1223, height: 737, alt: "GA4 organic Google Search queries report with clicks, impressions, CTR and average position", caption: "Organic Google Search queries in GA4: brand demand growing alongside the ads. Figures blurred." },
+  { label: "GA4 · Acquisition", src: "/data/pagebypage-ga4-reports-snapshot.webp", width: 1412, height: 810, alt: "GA4 reports snapshot with users, sessions and top traffic sources; figures blurred", caption: "GA4 reports snapshot: users and top traffic sources. Figures blurred except active users." },
+  { label: "Looker · Traffic", src: "/data/pagebypage-looker-traffic-dashboard-blurred.webp", width: 1007, height: 655, alt: "Looker Studio traffic dashboard with landing page views and cost per landing page view per creative", caption: "Looker Studio dashboard I built for the traffic campaign. Figures blurred except total LPV." },
+  { label: "Looker · Sales", src: "/data/pagebypage-looker-sales-dashboard-blurred.webp", width: 1007, height: 641, alt: "Looker Studio sales dashboard with spend, purchases, purchase value and ROAS per creative", caption: "Looker Studio dashboard I built for the sales campaign. Figures blurred except ROAS." },
   { label: "Apps Script · Sheets", src: "/meta/pagebypage-sheets-apps-script.webp", width: 1600, height: 821, alt: "Google Sheets filled daily by Apps Script with Meta ad-level data; IDs blurred", caption: "The data layer: Google Sheets filled daily by Apps Script. IDs blurred." }
 ];
 
@@ -134,7 +134,7 @@ export default function DataAnalysisProject() {
             <div className="grid grid-cols-2 gap-3">
               {GA4_KPIS.map((kpi) => (
                 <div key={kpi.label} data-reveal className={`p-4 md:p-5 ${card}`}>
-                  <div className="text-2xl md:text-3xl font-black tracking-tighter">{kpi.value}</div>
+                  <div className={`${kpi.small ? 'text-xl md:text-2xl' : 'text-2xl md:text-3xl'} font-black tracking-tighter`}>{kpi.value}</div>
                   <div className="text-[10px] uppercase text-white/40 font-bold tracking-widest mt-1">{kpi.label}</div>
                 </div>
               ))}
